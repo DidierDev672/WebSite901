@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "../components/Layout";
 
 import Home from "../containers/Home";
 
@@ -11,7 +12,9 @@ const App = () => {
     }
   ]);
     return(
-        <RouterProvider  router={router}/>
+      <Layout>
+          <RouterProvider  router={router}/>
+      </Layout>
     );
 };
 

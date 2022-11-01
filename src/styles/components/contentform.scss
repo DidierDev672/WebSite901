@@ -1,0 +1,103 @@
+.card-content-form{
+    background-color: #e9ecef;
+    border-radius: 10px;
+    border: 2px solid #f8f9fa;
+    padding: 10px;
+}
+
+.flex-content-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: start;
+}
+
+.flex-item-content-form{
+    display: flex;
+    flex-direction: column;
+    flex-direction: wrap;
+    justify-content: start;
+}
+
+.flex-item-information-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item-information-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.flex-item-content-form > h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 48px;
+}
+
+.item-information-form > span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.header-products-information{
+    background-color: #ff8800;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+
+.header-products-information{
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.header-know-information{
+    background-color: #06d6a0;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+
+.header-know-information{
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.btn-products-information{
+    width: 3rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.btn-know-information{
+    width: 3rem;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.fontawesome-icon{
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.card-know{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #f8f9fa;
+    padding: 10px;
+}

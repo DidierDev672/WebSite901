@@ -1,0 +1,112 @@
+.flex-home{
+    display: flex;
+    order: 2;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.flex-item-home{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header-title-home{
+    font-style: normal;
+    font-weight: 900;
+    font-size:52px;
+    line-height: 58px;
+    color: #212529;
+}
+
+.sub-description-content{
+    display: flex;
+    text-align: justify;
+    animation-duration: 3s;
+    animation-name: textcontent;
+}
+
+.sub-description-content{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: #212529;
+}
+
+.btn-contact-us{
+    background-color: #ff8500;
+    color: #ffff;
+    width: 7rem;
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
+
+.btn-contact-us{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 640px) {
+    .flex-home{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 667px){
+    .flex-home{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 896px){
+    .flex-home{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 915px){
+    .flex-home{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1180px){
+    .flex-home{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+@keyframes textcontent{
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to{
+        margin-left: 0%;
+        width: 100%;
+    }
+}
