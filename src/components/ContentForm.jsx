@@ -3,6 +3,7 @@ import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faFish } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/components/contentform.scss";
 
@@ -26,7 +27,7 @@ const ContentForm = () => {
                     </div>
                     <div className="flex-item-content-form">
                         <div className="card-know">
-                            <FontAwesomeIcon icon={faFish} className="fontawesome-icon"/>
+                        <FontAwesomeIcon icon={faFish} className="fontawesome-icon"/>
                             <h3>Conocenos</h3>
                             <div className="item-information-form">
                                 <span>Nuestra mision y vision/</span>
@@ -36,6 +37,17 @@ const ContentForm = () => {
                                 <FontAwesomeIcon icon={faEye}/>
                             </button>
                         </div>
+                    </div>
+                    <div className="flex-item-content-form">
+                        <FontAwesomeIcon icon={faUser} className="fontawesome-icon"/>
+                        <h3>Contactanos</h3>
+                        <div className="item-information-form">
+                            <span>Contactanos/</span>
+                            <span className="header-know-information">Empresa</span>
+                        </div>
+                        <button type="button" className="btn-products-information">
+                            <FontAwesomeIcon icon={faEye}/>
+                        </button>
                     </div>
                 </div>
             </div>
