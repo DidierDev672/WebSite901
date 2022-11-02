@@ -1,9 +1,6 @@
 import React from "react";
 import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { faFish } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/components/contentform.scss";
 
@@ -13,7 +10,6 @@ const ContentForm = () => {
             <div className="card-content-form">
                 <div className="flex-content-form">
                     <div className="flex-item-content-form">
-                        <FontAwesomeIcon icon={faBox} className="fontawesome-icon"/>
                         <h3>Productos</h3>
                         <div className="flex-item-information-form">
                             <div className="item-information-form">
@@ -27,7 +23,6 @@ const ContentForm = () => {
                     </div>
                     <div className="flex-item-content-form">
                         <div className="card-know">
-                        <FontAwesomeIcon icon={faFish} className="fontawesome-icon"/>
                             <h3>Conocenos</h3>
                             <div className="item-information-form">
                                 <span>Nuestra mision y vision/</span>
@@ -39,7 +34,6 @@ const ContentForm = () => {
                         </div>
                     </div>
                     <div className="flex-item-content-form">
-                        <FontAwesomeIcon icon={faUser} className="fontawesome-icon"/>
                         <h3>Contactanos</h3>
                         <div className="item-information-form">
                             <span>Contactanos/</span>
