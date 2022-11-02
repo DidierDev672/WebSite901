@@ -1,0 +1,126 @@
+.header-contact{
+    background-color: #ff8800;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
+.header-contact{
+    text-align: center;
+}
+
+.header-contact > h4 {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.header-contact > span {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.flex-contact-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item-contact-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.contact-touch-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.contact-touch-content > h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.contact-touch-contect > strong {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.contact-touch-contect > span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.contact-email-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.contact-office-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.card-contact{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #f8f9fa;
+    box-shadow: 3px 3px 3px 3px #e9ecef;
+    padding: 10px;
+}
+
+.column-contact{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-column-contact{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.field-text{
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    padding: 7px;
+}
+
+.btn-contact-send{
+    background-color: #ff8800;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-contact-send {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    padding: 10px;
+}
