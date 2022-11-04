@@ -1,0 +1,77 @@
+.card-sign-up{
+    margin: auto;
+}
+
+.card-sign-up{
+    width: 40rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #F8F9FA;
+    box-shadow: 4px 4px 4px #E9ECEF;
+    padding: 10px;
+}
+
+.card-sign-up:hover{
+    box-shadow: 6px 6px 6px #E9ECEF;
+}
+
+.header-sign-in{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item-header {
+    display: flex;
+    margin: auto;
+}
+
+.item-header > h5 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 58px;
+}
+
+.item-header > span {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 24px;
+    color: #343A40;
+}
+
+.item-sign-in{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content: center;
+}
+
+.item-sign-in > label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.btn-sign-up{
+    margin: auto;
+}
+
+.btn-sign-up{
+    width: 10rem;
+    background-color: #FF8500;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
+.btn-sign-up{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
