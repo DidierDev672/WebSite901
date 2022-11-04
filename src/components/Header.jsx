@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import "../styles/components/headers.scss";
 
 const Header = () => {
@@ -6,32 +7,32 @@ const Header = () => {
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href={`/`}>PlayaPez</a>
+                    <Link className="navbar-brand" to={`/`}>PlayaPez</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse list-title" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="navbar-item">
-                                <a className="nav-link active" aria-current="page" href={`/`}>Home</a>
+                                <Link className="nav-link active" aria-current="page" to={`/`}>Home</Link>
                             </li>
                             <li className="navbar-item">
-                                <a className="nav-link active" aria-current="page" href={`products`}>Productos</a>
+                                <Link className="nav-link active" aria-current="page" to={`products`}>Productos</Link>
                             </li>
                             <li className="navbar-item">
-                                <a className="nav-link active" aria-current="page" href={`know`}>Conocenos</a>
+                                <Link className="nav-link active" aria-current="page" to={`know`}>Conocenos</Link>
                             </li>
                             <li className="navbar-item">
-                                <a className="nav-link active" aria-current="page" href={`contact`}>Contactanos</a>
+                                <Link className="nav-link active" aria-current="page" to={`contact`}>Contactanos</Link>
                             </li>
                         </ul>
                         <form className="d-flex">
                             <ul className="navbar-nav">
                                 <li className="navbar-item">
-                                    <a className="nav-link active" aria-current="page" href={`signin`}>Iniciar Sesion</a>
+                                    <Link className="nav-link active" aria-current="page" to={`sign-in`}>Iniciar Sesion</Link>
                                 </li>
                                 <li className="navbar-item">
-                                    <a className="nav-link active" aria-current="page" href={`signup`}>Registrar</a>
+                                    <Link className="nav-link active" aria-current="page" to={`sign-up`}>Registrar</Link>
                                 </li>
                             </ul>
                         </form>
