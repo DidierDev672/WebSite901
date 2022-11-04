@@ -44,28 +44,15 @@
 .contact-touch-content{
     display: flex;
     flex-direction: column;
-    justify-content: start;
-}
-
-.contact-touch-content > h5 {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 24px;
-}
-
-.contact-touch-contect > strong {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 22px;
+    justify-content: center;
 }
 
 .contact-touch-contect > span {
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
+    color: #242423;
 }
 
 .contact-email-contact{
@@ -80,12 +67,35 @@
     justify-content: start;
 }
 
+.contact-office-contact > h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.contact-office-contact > span {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #242423;
+}
+
 .card-contact{
     background-color: #ffffff;
     border-radius: 5px;
-    border: 1px solid #f8f9fa;
+    border: 2px solid #f8f9fa;
     box-shadow: 3px 3px 3px 3px #e9ecef;
     padding: 10px;
+}
+
+.card-contact > label{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 26px;
+    color: #000000;
 }
 
 .column-contact{
@@ -115,6 +125,10 @@
     color: #ffffff;
     border-radius: 5px;
     border: none;
+}
+
+.btn-contact-send{
+    margin: auto;
 }
 
 .btn-contact-send {
