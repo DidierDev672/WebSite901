@@ -1,0 +1,119 @@
+.Products-items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-template-rows: minmax(100px,auto);
+}
+
+.Products-item{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 4px 4px 4px #e9ecef;
+    padding: 10px;
+}
+
+.Products-item:hover{
+    box-shadow: 8px 8px 8px #e9ecef;
+}
+
+.Product-item-info{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+}
+
+.title-product-item{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 28px;
+}
+
+.sub-title-product-item{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.sub-price-product-item{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.flex-product-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-buy-product{
+    width: 2rem;
+    background-color: #ff8800;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
+
+.btn-buy-product{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.btn-add-product{
+    width: 2rem;
+    background-color: #ffdd00;
+    color: #212529;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+@media screen and (max-width: 640px){
+    .Products-items{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 667px){
+    .Products-items{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 896px){
+    .Products-items{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 915px){
+    .Products-items{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
