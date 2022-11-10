@@ -1,53 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon  } from "@fortawesome/react-fontawesome";
-import { faThermometer } from "@fortawesome/free-solid-svg-icons";
-import { faBridgeWater  } from "@fortawesome/free-solid-svg-icons";
-import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import ItemCategory from "./ItemCategory.jsx";
+import AppContext from "../context/AppContext.js";
 import "../styles/components/category.scss";
 
 const Category = () => {
-    const category = { categoryOne: "Medidor", categoryTwo: "Sensor", categoryThree: "Alimentador" };
+    const { state } = useContext(AppContext);
+    const { category } = state;
 
     return(
         <div className="container">
         <div className="header-category">
             <h5>Categoria de productos</h5>
         </div>
-            <div className="flex-category">
-                <div className="item-flex-category">
-                    <div className="item-font-awesome">
-                        <FontAwesomeIcon icon={faThermometer}/>
-                    </div>
-                    <div className="item-column-category">
-                        <span>Medidor</span>
-                    </div>
-                    <div className="item-category-link">
-                        <Link className="btn-views"  to={`${category.categoryOne}`} >Ver</Link>
-                    </div>
-                </div>
-                <div className="item-flex-category">
-                    <div className="item-font-awesome">
-                        <FontAwesomeIcon icon={faBridgeWater}/>
-                    </div>
-                    <div className="item-column-category">
-                        <span>Sensor</span>
-                    </div>
-                    <div className="item-category-link">
-                        <Link className="btn-views" to={`${category.categoryTwo}`}>Ver</Link>
-                    </div>
-                </div>
-                <div className="item-flex-category">
-                    <div className="item-font-awesome">
-                        <FontAwesomeIcon icon={faBowlFood}/>
-                    </div>
-                    <div className="item-column-category">
-                        <span>Alimentador</span>
-                    </div>
-                    <div className="item-category-link">
-                        <Link className="btn-views" to={`${category.categoryThree}`}>Ver</Link>
-                    </div>
-                </div>
+        <div className="content-search-category">
+            <input type="text" className="field-text" placeholder="Ingresa una categoria"/>
+            <button type="button" className="btn-search"> <FontAwesomeIcon icon={faMagnifyingGlass}/> </button>
+        </div>
+            <div className="flex-category py-3">
+                {category.map((categorys) => (
+                    <ItemCategory key={categorys.id} categorys={categorys}/>
+                ))}
             </div>
         </div>
     );
