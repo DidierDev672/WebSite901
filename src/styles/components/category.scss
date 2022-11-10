@@ -1,3 +1,4 @@
+
 .header-category{
     display: flex;
     place-content: center;
@@ -11,11 +12,10 @@
 }
 
 .flex-category{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-template-rows: minmax(100px, auto);
 }
 
 .item-flex-category{
@@ -34,13 +34,13 @@
     padding: 10px;
 }
 
+.item-flex-category:hover{
+    box-shadow: 6px 6px 6px #e9ecef;
+}
 
-.item-font-awesome {
-    text-align: center;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 44px;
-    line-height: 48px;
+.item-column-category > span {
+    display: flex;
+    place-content: center;
 }
 
 .item-column-category > span{
@@ -69,4 +69,74 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
+}
+
+.btn-search{
+    width: 3rem;
+    background-color: #ff8800;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.content-search-category{
+    display: flex;
+    gap: 20px;
+    place-content: center;
+}
+
+.content-search-category > input {
+    width: 50%;
+    text-align: center;
+}
+
+@media screen and (max-width: 640px){
+    .flex-category{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 667px){
+    .flex-category{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 844px){
+    .flex-category{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 851px){
+    .flex-category{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 915px){
+    .flex-category{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
 }
