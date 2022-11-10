@@ -2,6 +2,24 @@ export default {
     cart: [],
     buyer: [],
     orders: [],
+    category:[
+        {
+            id: "1",
+            title: "Medidor"
+        },
+        {
+            id: "2",
+            title: "Sensor",
+        },
+        {
+            id: "3",
+            title: "Alimentador"
+        },
+        {
+            id: "4",
+            title: "Biometria"
+        }
+    ],
     products:[
         {
             id: "1",
