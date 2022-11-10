@@ -19,9 +19,21 @@
 
 .Product-item-info{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0;
     justify-content: center;
+}
+
+.header-product{
+    display: flex;
+    place-content: center;
+}
+
+.header-product > h4 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 48px;
 }
 
 .title-product-item{
