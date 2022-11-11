@@ -90,6 +90,26 @@
     padding: 5px;
 }
 
+.field-search{
+    display: flex;
+    gap: 20px;
+    place-content: center;
+}
+
+.field-search > input {
+    width: 50%;
+    text-align: center;
+}
+
+.btn-search-product{
+    width: 3rem;
+    background-color: #ff8800;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
 @media screen and (max-width: 640px){
     .Products-items{
         display: flex;
