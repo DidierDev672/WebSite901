@@ -1,29 +1,44 @@
-import React from "react";
-import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext,useState,useEffect, useRef } from "react";
+import { useParams  } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import SubProduct from "../components/SubProduct";
+import AppContext from "../context/AppContext.js";
 import "../styles/components/products.scss";
 
-const Product = ({ product, handleAddToCart }) => {
+const Product = () => {
+    const { category } = useParams();
+    const { state, addToCart } = useContext(AppContext);
+    const [ research, setReSearch ] = useState([]);
+    const { products } = state;
+    const searchRef = useRef(null);
+
+    useEffect(() => {
+        setReSearch(products.filter((item) => item.category === category));
+    },[]);
+
+    const handleSearch = () => {
+        if(searchRef.current.value !== ""){
+            const Refsearch = searchRef.current.value;
+            setReSearch(products.filter((item) => {
+                return item.name_product.toLowerCase().includes(Refsearch.toLowerCase());
+            }))
+        }
+    };
+
     return(
-        <div className="Products-item">
-            <div className="Product-item-info">
-                <img className="img-thumbnail" src={product.coverURL} alt={product.name_product} width="512px" height="512px"  />
-                <h2 className="title-product-item">
-                    {product.name_product}
-                    <br />
-                    <span className="sub-price-product-item">
-                        $
-                        {''}
-                        {product.price}
-                    </span>
-                </h2>
-                <br/>
-                <p className="sub-title-product-item">{product.description}</p>
+        <div className="container py-3">
+            <div className="header-product">
+                <h4>Lista de productos {category}</h4>
             </div>
-            <div className="flex-product-item">
-                <button type="button" className="btn-add-product" onClick={handleAddToCart(product)}> <FontAwesomeIcon icon={faPlus}/> </button>
-                <button type="button" className="btn-buy-product"><FontAwesomeIcon icon={faCartShopping}/>  </button>
+            <div className="field-search">
+                <input type="text" className="field-text" placeholder="Ingresa el nombre del producto" ref={searchRef}/>
+                <button type="button" className="btn-search-product" onClick={handleSearch}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+            </div>
+            <div className="Products-items">
+                { research.map((product) => (
+                    <SubProduct key={product.id} product={product}/>
+                )) }
             </div>
         </div>
     );
