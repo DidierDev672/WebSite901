@@ -1,5 +1,6 @@
 export default {
     cart: [],
+    trolley: [],
     buyer: [],
     orders: [],
     category:[
