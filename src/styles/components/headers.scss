@@ -6,5 +6,29 @@
 }
 
 .item-header-rigth{
-    margin-left: 950px;
+    margin-left: 850px;
+}
+
+.flex-item-navbar{
+    display: flex;
+    flex-direction: row;
+}
+
+.header-shopping-bag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+}
+
+.header-shopping-bag > span {
+    font-style: italic;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.header-shopping-bag > span {
+    margin-top: 10px;
+    margin-left: -10px;
 }
