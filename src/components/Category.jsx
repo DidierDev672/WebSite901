@@ -16,7 +16,7 @@ const Category = () => {
         if(searchRef.current.value !== ""){
             const Refsearch = searchRef.current.value;
             setSearch(category.filter((item) => {
-                return item.title.toLowerCase().includes(Refsearch.toLowerCase())
+                return item.title.toLowerCase().includes(Refsearch.toLowerCase());
             }))
         }
     };
