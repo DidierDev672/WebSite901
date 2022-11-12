@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Outlet,Link } from "react-router-dom";
 import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import AppContext from "../context/AppContext.js";
@@ -7,7 +7,7 @@ import "../styles/components/headers.scss";
 
 const Header = () => {
     const { state } = useContext(AppContext);
-    const { cart } = state;
+    const { trolley } = state;
     return(
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-light">
@@ -19,7 +19,7 @@ const Header = () => {
                     <div className="collapse navbar-collapse list-title" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="navbar-item">
-                                <Link className="nav-link active" aria-current="page" to={`/`}>Home</Link>
+                                <Link className="nav-link active" aria-current="page" to={`home`}>Home</Link>
                             </li>
                             <li className="navbar-item">
                                 <Link className="nav-link active" aria-current="page" to={`products`}>Productos</Link>
@@ -39,15 +39,18 @@ const Header = () => {
                                 <li className="navbar-item">
                                     <Link className="nav-link active" aria-current="page" to={`sign-up`}>Registrar</Link>
                                 </li>
-                                <li className="navbar-item">
+                                <li className="navbar-item flex-item-navbar">
                                     <Link className="nav-link active" aria-current="page" to={`shopping-bag`}> <FontAwesomeIcon icon={faBagShopping}/> </Link>
-                                    { cart.length > 0  && <div className="header-alert"> { cart.length } </div> }
+                                    { trolley.length > 0  && <div className="header-shopping-bag"> <span> { trolley.length } </span></div> }
                                 </li>
                             </ul>
                         </form>
                     </div>
                 </div>
             </nav>
+            <div id="detail">
+                <Outlet />
+            </div>
         </div>
     );
 };
