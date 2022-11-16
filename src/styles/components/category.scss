@@ -1,4 +1,4 @@
-
+@import "vars";
 .header-category{
     display: flex;
     place-content: center;
@@ -6,9 +6,9 @@
 
 .header-category > h5 {
     font-style: normal;
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 38px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .flex-category{
@@ -27,15 +27,15 @@
 }
 
 .item-flex-category{
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 3px 3px 3px #e9ecef;
+    border: 2px solid var(--border-card);
+    box-shadow: 3px 3px 3px var(--box-shadow-card);
     padding: 10px;
-}
 
-.item-flex-category:hover{
-    box-shadow: 6px 6px 6px #e9ecef;
+    &:hover{
+        box-shadow: 6px 6px 6px var(--box-shadow-card);
+    }
 }
 
 .item-column-category > span {
@@ -45,9 +45,9 @@
 
 .item-column-category > span{
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--font-weight-item);
+    font-size: var(--font-size-item);
+    line-height: var(--line-height-item);
 }
 
 .item-category-link{
@@ -57,8 +57,8 @@
 .btn-views{
     text-decoration: none;
     width: 5rem;
-    background-color: #ff8800;
-    color: #FFFFFF;
+    background-color: var(--orange);
+    color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -66,14 +66,14 @@
 
 .btn-views{
     font-style: italic;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: var(--btn-font-weigth);
+    font-size: 18px;
     line-height: 20px;
 }
 
 .btn-search{
     width: 3rem;
-    background-color: #ff8800;
+    background-color: var(--orange);
     color: #FFFFFF;
     border-radius: 5px;
     border: none;

@@ -1,8 +1,9 @@
+@import "vars";
 .card-data-basic{
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 4px 4px 4px #e9ecef;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
 }
 
@@ -13,9 +14,9 @@
 
 .card-data-basic > h4 {
     font-style: normal;
-    font-weight: 900;
-    font-size: 44px;
-    line-height: 48px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .flex-data-basic{
@@ -36,9 +37,9 @@
 
 .item-data-basic > label{
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }
 
 .btn-buy {
@@ -47,8 +48,8 @@
 
 .btn-buy{
     width: 7rem;
-    background-color: #ff8800;
-    color: #FFFFFF;
+    background-color: var((--orange));
+    color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 12px;
@@ -56,7 +57,7 @@
 
 .btn-buy{
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--btn-font-weigth);
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-line-heigth);
 }

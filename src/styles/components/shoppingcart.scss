@@ -1,3 +1,4 @@
+@import "vars";
 .shopping-ba{
     display: flex;
     place-content: center;
@@ -5,10 +6,10 @@
 
 .card-shopping-bag{
     // width: 50rem;
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 4px 4px 4px #e9ecef;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box);
     padding: 10px;
 }
 

@@ -1,3 +1,4 @@
+@import "vars";
 .Products-items{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -6,15 +7,15 @@
 }
 
 .Products-item{
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 4px 4px 4px #e9ecef;
+    border: 2px solid  var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
-}
 
-.Products-item:hover{
-    box-shadow: 8px 8px 8px #e9ecef;
+    &:hover{
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+    }
 }
 
 .Product-item-info{
@@ -31,23 +32,23 @@
 
 .header-product > h4 {
     font-style: normal;
-    font-weight: 600;
-    font-size: 44px;
-    line-height: 48px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .title-product-item{
     font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 28px;
+    font-weight: var(--font-weight-item);
+    font-size: var(--font-size-item);
+    line-height: var(--line-height-item);
 }
 
 .sub-title-product-item{
     font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 20px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(-- --font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }
 
 .sub-price-product-item{
@@ -67,8 +68,8 @@
 
 .btn-buy-product{
     width: 2rem;
-    background-color: #ff8800;
-    color: #FFFFFF;
+    background-color: var(--orange);
+    color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 7px;
@@ -76,15 +77,15 @@
 
 .btn-buy-product{
     font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-weight: var(--btn-font-weigth);
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-line-heigth);
 }
 
 .btn-add-product{
     width: 2rem;
-    background-color: #ffdd00;
-    color: #212529;
+    background-color: var(--yellow);
+    color: var(--black);
     border-radius: 5px;
     border: none;
     padding: 5px;
@@ -103,8 +104,8 @@
 
 .btn-search-product{
     width: 3rem;
-    background-color: #ff8800;
-    color: #FFFFFF;
+    background-color: var(--orange);
+    color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 5px;

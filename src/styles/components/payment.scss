@@ -1,8 +1,9 @@
+@import "vars";
 .Payment-contenct{
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 4px 4px 4px #e9ecef;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
 }
 
@@ -14,9 +15,9 @@
 
 .Payment-contenct > h3 {
     font-style: normal;
-    font-weight: 600;
-    font-size: 44px;
-    line-height: 48px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .Payment-item {
@@ -37,9 +38,9 @@
 
 .Payment-contenct > span{
     font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 28px;
+    font-weight: var( --font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }
 
 .table{
@@ -48,14 +49,21 @@
 
 .font-table > th{
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--font-weight-item);
+    font-size: var(--font-size-item);
+    line-height: var(-line-height-item);
 }
 
 .font-tbody > th {
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: var(--font-weight-sub-item);
+    font-size: var(--font-size-sub-item);
     line-height: 18px;
+}
+
+.Payment-element > span {
+    font-style: normal;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }

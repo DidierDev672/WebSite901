@@ -1,18 +1,19 @@
+@import "vars";
 .card-sign-up{
     margin: auto;
 }
 
 .card-sign-up{
     width: 40rem;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #F8F9FA;
-    box-shadow: 4px 4px 4px #E9ECEF;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
-}
 
-.card-sign-up:hover{
-    box-shadow: 6px 6px 6px #E9ECEF;
+    &:hover{
+        box-shadow: 6px 6px 6px var(--box-shadow-card);
+    }
 }
 
 .header-sign-in{
@@ -29,16 +30,16 @@
 
 .item-header > h5 {
     font-style: normal;
-    font-weight: 900;
-    font-size: 54px;
-    line-height: 58px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var( --line-height-title);
 }
 
 .item-header > span {
     font-style: italic;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 24px;
+    font-weight: var(--font-weight-item);
+    font-size: var(--font-size-item);
+    line-height: var(--line-height-item);
     color: #343A40;
 }
 
@@ -51,9 +52,9 @@
 
 .item-sign-in > label {
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }
 
 .btn-sign-up{
@@ -62,8 +63,8 @@
 
 .btn-sign-up{
     width: 10rem;
-    background-color: #FF8500;
-    color: #ffffff;
+    background-color: var(--orange);
+    color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -71,7 +72,7 @@
 
 .btn-sign-up{
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--btn-font-weigth);
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-line-heigth);
 }

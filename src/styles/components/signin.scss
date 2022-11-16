@@ -1,30 +1,32 @@
+@import "vars";
 .card-sign-in{
     width: 40rem;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #F8F9FA;
-    box-shadow: 3px 3px 3px #E9ECEF;
+    border: 2px solid var(--border-card);
+    box-shadow: 3px 3px 3px var(--box-shadow-card);
     padding: 10px;
+
+    &:hover{
+        box-shadow: 6px 6px 6px var(--box-shadow-card);
+    }
 }
 
 .card-sign-in{
     margin: auto;
 }
 
-.card-sign-in:hover{
-    box-shadow: 6px 6px 6px #E9ECEF;
-}
 
-.header-sign-in{
+.header-sign-in > h4{
     display: flex;
-    justify-content: center;
+    place-content: center;
 }
 
 .header-sign-in > h4 {
     font-family: normal;
-    font-weight: 900;
-    font-size: 52px;
-    line-height: 58px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .item-sign-in{
@@ -36,9 +38,9 @@
 
 .item-sign-in > label{
     font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 20px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .btn-sign-in {
@@ -47,8 +49,8 @@
 
 .btn-sign-in{
     width: 10rem;
-    background-color: #FF8500;
-    color: #ffffff;
+    background-color: var(--orange);
+    color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -56,9 +58,9 @@
 
 .btn-sign-in{
     font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--btn-font-weigth);
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-line-heigth);
 }
 
 .link-sign-in{
@@ -68,8 +70,8 @@
 .link-sign-in{
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 22px;
+    line-height: 24px;
 }
 
 .link-sign-in{

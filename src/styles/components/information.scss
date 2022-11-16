@@ -1,0 +1,64 @@
+.nformation-buttons{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    place-content: center;
+}
+
+.Information-back{
+    padding: 10px;
+}
+
+.btn-back{
+    text-decoration: none;
+    width: 7rem;
+    background-color: #ff8800;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
+
+.btn-back {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.Information-sidebar {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 4px 4px 4px #e9ecef;
+    padding: 10px;
+}
+
+.Information-sidebar > h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 38px;
+}
+
+.Information-item{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item-list > h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.item-list > span {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+}

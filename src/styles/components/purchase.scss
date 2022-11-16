@@ -1,3 +1,4 @@
+@import "vars";
 .flex-purchase{
     display: flex;
     flex-direction: row;
@@ -15,10 +16,10 @@
 }
 
 .card-purchase{
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 4px 4px 4px #e9ecef;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
 }
 
@@ -29,21 +30,21 @@
 
 .card-purchase > h4{
     font-style: normal;
-    font-weight: 600;
-    font-size: 44px;
-    line-height: 48px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }
 
 .card-purchase > span {
     font-style: italic;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: var(--font-weight-item);
+    font-size: var(--font-size-item);
+    line-height: var(--line-height-item);
 }
 
 .card-purchase > p {
     font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
+    font-weight: var(--font-weight-sub-item);
+    font-size: var(--font-size-sub-item);
     line-height: 24px;
 }

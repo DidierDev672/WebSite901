@@ -1,6 +1,8 @@
+@import "vars";
+
 .header-contact{
-    background-color: #ff8800;
-    border-radius: 5px;
+    background-color: var(--header-background);
+    border-radius: var(--header-border);
     border: none;
     padding: 10px;
 }
@@ -12,17 +14,17 @@
 .header-contact > h4 {
     color: #ffffff;
     font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 48px;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
 
 .header-contact > span {
     color: #ffffff;
     font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 24px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
 }
 
 .flex-contact-content{
@@ -49,9 +51,9 @@
 
 .contact-touch-contect > span {
     font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
     color: #242423;
 }
 
@@ -76,9 +78,9 @@
 
 .contact-office-contact > span {
     font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
     color: #242423;
 }
 
@@ -92,9 +94,9 @@
 
 .card-contact > label{
     font-style: normal;
-    font-weight: 600;
-    font-size: 26px;
-    line-height: 26px;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
     color: #000000;
 }
 
@@ -121,9 +123,9 @@
 }
 
 .btn-contact-send{
-    background-color: #ff8800;
-    color: #ffffff;
-    border-radius: 5px;
+    background-color: var(--btn-contact-send);
+    color: var(--white);
+    border-radius: var(--btn-border);
     border: none;
 }
 
@@ -133,8 +135,8 @@
 
 .btn-contact-send {
     font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 22px;
+    font-weight: var(--btn-font-weigth);
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-line-heigth);
     padding: 10px;
 }
