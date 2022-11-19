@@ -26,6 +26,10 @@ const Product = () => {
         }
     };
 
+    const handleAddToCart = product => () => {
+        addToCart(product);
+    };
+
     return(
         <div className="container py-3">
             <div className="header-product">
@@ -37,7 +41,7 @@ const Product = () => {
             </div>
             <div className="Products-items">
                 { research.map((product) => (
-                    <SubProduct key={product.id} product={product}/>
+                    <SubProduct key={product.id} product={product} handleAddToCart={handleAddToCart}/>
                 )) }
             </div>
         </div>

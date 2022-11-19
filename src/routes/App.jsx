@@ -9,7 +9,11 @@ import Know from "../containers/Know";
 import Contact from "../containers/Contact";
 import SignIn from "../containers/SignIn";
 import SignUp from "../containers/SignUp";
+import ProfileUser from "../containers/ProfileUser";
 import ShoppingCart from "../containers/ShoppingCart";
+import Information from "../containers/Information";
+import Payment from "../containers/Payment";
+import Purchase from "../containers/Purchase";
 
 import Product from "../components/Product";
 
@@ -21,12 +25,17 @@ const App = () => {
         <Layout>
           <Routes >
             <Route path="/" element={<Home />}/>
+            <Route path="/home" element={<Home />}/>
             <Route path="/products" element={<Products />}/>
             <Route path="/know" element={<Know />}/>
             <Route path="/contact" element={<Contact />}/>
             <Route path="/sign-in" element={<SignIn />}/>
             <Route path="/sign-up" element={<SignUp />}/>
+            <Route path="/profile-user" element={<ProfileUser/>}/>
             <Route path="/shopping-bag" element={<ShoppingCart />}/>
+            <Route path="/shopping-bag/information" element={<Information />}/>
+            <Route path="/shopping-bag/payment" element={<Payment />}/>
+            <Route path="/purchase/:id" element={<Purchase />}/>
             <Route path="products/:category" element={<Product />}/>
           </Routes>
         </Layout>

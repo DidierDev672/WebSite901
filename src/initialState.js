@@ -1,4 +1,5 @@
 export default {
+    user: [],
     cart: [],
     trolley: [],
     buyer: [],

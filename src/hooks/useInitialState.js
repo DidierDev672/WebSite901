@@ -32,12 +32,20 @@ const useInitialState = () => {
         });
     };
 
+    const addNewUser = payload => {
+        setState({
+            ...state,
+            user: [ ...state.user, payload ]
+        });
+    };
+
 
     return {
         addToCart,
         removeFromCart,
         addToBuyer,
         addNewOrder,
+        addNewUser,
         state
     };
 };

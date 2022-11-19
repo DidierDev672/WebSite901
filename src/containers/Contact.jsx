@@ -25,7 +25,7 @@ const Contact = () => {
                             <span><FontAwesomeIcon icon={faEnvelope}/> joseange183@gmail.com</span>
                         </div>
                         <div className="contact-office-content">
-                            <h5>Office<strong>Caucasia-Antioquia</strong></h5>
+                            <h5>Office <strong>Caucasia-Antioquia</strong></h5>
                             <span><FontAwesomeIcon icon={faBuilding}/> Barrio el bosque, al lado del sena</span>
                         </div>
                     </div>

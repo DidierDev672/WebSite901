@@ -1,0 +1,64 @@
+@import "vars";
+
+.card-profile{
+    width: 50rem;
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
+    padding: 10px;
+    margin: auto;
+
+    &:hover{
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+    }
+}
+
+.card-profile > h4 {
+    text-align: center;
+    font-style: normal;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
+}
+
+.flex-profile{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-profile{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item-profile > label {
+    font-style: normal;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
+}
+
+.btn-profile{
+    width: 7rem;
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin: auto;
+}
+
+.btn-profile{
+    font-style: normal;
+    font-weight: var(--btn-font-weigth);
+    font-size: var(--btn-font-size);
+    line-height: var(--btn-line-heigth);
+    text-align: center;
+}

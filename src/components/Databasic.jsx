@@ -1,13 +1,12 @@
 import React, { useRef,useContext } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import "../styles/components/databasic.scss";
 
 const DataBasic = () => {
-    const { state, addToBuyer } = useContext(AppContext);
+    const { addToBuyer } = useContext(AppContext);
     const form = useRef(null);
     const navigate = useNavigate();
-    const { cart, trolley } = state;
 
     const handleSubmit = () => {
         const formData = new FormData(form.current);
@@ -53,24 +52,6 @@ const DataBasic = () => {
                         </div>
                     </div>
                 </form>
-            </div>
-            <div className="Information-buttons">
-                <div className="Information-back">
-                    <Link to={`shopping-bag`}>
-                        Regresar
-                    </Link>
-                </div>
-            </div>
-            <div className="Information-sidebar">
-                <h3>Pedido:</h3>
-                {trolley.map((item) => (
-                    <div className="Information-item" key={item.id}>
-                        <div className="Information-element">
-                            <h4>{item.name_product}</h4>
-                            <span>$ {item.price}</span>
-                        </div>
-                    </div>
-                ))}
             </div>
         </div>
     );
