@@ -62,3 +62,64 @@
     font-size: 22px;
     line-height: 24px;
 }
+
+.card-active{
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
+    padding: 10px;
+
+    &:hover{
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+    }
+}
+
+.card-active > h4 {
+    font-style: normal;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
+    text-align: center;
+}
+
+.flex-active{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-active{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item-active > span {
+    font-style: normal;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
+    text-align: center;
+}
+
+.item-active-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-edit-user{
+    text-decoration: none;
+    background-color: #52b69a;
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}

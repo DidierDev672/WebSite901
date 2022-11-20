@@ -1,3 +1,4 @@
+@import "vars";
 *{
     font-style: normal;
     font-weight: 400;
@@ -31,4 +32,50 @@
 .header-shopping-bag > span {
     margin-top: 10px;
     margin-left: -10px;
+}
+
+.dropdown-menu{
+    padding: 10px;
+}
+
+.btn-profile-header{
+    background-color: var(--white);
+    border: none;
+}
+
+.card-dropdown{
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 2px solid var(--border);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
+    padding: 10px;
+
+    &:hover {
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+    }
+}
+
+.card-dropdown{
+    position: absolute;
+    margin-left: -50px;
+}
+
+.list-group-item{
+    padding: 10px;
+}
+
+.list-group-item > li {
+    font-style: italic;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
+}
+
+.header-profile{
+    text-decoration: none;
+    background-color: #00b4d8;
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
 }

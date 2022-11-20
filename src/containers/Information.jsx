@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox, faDollarSign } from "@fortawesome/free-solid-svg-icons";
@@ -6,9 +6,42 @@ import DataBasic from "../components/Databasic";
 import AppContext from "../context/AppContext";
 import "../styles/components/information.scss";
 
+
+const SessionActive = ({ user }) => {
+    return(
+        <div className="container py-5">
+            <div className="card-active">
+                <h4>Datos basicos </h4>
+                <div className="flex-active">
+                    <div className="item-active">
+                        <span> { user.namefull } </span>
+                    </div>
+                    <div className="item-active">
+                        <span> { user.email } </span>
+                    </div>
+                    <div className="item-active">
+                        <span> { user.phone } </span>
+                    </div>
+                    <div className="item-active">
+                        <span> { user.country } / { user.address  } </span>
+                    </div>
+                    <div className="item-active-row">
+                        <div>
+                            <Link to={`/profile-user`} className="btn-edit-user">Editar</Link>
+                        </div>
+                        { user.namefull !== "" ? ""  : <button type="button" className="btn-buy">Contiinuar</button> }
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const Information = () => {
     const { state } = useContext(AppContext);
-    const { trolley } = state;
+    const { trolley, user } = state;
+    const [ profile, setProfile ] = useState(...user);
+
     return(
         <div className="container py-3">
             <div className="mb-3">
@@ -34,7 +67,7 @@ const Information = () => {
                         </div>
                     </div>
                 <div className="col-md-6">
-                    <DataBasic />
+                    {  user.length > 0 ? <SessionActive user={profile} /> :  <DataBasic /> }
                 </div>
                 </div>
             </div>

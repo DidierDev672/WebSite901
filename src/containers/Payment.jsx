@@ -22,17 +22,21 @@ const Payment = () => {
         // "data-client-token": "access_token$sandbox$cjhs4p6dwtzzd3sg$1171074dacd301535476ff397708f5fe"
     };
 
-    const handlePaymentSuccess = (data) => {
-        if(data.status === "COMPLETED"){
-            const newOrder = {
-                buyer,
-                product: cart,
-                payment: data
-            };
+    // const handlePaymentSuccess = (data) => {
+    //     if(data.status === "COMPLETED"){
+    //         const newOrder = {
+    //             buyer,
+    //             product: cart,
+    //             payment: data
+    //         };
 
-            addNweOrder(newOrder);
-            navigate(`/shopping/success`);
-        }
+    //         addNweOrder(newOrder);
+    //         navigate(`/shopping-bag/success`);
+    //     }
+    // };
+
+    const handlePaymentSuccess = () => {
+        navigate(`/shopping-bag/success`);
     };
 
     return(
@@ -43,7 +47,7 @@ const Payment = () => {
                     <div className="row g-0">
                         <div className="col-md-4">
                             {cart.map((item) => (
-                                <div className="Payment-item" key={item.phone}>
+                                <div className="Payment-item" key={item.id}>
                                     <div className="Payment-element">
                                         <span><FontAwesomeIcon icon={faPerson}/> {item.namefull}</span>
                                         <span><FontAwesomeIcon icon={faAt}/> {item.email}</span>
@@ -76,9 +80,10 @@ const Payment = () => {
                     </div>
                 </div>
                 <div className="Payment-item py-3">
-                <PayPalScriptProvider options={initialOptions}>
-                    <PayPalButtons/>
-                </PayPalScriptProvider>
+                {/* <PayPalScriptProvider options={initialOptions}>
+                    <PayPalButtons onClick={handlePaymentSuccess}/>
+                </PayPalScriptProvider> */}
+                <button type="button" onClick={handlePaymentSuccess}> Comprar </button>
             </div>
             </div>
         </div>

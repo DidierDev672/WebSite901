@@ -1,0 +1,60 @@
+@import "vars";
+
+.card-success{
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
+    padding: 10px;
+
+    &:hover{
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+    }
+}
+
+.card-success{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-success > h4 {
+    font-style: normal;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
+    margin: auto;
+}
+
+.card-success > span {
+    font-style: normal;
+    font-weight: var(--font-weight-paragraph);
+    font-size: var(--font-size-paragrap);
+    line-height: var(--line-height-paragrap);
+}
+
+.flex-success{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-success{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-profile{
+    width: 8rem;
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}

@@ -1,5 +1,6 @@
 import React, { useRef,useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import AppContext from "../context/AppContext";
 import "../styles/components/databasic.scss";
 
@@ -15,7 +16,8 @@ const DataBasic = () => {
             "email": formData.get("email"),
             "address": formData.get("address"),
             "section": formData.get("section"),
-            "phone": formData.get("phone")
+            "phone": formData.get("phone"),
+            "id": uuidv4()
         };
 
         addToBuyer(buyer);

@@ -13,6 +13,7 @@ import ProfileUser from "../containers/ProfileUser";
 import ShoppingCart from "../containers/ShoppingCart";
 import Information from "../containers/Information";
 import Payment from "../containers/Payment";
+import Success from "../containers/Success";
 import Purchase from "../containers/Purchase";
 
 import Product from "../components/Product";
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/shopping-bag" element={<ShoppingCart />}/>
             <Route path="/shopping-bag/information" element={<Information />}/>
             <Route path="/shopping-bag/payment" element={<Payment />}/>
+            <Route path="/shopping-bag/success" element={<Success />}/>
             <Route path="/purchase/:id" element={<Purchase />}/>
             <Route path="products/:category" element={<Product />}/>
           </Routes>
