@@ -8,6 +8,22 @@
 
 .item-header-rigth{
     margin-left: 850px;
+
+    @media screen and (max-width: 640px){
+        margin-left: 0;
+    }
+
+    @media screen and (max-width: 896px){
+        margin-left: 0;
+    }
+
+    @media screen and (max-width: 915px){
+        margin-left: 0;
+    }
+
+    @media screen and (max-width: 1180px){
+        margin-left: 0;
+    }
 }
 
 .flex-item-navbar{
