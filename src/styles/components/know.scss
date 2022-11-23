@@ -1,35 +1,23 @@
 @import "vars";
-
-.header-know{
-    background: linear-gradient(#ff8800, #ff9500);
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
+.grid-know{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    grid-template-rows: minmax(100px, auto);
 }
 
-.header-know > h3 {
-    font-style: normal;
-    font-weight: var(--header-font-weigth);
-    font-size: var(--header-font-size);
-    line-height: var(--header-line-heigth);
-    color: var(--white);
-    text-align: center;
+.grid-values{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    grid-template-rows: minmax(100px, auto);
 }
 
-.flex-know-content{
-    display: flex;
-    flex-direction: row;
-    order: 3;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.item-know-content{
+.item-know {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
 }
 
@@ -51,7 +39,13 @@
     font-weight: var(--font-weight-title);
     font-size: var(--font-size-title);
     line-height: var(--line-height-title);
-    color: var(--orange);
+}
+
+.card-know > h5{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
 }
 
 .card-know > p {
@@ -61,4 +55,23 @@
     line-height: var(--line-height-paragrap);
     color: var(--black);
     text-align: justify;
+}
+
+.card-know > span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.title-values{
+    display: flex;
+    place-content: center;
+}
+
+.title-values{
+    font-style: normal;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
 }
