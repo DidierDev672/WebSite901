@@ -1,9 +1,40 @@
 export default {
     user: [],
     cart: [],
+    profile: [],
     trolley: [],
     buyer: [],
     orders: [],
+    contact: [
+        {
+            id: "1",
+            phone: "+57 3205737554",
+            email: "joseangel83@gmail.com",
+            location: "Apayel-Corboba"
+        }
+    ],
+    bracket:[
+        {
+            id: "1",
+            title: "Soporte al cliente",
+            description: "Nuestro equipo integral incluye apoyo continuo, incluyendo la cría de peces."
+        },
+        {
+            id: "2",
+            title: "Capacitación",
+            description: "Entrenaremos a tu equipo, para la instalación de operaciones cómo a lo largo de su ciclo de vida."
+        },
+        {
+            id: "3",
+            title: "Actualizaciones",
+            description: "A medida que tus necesidades operacionales cambian y las nuevas innovaciones tecnológicas están disponibles."
+        },
+        {
+            id: "4",
+            title: "Macro Data",
+            description: "Nuestra vasta base de conocimientos, que cubre todos los aspectos de la producción pesquera, está a tu disposición."
+        }
+    ],
     values: [
         {
             id: "1",
@@ -135,5 +166,6 @@ export default {
             price: 911351,
             description: "Facil calibracion: facil calibracion de valor 100% D.O"
         },
-    ]
+    ],
+    people:[]
 };
