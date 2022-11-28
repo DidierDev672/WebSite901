@@ -14,8 +14,9 @@ const Solution = () => {
     const { bracket } = state;
     return (
     <div className="container py-3">
+        <div className="py-4"></div>
         <div className="header-solution">
-        <img src={imgUrl} className="img-fluid rounded" />
+        {/* <img src={imgUrl} className="img-fluid rounded" /> */}
         <h5>Solucion Inteligente</h5>
         <span>para un desafio continuo</span>
         </div>
@@ -29,7 +30,7 @@ const Solution = () => {
             <div className="mb-3">
                 <div className="row g-0">
                     <div className="col-md-6 cover-img">
-                        <img src={imgSoluction} className="img-fluid rounded-start"/>
+                        {/* <img src={imgSoluction} className="img-fluid rounded-start"/> */}
                     </div>
                     <div className="col-md-6">
                         <div className="content-soluction">
