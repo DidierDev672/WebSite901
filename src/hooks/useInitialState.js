@@ -39,6 +39,20 @@ const useInitialState = () => {
         });
     };
 
+    const setProfile = payload => {
+        setState({
+            ...state,
+            profile: [...state.profile, payload]
+        });
+    };
+
+    const addNewPeople = payload => {
+        setState({
+            ...state,
+            people: [ ...state.people, payload  ]
+        });
+    };
+
 
     return {
         addToCart,
@@ -46,6 +60,8 @@ const useInitialState = () => {
         addToBuyer,
         addNewOrder,
         addNewUser,
+        setProfile,
+        addNewPeople,
         state
     };
 };
