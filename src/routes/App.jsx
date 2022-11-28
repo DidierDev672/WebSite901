@@ -15,6 +15,7 @@ import Information from "../containers/Information";
 import Payment from "../containers/Payment";
 import Success from "../containers/Success";
 import Purchase from "../containers/Purchase";
+import Solution from "../containers/Soluction";
 
 import Product from "../components/Product";
 
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/" element={<Home />}/>
             <Route path="/home" element={<Home />}/>
             <Route path="/products" element={<Products />}/>
+            <Route path="/solution" element={<Solution />}/>
             <Route path="/know" element={<Know />}/>
             <Route path="/contact" element={<Contact />}/>
             <Route path="/sign-in" element={<SignIn />}/>
