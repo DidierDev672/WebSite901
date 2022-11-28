@@ -22,15 +22,15 @@ const SignUp = () => {
 
     const handleSubmit = () => {
         const formData = new FormData(form.current);
-        const user = {
+        const buyer = {
             "email": formData.get("email"),
             "password": formData.get("pwd"),
             "id": uuidv4()
         };
 
-        createUserWithEmailAndPassword(auth, user.email, user.password)
+        createUserWithEmailAndPassword(auth, buyer.email, buyer.password)
         .then(() => {
-            addNewUser(user);
+            addNewUser(buyer);
             navigate(`/profile-user`);
         })
         .catch((error) => {
@@ -43,6 +43,7 @@ const SignUp = () => {
 
     return(
         <div className="container py-3">
+        <div className="py-4"></div>
             <div className="card-sign-up">
                 <div className="header-sign-in">
                     <div className="item-header">
@@ -52,14 +53,12 @@ const SignUp = () => {
                         <span>En <strong>Playapez</strong> todos somo una familia</span>
                     </div>
                 </div>
-                <form className="py-3" ref={form}>
+                <form className="py-3 flex-sign-up" ref={form}>
                     <div className="item-sign-in">
-                        <label>Correo electronico</label>
-                        <input type="email" className="field-text" name="email" placeholder="ejemplo@ejemplo.com"/>
+                        <input type="email" className="field-text" name="email" placeholder="Correo electronico"/>
                     </div>
                     <div className="item-sign-in">
-                        <label>Contraseña</label>
-                        <input type="password" className="field-text" name="pwd" placeholder="****************"/>
+                        <input type="password" className="field-text" name="pwd" placeholder="Contraseña"/>
                     </div>
                     <div className="item-sign-in py-3">
                         <button type="button" className="btn-sign-up" onClick={handleSubmit}>Registrar</button>
