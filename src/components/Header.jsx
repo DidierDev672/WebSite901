@@ -1,8 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Outlet,Link } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../api/firebase.js";
 import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import API from "../api";
 import AppContext from "../context/AppContext.js";
 import "../styles/components/headers.scss";
 
@@ -44,8 +47,23 @@ const ToggleSession = () => {
 };
 
 const Header = () => {
-    const { state } = useContext(AppContext);
+    const { state, setProfile} = useContext(AppContext);
     const { trolley, user } = state;
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                API.queryProfile({ uid: user.uid })
+                .then((result) => {
+                    setProfile(...result.enquiry);
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+            }
+        })
+    },[]);
+
     return(
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-light">
@@ -63,7 +81,10 @@ const Header = () => {
                                 <Link className="nav-link active" aria-current="page" to={`products`}>Productos</Link>
                             </li>
                             <li className="navbar-item">
-                                <Link className="nav-link active" aria-current="page" to={`know`}>Conocenos</Link>
+                                <Link className="nav-link active" aria-current="page" to={`solution`}>Solucion</Link>
+                            </li>
+                            <li className="navbar-item">
+                                <Link className="nav-link active" aria-current="page" to={`know`}>Acerca</Link>
                             </li>
                             <li className="navbar-item">
                                 <Link className="nav-link active" aria-current="page" to={`contact`}>Contactanos</Link>
