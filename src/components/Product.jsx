@@ -1,5 +1,6 @@
 import React, { useContext,useState,useEffect, useRef } from "react";
 import { useParams  } from "react-router-dom";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SubProduct from "../components/SubProduct";
@@ -10,11 +11,20 @@ const Product = () => {
     const { category } = useParams();
     const { state, addToCart } = useContext(AppContext);
     const [ research, setReSearch ] = useState([]);
+    const [ product, setProduct ] = useState([]);
     const { products } = state;
     const searchRef = useRef(null);
 
     useEffect(() => {
-        setReSearch(products.filter((item) => item.category === category));
+        axios.get(`http://localhost:3005/api/products`)
+        .then(function (response){
+            setProduct(...response.data)
+            console.log(product)
+        })
+        .catch(function (error){
+            console.error(error);
+        })
+        setReSearch(product.filter((item) => item.category === category));
     },[]);
 
     const handleSearch = () => {
@@ -41,7 +51,7 @@ const Product = () => {
             </div>
             <div className="Products-items">
                 { research.map((product) => (
-                    <SubProduct key={product.id} product={product} handleAddToCart={handleAddToCart}/>
+                    <SubProduct key={product._id} product={product} handleAddToCart={handleAddToCart}/>
                 )) }
             </div>
         </div>
