@@ -1,0 +1,47 @@
+@import "vars";
+
+.card-bracket{
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 2px solid #ffb627;
+    padding: 10px;
+
+    &:hover{
+        animation: walk_down 2s linear;
+        transition-duration: .2s;
+
+        @keyframes walk_down {
+            0%{
+                transform: rotateY(10deg);
+            }
+            10%{
+                transform: rotateX(10deg);
+            }
+            30%{
+                transform: rotateY(10deg);
+            }
+            50%{
+                transform: rotateX(5deg);
+            }
+            80%{
+                transform: rotateY(10deg);
+            }
+            100%{
+                transform: rotateX(20deg);
+            }
+        }
+    }
+}
+
+.card-bracket > h4 {
+    font-style: normal;
+    font-weight: var(--font-weight-item);
+    font-size: var(--font-size-item);
+    line-height: var(--line-height-item);
+}
+
+.card-bracket > p {
+    font-style: normal;
+    font-weight: var(--font-weight-sub-item);
+    font-size: var(--font-size-sub-item);
+}

@@ -23,6 +23,14 @@
     justify-content: center;
 }
 
+.flex-sign-up{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
 .item-header {
     display: flex;
     margin: auto;
@@ -67,8 +75,7 @@
 
 .btn-sign-up{
     width: 10rem;
-    background-color: var(--orange);
-    color: var(--white);
+    background: linear-gradient(#ff7b00, #ff8800);
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -79,13 +86,4 @@
     font-weight: var(--btn-font-weigth);
     font-size: var(--btn-font-size);
     line-height: var(--btn-line-heigth);
-}
-
-.btn-google{
-    width: 10rem;
-    background-color: var(--red);
-    color: var(--white);
-    border-radius: 5px;
-    border: none;
-    padding: 7px;
 }

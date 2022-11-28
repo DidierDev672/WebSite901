@@ -6,9 +6,31 @@
     border: 2px solid var(--border-card);
     box-shadow: 3px 3px 3px var(--box-shadow-card);
     padding: 10px;
+    animation: card_motion;
 
     &:hover{
         box-shadow: 6px 6px 6px var(--box-shadow-card);
+    }
+
+    @keyframes card_motion {
+        0%, 7%{
+                transform: rotateZ(0);
+            }
+            15%{
+                transform: rotateZ(-5deg);
+            }
+            20%{
+                transform: rotateZ(-5deg);
+            }
+            30%{
+                transform: rotateZ(4deg);
+            }
+            35%{
+                transform: rotateZ(-2deg);
+            }
+            40%, 100%{
+                transform: rotateZ(0);
+            }
     }
 }
 
@@ -16,17 +38,39 @@
     margin: auto;
 }
 
-
 .header-sign-in > h4{
     display: flex;
     place-content: center;
 }
 
-.header-sign-in > h4 {
-    font-family: normal;
+.header-sign-in > h4{
+    font-style: normal;
     font-weight: var(--font-weight-title);
     font-size: var(--font-size-title);
     line-height: var(--line-height-title);
+}
+
+.field-text{
+    animation: motion 2s linear;
+    animation-duration: 1.2s;
+
+    @keyframes motion {
+        0%{
+            width: 0%;
+            margin: auto;
+        }
+        100%{
+            width: 100%;
+        }
+    }
+}
+
+.flex-sign-in{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .item-sign-in{
@@ -49,8 +93,8 @@
 
 .btn-sign-in{
     width: 10rem;
-    background-color: var(--orange);
-    color: var(--white);
+    background: linear-gradient(#ff7b00, #ff8800);
+    // color: var(--white);
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -72,6 +116,18 @@
     font-weight: 600;
     font-size: 22px;
     line-height: 24px;
+
+    &:hover{
+        background: linear-gradient(#a4133c, #a4133c);
+        color: var(--white);
+        border-radius: 5px;
+        padding: 7px;
+        animation: hover_link;
+        animation-duration: 0.5s;
+        animation-delay: 0s;
+        transition: 2s;
+        transition-timing-function: ease-in;
+    }
 }
 
 .link-sign-in{

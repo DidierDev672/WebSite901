@@ -62,3 +62,37 @@
     line-height: var(--btn-line-heigth);
     text-align: center;
 }
+
+.field-text{
+    background-color: var(--white);
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    padding: 7px;
+}
+
+.grid-profile{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.item-profile{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.content-profile > h4{
+    display: flex;
+    place-content: center;
+}
+
+.content-profile > h4 {
+    font-style: normal;
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
+}
