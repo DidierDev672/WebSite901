@@ -1,7 +1,7 @@
 @import "vars";
 .card-sign-in{
     width: 40rem;
-    background-color: var(--white);
+    background-color: var(--color-card);
     border-radius: 5px;
     border: 2px solid var(--border-card);
     box-shadow: 3px 3px 3px var(--box-shadow-card);
@@ -39,28 +39,20 @@
 }
 
 .header-sign-in{
-    background: linear-gradient(var(--orange), var(--rubbish));
-    border-radius: 5px 20px 5px 20px;
-    padding: 10px;
-    animation-duration: 0.5s;
-    animation-delay: 2s;
-    animation-name: rotate_header_sing_in;
+    animation: text_motion;
+    animation-duration: 2s;
+    transition: 2s;
+    transition-timing-function: ease-in;
 
-    @keyframes rotate_header_sing_in {
-        0%, 20%{
-            transform: rotateX(40deg);
+    @keyframes text_motion{
+        0%, 35%{
+            transform: rotateY(30deg);
         }
-        40%{
+        70%{
+            transform: rotateX(10deg);
+        }
+        95%, 100%{
             transform: rotateY(40deg);
-        }
-        60%{
-            transform: rotateX(20deg);
-        }
-        80%{
-            transform: rotateY(20deg);
-        }
-        100%{
-            transform: rotateZ(10deg);
         }
     }
 }
@@ -120,8 +112,7 @@
 
 .btn-sign-in{
     width: 10rem;
-    background: linear-gradient(var(--orange), var( --rubbish));
-    // color: var(--white);
+    background: linear-gradient(to right, var(--orange), var(--rubbish));
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -129,7 +120,7 @@
 
 .btn-sign-in{
     font-style: normal;
-    font-weight: var(--btn-font-weigth);
+    font-weight: 800;
     font-size: var(--btn-font-size);
     line-height: var(--btn-line-heigth);
 }
@@ -159,4 +150,33 @@
 
 .link-sign-in{
     text-decoration: none;
+}
+
+.text-gradient{
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+}
+
+.text-gradient:before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,var(--orange), var(--red));
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.field-text{
+    background-color: var(--white);
+    color: #212529;
+    border-radius: 8px;
+    border: 2px solid var(--border-card);
+    box-shadow: 2px 2px 2px var(--box-shadow-card);
+    padding: 7px;
 }

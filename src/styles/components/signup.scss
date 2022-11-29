@@ -5,7 +5,7 @@
 
 .card-sign-up{
     width: 40rem;
-    background-color: var(--white);
+    background-color: var(--color-card);
     border-radius: 5px;
     border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
@@ -16,7 +16,7 @@
     }
 }
 
-.header-sign-in{
+.header-sign-up{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -75,7 +75,7 @@
 
 .btn-sign-up{
     width: 10rem;
-    background: linear-gradient(var(--orange), var(--rubbish));
+    background: linear-gradient(to right,var(--orange), var(--rubbish));
     border-radius: 5px;
     border: none;
     padding: 10px;
@@ -83,7 +83,27 @@
 
 .btn-sign-up{
     font-style: normal;
-    font-weight: var(--btn-font-weigth);
+    font-weight: 800;
     font-size: var(--btn-font-size);
     line-height: var(--btn-line-heigth);
+}
+
+.text-gradient{
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+}
+
+.text-gradient:before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,var(--orange), var(--red));
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
