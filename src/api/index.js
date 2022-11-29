@@ -3,6 +3,7 @@ import { collection, addDoc, query, where, getDocs, setDoc, doc } from "firebase
 
 const contactRef = "contact";
 const profileRef = "profile";
+const pqrsRef = "pqrs";
 
 export default {
     async saveContact({id,namefull, email, phone, matter, message}){
@@ -28,6 +29,18 @@ export default {
             address,
             email,
             password
+        });
+
+        return docRef;
+    },
+
+    async savePqrs({namefull, phone, email, petition, description}){
+        const docRef = await addDoc(collection(db, pqrsRef), {
+            namefull,
+            phone,
+            email,
+            petition,
+            description
         });
 
         return docRef;

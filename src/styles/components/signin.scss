@@ -38,6 +38,33 @@
     margin: auto;
 }
 
+.header-sign-in{
+    background: linear-gradient(var(--orange), var(--rubbish));
+    border-radius: 5px 20px 5px 20px;
+    padding: 10px;
+    animation-duration: 0.5s;
+    animation-delay: 2s;
+    animation-name: rotate_header_sing_in;
+
+    @keyframes rotate_header_sing_in {
+        0%, 20%{
+            transform: rotateX(40deg);
+        }
+        40%{
+            transform: rotateY(40deg);
+        }
+        60%{
+            transform: rotateX(20deg);
+        }
+        80%{
+            transform: rotateY(20deg);
+        }
+        100%{
+            transform: rotateZ(10deg);
+        }
+    }
+}
+
 .header-sign-in > h4{
     display: flex;
     place-content: center;
@@ -93,7 +120,7 @@
 
 .btn-sign-in{
     width: 10rem;
-    background: linear-gradient(#ff7b00, #ff8800);
+    background: linear-gradient(var(--orange), var( --rubbish));
     // color: var(--white);
     border-radius: 5px;
     border: none;

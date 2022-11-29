@@ -7,6 +7,7 @@ import Home from "../containers/Home";
 import Products from "../containers/Products";
 import Know from "../containers/Know";
 import Contact from "../containers/Contact";
+import Pqrs from "../containers/Pqrs.jsx";
 import SignIn from "../containers/SignIn";
 import SignUp from "../containers/SignUp";
 import ProfileUser from "../containers/ProfileUser";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/solution" element={<Solution />}/>
             <Route path="/know" element={<Know />}/>
             <Route path="/contact" element={<Contact />}/>
+            <Route path="/pqrs" element={<Pqrs />}/>
             <Route path="/sign-in" element={<SignIn />}/>
             <Route path="/sign-up" element={<SignUp />}/>
             <Route path="/profile-user" element={<ProfileUser/>}/>
