@@ -36,11 +36,11 @@ const ToggleUser = ({ user }) => {
 const ToggleSession = () => {
     return(
         <>
-            <li className="navbar-item">
+            <li className="navbar-item link-header-sign-in">
                 <Link className="nav-link active" aria-current="page" to={`sign-in`}>Iniciar Sesion</Link>
             </li>
             <li className="navbar-item">
-                <Link className="nav-link active" aria-current="page" to={`sign-up`}>Registrar</Link>
+                <Link className="nav-link active link-header-sign-in" aria-current="page" to={`sign-up`}>Registrar</Link>
             </li>
         </>
     );
@@ -74,20 +74,26 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse list-title" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="navbar-item">
+                            <li className="navbar-item navbar-item-list">
                                 <Link className="nav-link active" aria-current="page" to={`home`}>Home</Link>
                             </li>
-                            <li className="navbar-item">
+                            <li className="navbar-item navbar-item-list">
                                 <Link className="nav-link active" aria-current="page" to={`products`}>Productos</Link>
                             </li>
-                            <li className="navbar-item">
+                            <li className="navbar-item navbar-item-list">
                                 <Link className="nav-link active" aria-current="page" to={`solution`}>Solucion</Link>
                             </li>
-                            <li className="navbar-item">
+                            <li className="navbar-item navbar-item-list">
                                 <Link className="nav-link active" aria-current="page" to={`know`}>Acerca</Link>
                             </li>
-                            <li className="navbar-item">
-                                <Link className="nav-link active" aria-current="page" to={`contact`}>Contactanos</Link>
+                            <li className="navbar-item dropdown navbar-item-list">
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Contacto
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" aria-current="page" to={`contact`}>Contactanos</Link></li>
+                                    <li><Link className="dropdown-item" aria-current="page" to={`pqrs`}>PQR'S</Link></li>
+                                </ul>
                             </li>
                         </ul>
                         <form className="d-flex item-header-rigth">
