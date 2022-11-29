@@ -50,7 +50,7 @@ const SignIn = () => {
             <div className="py-5"></div>
             <div className="card-sign-in">
                 <div className="header-sign-in">
-                    <h4>Playa Pez</h4>
+                    <h4 className="text-gradient">Playa Pez</h4>
                 </div>
                 <form ref={form} className="flex-sign-in content-form-sign-in py-3">
                     <div className="item-sign-in">
