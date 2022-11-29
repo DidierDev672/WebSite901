@@ -6,18 +6,18 @@ import AppContext from "../context/AppContext.js";
 
 import "../styles/components/contact.scss";
 
-const imgUrl = new URL("../assets/DJI_0372.JPG", import.meta.url).href;
+const imgUrl = new URL("../assets/Cut.JPG", import.meta.url).href;
 
 const Contact = () => {
     const { state } = useContext(AppContext);
     const { contact } = state;
     return(
         <Fragment>
-        <div className="container-fluid">
+        <div className="container">
             <div className="py-5"></div>
-                {/* <Box>
-                    <img src={imgUrl} className="img-fluid rounded"/>
-                </Box> */}
+                <Box>
+                    <img src={imgUrl} className="img-fluid rounded resize-img"/>
+                </Box>
                 <div className="py-3"></div>
                 {contact.map((item) => (
                     <ItemContact  key={item.id} contact={item}/>
