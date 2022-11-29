@@ -50,7 +50,14 @@ const SignUp = () => {
                         <h5>Registrar usuario</h5>
                     </div>
                     <div className="item-header">
-                        <span>En <strong>Playapez</strong> todos somo una familia</span>
+                        <span>
+                            <strong>¡Regístrate y descubre las ventajas!</strong>
+                            <br />
+                            Al crear una cuenta en nuestra web, podrás moverte más rápidamente
+                            por nuestro catálogo y tendrás recomendaciones cada vez más
+                            apuradas. Recibir notificaciones cuando aparezcan novedades de
+                            nuestros proyectos.
+                        </span>
                     </div>
                 </div>
                 <form className="py-3 flex-sign-up" ref={form}>

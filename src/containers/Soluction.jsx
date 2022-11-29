@@ -3,9 +3,9 @@ import Bracket from '../components/handling/Bracket';
 import AppContext from "../context/AppContext.js";
 import '../styles/components/solution.scss';
 
-const imgUrl = new URL('../assets/DJI_0372.JPG', import.meta.url).href;
+const imgUrl = new URL('../assets/Cut.JPG', import.meta.url).href;
 const imgSoluction = new URL(
-    '../assets/IMG_20190529_110252.jpg',
+    '../assets',
     import.meta.url
 ).href;
 
@@ -16,7 +16,7 @@ const Solution = () => {
     <div className="container py-3">
         <div className="py-4"></div>
         <div className="header-solution">
-        {/* <img src={imgUrl} className="img-fluid rounded" /> */}
+        <img src={imgUrl} className="img-fluid rounded animation-img" />
         <h5>Solucion Inteligente</h5>
         <span>para un desafio continuo</span>
         </div>

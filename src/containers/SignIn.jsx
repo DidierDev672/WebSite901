@@ -52,7 +52,7 @@ const SignIn = () => {
                 <div className="header-sign-in">
                     <h4>Playa Pez</h4>
                 </div>
-                <form ref={form} className="flex-sign-in content-form-sign-in">
+                <form ref={form} className="flex-sign-in content-form-sign-in py-3">
                     <div className="item-sign-in">
                         <input type="email" className="field-text" name="email" placeholder="Correo electronico"/>
                     </div>
