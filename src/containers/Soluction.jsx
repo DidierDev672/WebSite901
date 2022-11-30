@@ -5,7 +5,7 @@ import '../styles/components/solution.scss';
 
 const imgUrl = new URL('../assets/Cut.JPG', import.meta.url).href;
 const imgSoluction = new URL(
-    '../assets',
+    '../assets/DJI_0368.JPG',
     import.meta.url
 ).href;
 
@@ -16,13 +16,12 @@ const Solution = () => {
     <div className="container py-3">
         <div className="py-4"></div>
         <div className="header-solution">
-        <img src={imgUrl} className="img-fluid rounded animation-img" />
-        <h5>Solucion Inteligente</h5>
-        <span>para un desafio continuo</span>
+        {/* <img src={imgUrl} className="img-fluid rounded animation-img" /> */}
+        <h5 className="text-gradient">Solucion Inteligente</h5>
         </div>
         <div className="Header">
         <p>
-            Una plataforma inteligente y sostenible para la producción terrestre
+        para un desafio continuo Una plataforma inteligente y sostenible para la producción terrestre
             de peces naturales, saludables y nutritivos.
         </p>
         </div>
@@ -30,11 +29,11 @@ const Solution = () => {
             <div className="mb-3">
                 <div className="row g-0">
                     <div className="col-md-6 cover-img">
-                        {/* <img src={imgSoluction} className="img-fluid rounded-start"/> */}
+                        <img src={imgSoluction} className="img-fluid rounded-start"/>
                     </div>
                     <div className="col-md-6">
                         <div className="content-soluction">
-                            <h4>Una solución integral para la producción de peces</h4>
+                            <h4 className="text-gradient">Una solución integral para la producción de peces</h4>
                             <p>
                                 <strong>Poseidon</strong> ofrece una solución integral para la producción de peces en tierra. Comenzando con la definición del
                                 proyecto, trabajamos con usted para entender sus requerimientos, incluyendo la especie de peces con la que
@@ -49,7 +48,7 @@ const Solution = () => {
                 </div>
             </div>
             <div className="Header">
-                <p>Cada paso que camines</p>
+                <h5>Cada paso que camines</h5>
                 <p>
                     Poseido te acompañará de principio a fin. comenzando con la planificación del concepto inicial, proporcionando todo el apoyo  que
                     necesitas para que tu proyecto de acuicultura sea un éxito.
