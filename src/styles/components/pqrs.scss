@@ -13,22 +13,29 @@
 }
 
 .content-header-pqrs{
-    background: linear-gradient(#ffa200, #ffd000);
-    border-radius: 5px 5px 90px 90px;
-    border: none;
-    padding: 20px;
+    padding: 10px;
+}
 
-    animation: motion_skew 2s;
-    animation-duration: 2.5s;
+.content-header-pqrs > span{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 40px;
+}
 
-    @keyframes motion_skew {
-        0%, 15%{
-            transform: rotateY(30deg);
-        }
-        100%{
-            transform: rotateY(-20deg);
-        }
-    }
+.content-header-pqrs > h4{
+    color: #212529;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.content-header-pqrs > p {
+    color: #343a40;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
 }
 
 .grid-pqrs{
@@ -53,9 +60,16 @@
 
 .btn-pqrs{
     width: 7rem;
-    background: linear-gradient(#ffa200, #ffd000);
+    background: linear-gradient(to right, var(--orange), var(--rubbish));
     border-radius: 5px;
     border: none;
     padding: 7px;
     place-content: center;
+}
+
+.btn-pqrs{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
 }
