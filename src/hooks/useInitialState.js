@@ -53,6 +53,13 @@ const useInitialState = () => {
         });
     };
 
+    const GetAllProducts = payload => {
+        setState({
+            ...state,
+            products: [ ...state.products, payload ]
+        });
+    };
+
 
     return {
         addToCart,
@@ -62,6 +69,7 @@ const useInitialState = () => {
         addNewUser,
         setProfile,
         addNewPeople,
+        GetAllProducts,
         state
     };
 };
