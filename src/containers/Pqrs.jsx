@@ -41,7 +41,7 @@ const Pqrs = () => {
             <div className="py-5"></div>
             <div className="card-pqrs">
                 <div className="content-header-pqrs">
-                    <span>PQR'S</span>
+                    <span className="text-gradient">PQR'S</span>
                     <h4>Peticiones Quejas O Reclamos </h4>
                     <p>
                         Para la comercializadora internacional C.I Piscicola Ayapel-Cordoba su opinión es importante. Con el fin de ofrecerle un servicio mejor cada
@@ -52,19 +52,19 @@ const Pqrs = () => {
                 <form ref={form}>
                     <div className="grid-pqrs">
                         <div className="item-pqrs">
-                            <input type="text" className="text-field" name="namefull" placeholder="Nombre completo"/>
+                            <input type="text" className="field-text" name="namefull" placeholder="Nombre completo"/>
                         </div>
                         <div className="item-pqrs">
-                            <input type="email" className="text-field" name="email" placeholder="Correo electronico"/>
+                            <input type="email" className="field-text" name="email" placeholder="Correo electronico"/>
                         </div>
                         <div className="item-pqrs">
-                            <input type="tel" className="text-field" name="phone" placeholder="Telefono"/>
+                            <input type="tel" className="field-text" name="phone" placeholder="Telefono"/>
                         </div>
                         <div className="item-pqrs">
-                            <input type="text" className="text-field" name="petition" placeholder="Peticion" />
+                            <input type="text" className="field-text" name="petition" placeholder="Peticion" />
                         </div>
                         <div className="item-pqrs">
-                            <textarea className="text-field" name="description" placeholder="Por favor escriba su asunto"></textarea>
+                            <textarea className="field-text" name="description" placeholder="Por favor escriba su asunto"></textarea>
                         </div>
                     </div>
                     <div className="item-pqrs py-3">
