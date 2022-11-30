@@ -36,11 +36,11 @@ const ToggleUser = ({ user }) => {
 const ToggleSession = () => {
     return(
         <>
-            <li className="navbar-item link-header-sign-in">
-                <Link className="nav-link active" aria-current="page" to={`sign-in`}>Iniciar Sesion</Link>
+            <li className="navbar-item">
+                <Link className="nav-link active font-link-header" aria-current="page" to={`sign-in`}>Iniciar Sesion</Link>
             </li>
             <li className="navbar-item">
-                <Link className="nav-link active link-header-sign-in" aria-current="page" to={`sign-up`}>Registrar</Link>
+                <Link className="nav-link active font-link-header" aria-current="page" to={`sign-up`}>Registrar</Link>
             </li>
         </>
     );
@@ -68,26 +68,26 @@ const Header = () => {
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to={`/`}>PlayaPez</Link>
+                    <Link className="navbar-brand text-gradient" to={`/`}>PlayaPez</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse list-title" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active" aria-current="page" to={`home`}>Home</Link>
+                                <Link className="nav-link active font-link-header" aria-current="page" to={`home`}>Home</Link>
                             </li>
                             <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active" aria-current="page" to={`products`}>Productos</Link>
+                                <Link className="nav-link active font-link-header" aria-current="page" to={`products`}>Productos</Link>
                             </li>
                             <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active" aria-current="page" to={`solution`}>Solucion</Link>
+                                <Link className="nav-link active font-link-header" aria-current="page" to={`solution`}>Solucion</Link>
                             </li>
                             <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active" aria-current="page" to={`know`}>Acerca</Link>
+                                <Link className="nav-link active font-link-header" aria-current="page" to={`know`}>Acerca</Link>
                             </li>
                             <li className="navbar-item dropdown navbar-item-list">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle font-link-header" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Contacto
                                 </a>
                                 <ul className="dropdown-menu">
