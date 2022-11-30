@@ -1,6 +1,5 @@
-import React, { useContext,useState,useEffect, useRef } from "react";
+import React, { useContext,useState, useRef, useEffect } from "react";
 import { useParams  } from "react-router-dom";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SubProduct from "../components/SubProduct";
@@ -10,22 +9,13 @@ import "../styles/components/products.scss";
 const Product = () => {
     const { category } = useParams();
     const { state, addToCart } = useContext(AppContext);
-    const [ research, setReSearch ] = useState([]);
-    const [ product, setProduct ] = useState([]);
     const { products } = state;
+    const [ product, setProduct ] = useState(...products);
     const searchRef = useRef(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3005/api/products`)
-        .then(function (response){
-            setProduct(...response.data)
-            console.log(product)
-        })
-        .catch(function (error){
-            console.error(error);
-        })
-        setReSearch(product.filter((item) => item.category === category));
-    },[]);
+        setProduct(product.filter((item) => item.category === category));
+    });
 
     const handleSearch = () => {
         if(searchRef.current.value !== ""){
@@ -42,6 +32,7 @@ const Product = () => {
 
     return(
         <div className="container py-3">
+        <div className="py-5"></div>
             <div className="header-product">
                 <h4>Lista de productos {category}</h4>
             </div>
@@ -50,7 +41,7 @@ const Product = () => {
                 <button type="button" className="btn-search-product" onClick={handleSearch}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
             </div>
             <div className="Products-items">
-                { research.map((product) => (
+                { product.map((product) => (
                     <SubProduct key={product._id} product={product} handleAddToCart={handleAddToCart}/>
                 )) }
             </div>
