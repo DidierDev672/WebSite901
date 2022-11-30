@@ -4,6 +4,7 @@ import { collection, addDoc, query, where, getDocs, setDoc, doc } from "firebase
 const contactRef = "contact";
 const profileRef = "profile";
 const pqrsRef = "pqrs";
+const productsRef = "products";
 
 export default {
     async saveContact({id,namefull, email, phone, matter, message}){
@@ -80,5 +81,23 @@ export default {
             });
         });
         return { enquiry};
+    },
+
+    async queryAllProducts(){
+        const products = [];
+        const querySnapshot = await getDocs(collection(db, productsRef));
+        querySnapshot.forEach((doc) => {
+            products.push({
+                idDocument: doc.id,
+                id: doc.data().id,
+                category: doc.data().category,
+                name_product: doc.data().name_product,
+                coverURL: doc.data().coverURL,
+                price: doc.data().price,
+                description: doc.data().description
+            });
+        });
+
+        return products;
     }
 };
