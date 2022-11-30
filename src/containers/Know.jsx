@@ -11,7 +11,7 @@ const General = () => {
     return(
         <div className="container">
             <div className="card-know">
-                <h4>Información General</h4>
+                <h4 className="text-gradient">Información General</h4>
                 <p>
                     Playa Pez, es una empresa dedicada a la producción y comercialización de especie tilapia roja, donde ofrecemos herramientas tecnológicas de hardware y
                     software desarrollados e implementadas en nuestra estación piscícola. con el fin de mejorar la productividad del sector. De esta forma te invitamos que conozca
@@ -29,7 +29,7 @@ const MisionSeth = () => {
             <div className="grid-know">
                 <div className="item-know">
                     <div className="card-know">
-                        <h4>Vision</h4>
+                        <h4 className="text-gradient">Vision</h4>
                         <p>
                             Producir y comercializar Tilapia o mojarra roja (Oreochromis.sp) de calidad con responsabilidad social y sostenibilidad social y sostenibilidad ambiental,
                             apostando a la generación de empleo, la inclusión y la seguridad alimentaria y nutrición de la región.
@@ -38,7 +38,7 @@ const MisionSeth = () => {
                 </div>
                 <div className="item-know">
                     <div className="card-know">
-                        <h4>Mision</h4>
+                        <h4 className="text-gradient">Mision</h4>
                         <p>
                             Producir y comercializar tilapia o mojarra roja (Oreochromis sp) de calidad con responsabilidad social
                             y sostenibilidad ambiental, apostando a la generación de empleo, la inclusión y la seguridad alimentaria y nutricional de la región.
@@ -56,7 +56,7 @@ const Values = () => {
 
     return(
         <div className="container-fluid">
-            <h4 className="title-values">Nuestros valores</h4>
+            <h4 className="title-values text-gradient">Nuestros valores</h4>
             <div className="grid-values">
                 {values.map((item) => (
                     <div className="item-know" key={item.id}>
@@ -84,7 +84,7 @@ const Know = () => {
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                     <TabList onChange={handleChange} aria-label="Lab API tabs example">
                         <Tab label="General" value="1"/>
-                        <Tab label="Visin/Mision" value="2"/>
+                        <Tab label="Vison/Mision" value="2"/>
                         <Tab label="Valores" value="3"/>
                     </TabList>
                 </Box>
