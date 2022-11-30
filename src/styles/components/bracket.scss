@@ -1,9 +1,10 @@
 @import "vars";
 
 .card-bracket{
-    background-color: var(--white);
+    background-color: var(--color-card);
     border-radius: 5px;
-    border: 2px solid #ffb627;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
 
     &:hover{
@@ -34,6 +35,7 @@
 }
 
 .card-bracket > h4 {
+    color: var(--red);
     font-style: normal;
     font-weight: var(--font-weight-item);
     font-size: var(--font-size-item);
