@@ -32,7 +32,7 @@
 }
 
 .Header{
-    background: linear-gradient(var(--orange), var(--rubbish));
+    background: #E45017;
     border-radius: 5px;
     border: none;
     padding: 20px;
@@ -50,11 +50,24 @@
 }
 
 .Header > p {
+    color: #FFFFFF;
     font-style: normal;
-    color: var(--black);
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
+}
+
+.Header h5{
+    display: flex;
+    place-content: center;
+}
+
+.Header > h5{
+    color: #001d3d;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 40px;
 }
 
 .grid-solution{
@@ -72,11 +85,7 @@
 }
 
 .content-soluction{
-    background: linear-gradient(var(--orange), var(--rubbish));
-    color: var(--white);
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
+    margin: 20px;
 }
 
 .content-soluction > h4 {
