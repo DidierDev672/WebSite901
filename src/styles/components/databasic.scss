@@ -1,6 +1,6 @@
 @import "vars";
 .card-data-basic{
-    background-color: var(--white);
+    background-color: var(--color-card);
     border-radius: 5px;
     border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
@@ -14,9 +14,9 @@
 
 .card-data-basic > h4 {
     font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var(--line-height-title);
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 40px;
 }
 
 .flex-data-basic{
