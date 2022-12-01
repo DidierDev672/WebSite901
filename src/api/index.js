@@ -5,6 +5,8 @@ const contactRef = "contact";
 const profileRef = "profile";
 const pqrsRef = "pqrs";
 const productsRef = "products";
+const headerBuyRef = "headerBuy";
+const detailBuyRef = "detailBuy";
 
 export default {
     async saveContact({id,namefull, email, phone, matter, message}){
@@ -48,7 +50,6 @@ export default {
     },
 
     async updateProfile({id, uid, namefull, phone, country, city, address, email, password}){
-        // console.log(uid,namefull, phone, country, city, address, email, password);
         const ProfileRef = doc(db, profileRef, id);
         await setDoc(ProfileRef, {
             uid,
@@ -99,5 +100,30 @@ export default {
         });
 
         return products;
+    },
+
+    async headerBuy({ code_buy, date_buy, namefull, phone, address, section, email, status_buy, status_trip }){
+        const docRef = await addDoc(collection(db, headerBuyRef),{
+            code_buy,
+            date_buy,
+            namefull,
+            phone,
+            address,
+            section,
+            email,
+            status_buy,
+            status_trip
+        });
+
+        return docRef;
+    },
+
+    async detailBuy ({code_buy, product}){
+        const docRef = await addDoc(collection(db, detailBuyRef),{
+            code_buy,
+            product
+        });
+
+        return docRef;
     }
 };
