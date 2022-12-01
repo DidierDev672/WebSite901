@@ -4,8 +4,9 @@ import "../styles/components/success.scss";
 const Success = () => {
     return(
         <div className="container py-5">
+            <div className="py-4"></div>
             <div className="card-success">
-                <h4>Pago exitoso</h4>
+                <h4 className="text-gradient">Pago exitoso</h4>
                 <span>
                     Tu compra se ha realizado  con éxito, En este momento tu compra está en proceso de ser enviada a tu dirección de domicilio.
                 </span>
