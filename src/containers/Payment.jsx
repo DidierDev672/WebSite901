@@ -1,18 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import {  Timestamp } from "firebase/firestore";
+import { v4 as uuidv4  } from "uuid";
 import {  PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faHomeUser } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import API from "../api";
 import AppContext from "../context/AppContext.js";
 import "../styles/components/payment.scss";
 
 const Payment = () => {
-    const { state, addNweOrder } = useContext(AppContext);
-    const { cart } = state;
-    const { trolley } = state;
+    const { state } = useContext(AppContext);
+    const { cart, trolley } = state;
+    const [ user, setUser ] = useState(...cart);
+    const [ product, setProduct ] = useState(trolley);
     const navigate = useNavigate();
 
     const initialOptions = {
@@ -36,11 +40,36 @@ const Payment = () => {
     // };
 
     const handlePaymentSuccess = () => {
-        navigate(`/shopping-bag/success`);
+        const code_buy = uuidv4();
+        API.headerBuy({
+            code_buy: code_buy,
+            date_buy: Timestamp.fromDate(new Date()),
+            namefull: user.namefull,
+            phone: user.phone,
+            address: user.address,
+            section: user.section,
+            email: user.email,
+            status_buy: false,
+            status_trip: false,
+        });
+
+        API.detailBuy({
+            code_buy: code_buy,
+            product: product
+        })
+        .then(() => {
+            const legth = trolley.length;
+            trolley.splice(0, legth);
+            navigate(`/shopping-bag/success`);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
     };
 
     return(
         <div className="container py-3">
+            <div className="py-4"></div>
             <div className="Payment-contenct">
                 <h3>Resumen del pedido</h3>
                 <div className="mb-3">
