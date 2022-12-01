@@ -35,8 +35,9 @@ const Category = () => {
 
     return(
         <div className="container">
+            <div className="py-4"></div>
         <div className="header-category">
-            <h5>Categoria de productos</h5>
+            <h5 className="text-gradient">Categoria de productos</h5>
         </div>
         <div className="content-search-category">
             <input type="text" className="field-text" placeholder="Ingresa una categoria" ref={searchRef}/>
