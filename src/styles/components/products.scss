@@ -4,6 +4,10 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-template-rows: minmax(100px,auto);
+
+    animation-duration: 1s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
 }
 
 .Products-item{
@@ -39,16 +43,17 @@
 
 .title-product-item{
     font-style: normal;
-    font-weight: var(--font-weight-item);
-    font-size: var(--font-size-item);
-    line-height: var(--line-height-item);
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 40px;
 }
 
 .sub-title-product-item{
+    color: #3A4750;
     font-style: normal;
-    font-weight: var(--font-weight-paragraph);
-    font-size: var(-- --font-size-paragrap);
-    line-height: var(--line-height-paragrap);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 .sub-price-product-item{
@@ -68,7 +73,7 @@
 
 .btn-buy-product{
     width: 2rem;
-    background-color: var(--orange);
+    background-color: #F6393E;
     color: var(--white);
     border-radius: 5px;
     border: none;
@@ -84,7 +89,7 @@
 
 .btn-add-product{
     width: 2rem;
-    background-color: var(--yellow);
+    background-color: #F6C90E;
     color: var(--black);
     border-radius: 5px;
     border: none;
