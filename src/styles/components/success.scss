@@ -1,7 +1,7 @@
 @import "vars";
 
 .card-success{
-    background-color: var(--white);
+    background-color: var(--color-card);
     border-radius: 5px;
     border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
@@ -28,10 +28,11 @@
 }
 
 .card-success > span {
+    color: #374955;
     font-style: normal;
-    font-weight: var(--font-weight-paragraph);
-    font-size: var(--font-size-paragrap);
-    line-height: var(--line-height-paragrap);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 .flex-success{
