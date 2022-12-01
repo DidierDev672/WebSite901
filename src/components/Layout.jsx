@@ -1,5 +1,7 @@
 import React from 'react';
+import ReactWhatsapp from 'react-whatsapp';
 import Header from "./Header";
+import "../styles/components/whatsapp.scss";
 
 
 const Layout = ({ children }) => {
@@ -7,6 +9,9 @@ const Layout = ({ children }) => {
         <div className="layout">
             <Header />
             {  children }
+            <ReactWhatsapp number="+57 320-573-7554" className="btn-whatsapp">
+                <i className="fa-brands fa-whatsapp font-whatsapp"></i>
+            </ReactWhatsapp>
         </div>
     );
 };
