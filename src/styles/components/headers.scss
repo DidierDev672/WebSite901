@@ -8,9 +8,18 @@
 
 .navbar{
     position: fixed;
+    background: linear-gradient(#fbfbf2, #ffffff);
     width: 100%;
     border-radius: 5px;
-    background: linear-gradient(#fbfbf2, #ffffff);
+    border: 4px solid var(--border-card);
+    padding: 5px;
+
+    &:hover{
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+        animation-duration: 2s;
+        transition-duration: 0.5s;
+        margin: 20px;
+    }
 }
 
 .item-header-rigth{
