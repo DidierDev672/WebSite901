@@ -10,6 +10,7 @@ import "../styles/components/information.scss";
 const SessionActive = ({ user }) => {
     return(
         <div className="container py-5">
+            <div className="py-4"></div>
             <div className="card-active">
                 <h4>Datos basicos </h4>
                 <div className="flex-active">
@@ -44,6 +45,7 @@ const Information = () => {
 
     return(
         <div className="container py-3">
+            <div className="py-4"></div>
             <div className="mb-3">
                 <div className="row g-0">
                     <div className="col-md-6">
@@ -55,7 +57,7 @@ const Information = () => {
                             </div>
                         </div>
                         <div className="Information-sidebar">
-                            <h5>Pedido</h5>
+                            <h5 className="text-gradient">Pedido</h5>
                             {trolley.map((item) => (
                                 <div className="list-group list-group-flush" key={item.id}>
                                     <div className="item-list">
