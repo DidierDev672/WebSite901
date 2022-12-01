@@ -30,24 +30,19 @@ const DataBasic = () => {
                 <form ref={form}>
                     <div className="flex-data-basic">
                         <div className="item-data-basic">
-                            <label>Nombre completo</label>
-                            <input type="text" className="field-text" id="namefull" name="namefull" placeholder="Juan perez"/>
+                            <input type="text" className="field-text" id="namefull" name="namefull" placeholder="Nombre completo"/>
                         </div>
                         <div className="item-data-basic">
-                            <label >Correo electronico</label>
-                            <input type="email" className="field-text" id="email" name="email" placeholder="ejemplo@ejemplo.com"/>
+                            <input type="email" className="field-text" id="email" name="email" placeholder="Correo electronico"/>
                         </div>
                         <div className="item-data-basic">
-                            <label >Direccion</label>
-                            <input type="text" className="field-text" id="address" name="address" placeholder="Ciudad - barrio - numero de calle"/>
+                            <input type="text" className="field-text" id="address" name="address" placeholder="Direccion"/>
                         </div>
                         <div className="item-data-basic">
-                            <label >Departamento</label>
-                            <input type="text" className="field-text" id="section" name="section" placeholder="xxxxxxxxxx"/>
+                            <input type="text" className="field-text" id="section" name="section" placeholder="Departamento"/>
                         </div>
                         <div className="item-data-basic">
-                            <label>Numero telefono</label>
-                            <input type="tel" className="field-text" id="phone" name="phone" placeholder="000-000-0000"/>
+                            <input type="tel" className="field-text" id="phone" name="phone" placeholder="Telefono"/>
                         </div>
                         <div className="item-data-basic">
                             <button type="button" className="btn-buy" onClick={handleSubmit}>Comprar</button>
