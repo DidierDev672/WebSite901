@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { Outlet,Link } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../api/firebase.js";
@@ -6,28 +7,26 @@ import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import API from "../api";
-import AppContext from "../context/AppContext.js";
+import { setUser } from "../reducers/users/userSlice";
 import "../styles/components/headers.scss";
 
 const IconUser = () => {
-    const { state } = useContext(AppContext);
-    const { user } = state;
     const [ profile, setProfile ] = useState(false);
-    const [ data, setData ] = useState(...user);
     return(
         <li className="navbar-item py-2">
             <button type="button" className="btn-profile-header" onClick={() => setProfile(!profile)}><FontAwesomeIcon  icon={faUser}/>
-                { profile ? <ToggleUser user={data}  /> : '' }
+                { profile ? <ToggleUser  /> : '' }
             </button>
         </li>
     );
 };
 
-const ToggleUser = ({ user }) => {
+const ToggleUser = () => {
+    const { email, namefull } = useSelector(state => state.user);
     return(
         <ul className="card-dropdown">
-            <li className="list-group-item">{ user.namefull }</li>
-            <li className="list-group-item">{ user.email }</li>
+            <li className="list-group-item">{ namefull }</li>
+            <li className="list-group-item">{ email }</li>
             <li className="list-group-item"> <Link className="header-profile" to={`profile-user`}>Editar</Link> </li>
         </ul>
     );
@@ -47,15 +46,24 @@ const ToggleSession = () => {
 };
 
 const Header = () => {
-    const { state, setProfile} = useContext(AppContext);
-    const { trolley, user } = state;
+    const dispatch = useDispatch();
+    const { email } = useSelector(state => state.user);
+    const {  totalCount  } = useSelector(state => state.cart);
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if(user){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
-                    setProfile(...result.enquiry);
+                    if(result.enquiry.length > 0){
+                        dispatch(setUser( result.enquiry ));
+                    }else{
+                        dispatch(setUser({
+                            email: user.email,
+                            uid: user.uid,
+                            namefull: user.displayName
+                        }))
+                    }
                 })
                 .catch((error) => {
                     console.error(error);
@@ -98,10 +106,9 @@ const Header = () => {
                         </ul>
                         <form className="d-flex item-header-rigth">
                             <ul className="navbar-nav">
-                            { user.length > 0 ? <IconUser /> : <ToggleSession /> }
+                            { email !== "" ? <IconUser  /> :  <ToggleSession/> }
                                 <li className="navbar-item flex-item-navbar">
-                                    <Link className="nav-link active" aria-current="page" to={`shopping-bag`}> <FontAwesomeIcon icon={faBagShopping}/> </Link>
-                                    { trolley.length > 0  && <div className="header-shopping-bag"> <span> { trolley.length } </span></div> }
+                                    <Link className="nav-link active" aria-current="page" to={`shopping-bag`}> <FontAwesomeIcon icon={faBagShopping}/> <span className="quantity-orders">{ totalCount }</span></Link>
                                 </li>
                             </ul>
                         </form>
