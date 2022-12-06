@@ -1,24 +1,16 @@
-import React, { useRef, useContext, useEffect} from 'react';
+import React, { useRef,useEffect} from 'react';
+import {  useDispatch } from "react-redux";
+import { setUser } from "../reducers/users/userSlice";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate  } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import { auth } from "../api/firebase.js";
 import "../styles/components/signup.scss";
-import AppContext from "../context/AppContext.js";
 
 const SignUp = () => {
-    const { addNewUser } = useContext(AppContext);
+    const dispatch = useDispatch();
     const form = useRef(null);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if(user){
-                addNewUser(user);
-                navigate(`/profile-user`);
-            }
-        });
-    });
 
     const handleSubmit = () => {
         const formData = new FormData(form.current);
@@ -29,16 +21,24 @@ const SignUp = () => {
         };
 
         createUserWithEmailAndPassword(auth, buyer.email, buyer.password)
-        .then(() => {
-            addNewUser(buyer);
-            navigate(`/profile-user`);
+        .then((userCredential) => {
+            const user = userCredential;
+            dispatch(setUser({
+                email: user.email,
+                uid: user.uid,
+                namefull: user.displayName
+            }));
+
+            navigate(`/home`);
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(errorCode);
-            console.error(errorMessage);
-        });
+            console.error(error)
+        })
+        dispatch(setUser({
+            email: buyer.email,
+            password: buyer.password,
+            uid: buyer.id
+        }));
     };
 
     return(
@@ -47,7 +47,7 @@ const SignUp = () => {
             <div className="card-sign-up">
                 <div className="header-sign-in">
                     <div className="item-header">
-                        <h5>Registrar usuario</h5>
+                        <h5 className="text-gradient">Registrar usuario</h5>
                     </div>
                     <div className="item-header">
                         <span>
@@ -75,5 +75,6 @@ const SignUp = () => {
         </div>
     );
 };
+
 
 export default SignUp;
