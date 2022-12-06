@@ -1,58 +1,57 @@
-import React, { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
 import { Link } from "react-router-dom";
-import AppContext from "../context/AppContext.js";
+import { useSelector, useDispatch } from "react-redux";
+import {  removeProductFromCart } from "../reducers/cart/cartSlice";
 import "../styles/components/shoppingcart.scss";
 
 const ShoppingCart = () => {
-    const { state, removeFromCart } = useContext(AppContext);
-    const { trolley } = state;
+    const dispatch = useDispatch();
+    const { productsList } = useSelector(state => state.cart);
 
-    const handleRemove = product => () => {
-        removeFromCart(product);
-    };
+    const handleRemoveProduct = (productId) => dispatch(removeProductFromCart(productId));
 
     const handleSumTotal = () => {
         const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
-        const sum = trolley.reduce(reducer, 0);
+        const sum = productsList.reduce(reducer, 0);
         return sum;
     };
 
     return(
-        <div className="container-fluid py-3">
-            <div className="shopping-bag">
-                <div className="card-shopping-bag">
-                    <br />
-                    { trolley.length > 0 ? <h3>Lista de pedidos</h3> : <h3>Sin pedidos...</h3> }
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" className="font-table-header">Nombre producto</th>
-                                <th scope="col" className="font-table-header">Precio</th>
-                                <th scope="col" className="font-table-header">Eliminar</th>
+        <div className="container">
+            <div className="py-5"></div>
+            <h4 className="title-shopping-cart">Nuestro pedido</h4>
+            <table className="table">
+                <thead>
+                    <tr className='table-header-cart'>
+                        <th scope="col">ID</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {productsList.map((product) => {
+                        return (
+                            <tr key={product.id} className='table-body-cart'>
+                                <th scope="row">{product.id}</th>
+                                <th scope="row">{product.name_product}</th>
+                                <th scope="row">{product.category}</th>
+                                <th scope="row">${product.price}</th>
+                                <th scope="row"><button className="btn-delete-cart" onClick={() => handleRemoveProduct(product.id)}>Eliminar</button></th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {trolley.map((product) => (
-                                <tr key={product.id}>
-                                    <th className="font-table-body">{product.name_product}</th>
-                                    <th className="font-table-body">${product.price}</th>
-                                    <th><button type="button" className="btn-delete-shopping" onClick={handleRemove(product)}><FontAwesomeIcon  icon={faTrash}/></button></th>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                        );
+                    })}
+                </tbody>
+            </table>
+            <div className="py-4">
+                {productsList.length > 0 && (
+                    <div className="content-total-orders">
+                        <h4>{`Total pedido:$ ${handleSumTotal()}`}</h4>
+                        <Link to={`/shopping-bag/information`} className="btn-to-end">Continuar comprar</Link>
+                    </div>
+                )}
             </div>
-            {trolley.length > 0 && (
-                <div className="shopping-sidebar">
-                    <h3>{`Precio Total $ ${handleSumTotal()}`}</h3>
-                    <Link to={`/shopping-bag/information`}>
-                        <button type="button" className="btn-continue-order">Continuar pedido</button>
-                    </Link>
-                </div>
-            )}
         </div>
     );
 };

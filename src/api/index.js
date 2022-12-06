@@ -81,7 +81,7 @@ export default {
                 password: doc.data().password
             });
         });
-        return { enquiry};
+        return { enquiry };
     },
 
     async queryAllProducts(){

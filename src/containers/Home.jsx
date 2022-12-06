@@ -1,5 +1,7 @@
 import React from "react";
+import { getAllProducts } from "../reducers/cart/cartSlice";
 import { Link } from "react-router-dom";
+import API from "../api";
 import VideoComponent from "../components/VideoComponent";
 import "../styles/components/home.scss";
 

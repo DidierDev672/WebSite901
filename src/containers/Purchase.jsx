@@ -7,14 +7,16 @@ import "../styles/components/purchase.scss";
 const Purchase = () => {
     const { id } = useParams();
     const { state } = useContext(AppContext);
-    const [ result, setResult ] = useState([]);
     const { products } = state;
+    const [ all, setAll ] = useState(...products);
+    const [ result, setResult ] = useState([]);
 
     useEffect(() => {
-        setResult( products.filter((item) => item.id == id))
+        setResult( all.filter((item) => item.id == id))
     },[]);
     return(
         <div className="container py-3">
+            <div className="py-4"></div>
             <div className="mb-3">
                 <div className="row g-0">
                     <div className="col-md-6">
