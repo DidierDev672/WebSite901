@@ -1,5 +1,4 @@
-import React, { useContext, useState,useRef, useEffect} from "react";
-import API from "../api";
+import React, { useContext, useState,useRef} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import ItemCategory from "./ItemCategory.jsx";
@@ -8,20 +7,10 @@ import "../styles/components/category.scss";
 
 
 const Category = () => {
-    const { state,GetAllProducts } = useContext(AppContext);
+    const { state } = useContext(AppContext);
     const { category } = state;
     const [ search, setSearch ] = useState(category);
     const searchRef = useRef(null);
-
-    useEffect(() => {
-        API.queryAllProducts()
-        .then((result) => {
-            GetAllProducts(result);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    },[]);
 
     const handleSearch = () => {
         if(searchRef.current.value !== ""){
