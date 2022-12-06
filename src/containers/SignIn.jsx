@@ -1,23 +1,25 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../api/firebase";
-import AppContext from "../context/AppContext.js";
+import { setUser } from "../reducers/users/userSlice";
 import "../styles/components/signin.scss";
 
 const SignIn = () => {
-    const { addNewUser } = useContext(AppContext);
+    const dispatch = useDispatch();
     const form = useRef(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if(user){
-                addNewUser({
-                    uid: user.uid,
+                dispatch(setUser({
                     email: user.email,
-                });
-                navigate(`/profile-user`);
+                    namefull: user.displayName,
+                    uid: user.uid,
+                }));
+                navigate(`/home`);
             }
         });
     });
@@ -32,7 +34,10 @@ const SignIn = () => {
         if(singIn.email !== "" && singIn.password !== ""){
             signInWithEmailAndPassword(auth, singIn.email, singIn.password)
             .then(() => {
-                navigate(`/profile-user`);
+                dispatch(setUser({
+                    email: singIn.email
+                }));
+                navigate(`/home`);
             })
             .catch((error) => {
                 const errorCode = error.code;
