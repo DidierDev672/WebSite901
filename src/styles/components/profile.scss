@@ -78,14 +78,21 @@
     justify-content: center;
 }
 
-.content-profile > h4{
+.btn-update-user{
     display: flex;
-    place-content: center;
+    margin: auto;
 }
 
-.content-profile > h4 {
+.btn-update-user{
+    background: linear-gradient(to left, var(--orange), var(--rubbish));
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
+
+.btn-update-user{
     font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var(--line-height-title);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
 }

@@ -1,157 +1,77 @@
 @import "vars";
-.Products-items{
+.content-product{
+    display: flex;
+    place-content: center;
+}
+
+.content-product > h4 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.content-list-product{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-template-rows: minmax(100px,auto);
-
-    animation-duration: 1s;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
+    gap: 10px;
+    grid-template-rows: minmax(100px, auto);
 }
 
-.Products-item{
-    background-color: var(--white);
-    border-radius: 5px;
-    border: 2px solid  var(--border-card);
+.card-list-card{
+    background: var(--white);
+    border-radius: 8px;
+    border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
-    padding: 10px;
-
-    &:hover{
-        box-shadow: 8px 8px 8px var(--box-shadow-card);
-    }
+    padding: 20px;
 }
 
-.Product-item-info{
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    justify-content: center;
+.card-list-card {
+    list-style: none;
 }
 
-.header-product{
-    display: flex;
-    place-content: center;
-}
-
-.header-product > h4 {
+.title-list-products{
     font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var(--line-height-title);
+    font-weight: 700;
+    font-size: 1rem;
 }
 
-.title-product-item{
-    font-style: normal;
-    font-weight: 900;
-    font-size: 30px;
-    line-height: 40px;
-}
-
-.sub-title-product-item{
-    color: #3A4750;
+.price-list-products{
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 1rem;
 }
 
-.sub-price-product-item{
-    font-style: italic;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 22px;
+.description-list-products{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
-.flex-product-item{
+.flex-item-button{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
     justify-content: center;
 }
 
-.btn-buy-product{
-    width: 2rem;
-    background-color: #F6393E;
-    color: var(--white);
-    border-radius: 5px;
+.btn-cart{
+    background: linear-gradient(to right, var(--orange), var(--rubbish));
+    border-radius: 8px;
     border: none;
-    padding: 7px;
+    padding: 10px;
 }
 
-.btn-buy-product{
+.btn-cart{
     font-style: normal;
-    font-weight: var(--btn-font-weigth);
-    font-size: var(--btn-font-size);
-    line-height: var(--btn-line-heigth);
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-.btn-add-product{
-    width: 2rem;
-    background-color: #F6C90E;
-    color: var(--black);
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-}
-
-.field-search{
-    display: flex;
-    gap: 20px;
-    place-content: center;
-}
-
-.field-search > input {
-    width: 50%;
-    text-align: center;
-}
-
-.btn-search-product{
-    width: 3rem;
-    background-color: var(--orange);
+.btn-delete-product{
+    background: linear-gradient(to right, #c1121f, #780000);
     color: var(--white);
-    border-radius: 5px;
+    border-radius: 8px;
     border: none;
-    padding: 5px;
-}
-
-@media screen and (max-width: 640px){
-    .Products-items{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 667px){
-    .Products-items{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 896px){
-    .Products-items{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 915px){
-    .Products-items{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
+    padding: 8px;
 }
