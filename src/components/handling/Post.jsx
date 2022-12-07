@@ -5,16 +5,13 @@ import "../../styles/components/blog.scss";
 
 
 const Post = () => {
-    const { id } = useParams();
-    const { authors, blogDetalle, blogHeader } = useSelector(state => state.blog);
-    const [ creator, setCreator ] = useState([]);
+    const { idPost } = useParams();
+    const { blogDetalle, blogHeader } = useSelector(state => state.blog);
     const [ post, setPost ] = useState([]);
     const [ header, setHeader ] = useState([]);
     useEffect(() => {
-        const query = authors.find(item => item.id == id);
-        const queryPost = blogDetalle.find(item => item.idAuthor == id);
-        const queryHeader = blogHeader.find(item => item.idAuthor == id);
-        setCreator(query);
+        const queryPost = blogDetalle.find(item => item.idPost === idPost);
+        const queryHeader = blogHeader.find(item => item.idPost === idPost);
         setPost(queryPost);
         setHeader(queryHeader);
     },[]);
@@ -24,20 +21,20 @@ const Post = () => {
             <div className="content-blog-post">
                 <div className="flex-author-post">
                     <div className="item-author-post">
-                        <img src={creator.coverAuthor}/>
+                        <img src={header.coverAuthor}/>
                         <br />
-                        <span className='author-post'>{creator.name_author}</span>
+                        <span className='author-post'>{header.name_author}</span>
                     </div>
                     <div className="item-author-post">
                         <div className="sub-item-post-blog">
                             <span className="category">{header.category}</span> <span className="date-public">{header.date_public}</span>
                         </div>
                         <div className="py-3"></div>
-                        <h4 className="title-post">{post.titleOne}</h4>
+                        <h4 className="title-post">{header.titlePost}</h4>
                         <div className="sub-item-post-blog">
-                            <a className="facebook" href={`${creator.facebook}`}>Facebook</a>
-                            <a className="instagram" href={`${creator.instagram}`}>Instagram</a>
-                            <a className="twitter" href={`${creator.twitter}`}>Twitter</a>
+                            <a className="facebook" href={`${header.facebook}`}>Facebook</a>
+                            <a className="instagram" href={`${header.instagram}`}>Instagram</a>
+                            <a className="twitter" href={`${header.twitter}`}>Twitter</a>
                         </div>
                     </div>
                 </div>
