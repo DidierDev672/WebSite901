@@ -103,6 +103,9 @@ const Header = () => {
                                     <li><Link className="dropdown-item" aria-current="page" to={`pqrs`}>PQR'S</Link></li>
                                 </ul>
                             </li>
+                            <li className="navbar-item navbar-item-list">
+                                <Link className="nav-link active font-link-header" aria-current="page" to={`/blog`}>Blog</Link>
+                            </li>
                         </ul>
                         <form className="d-flex item-header-rigth">
                             <ul className="navbar-nav">
