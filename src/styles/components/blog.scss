@@ -1,0 +1,219 @@
+@import "vars";
+
+.content-blog > h4{
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+}
+
+.content-blog > h4::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #d90429, #ff5400);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.content-blog > h4{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.flex-post-blog{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.flex-item-post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.item-row{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1px;
+}
+
+.card-post-blog{
+    background-image: linear-gradient( 109.6deg,  #f8f9fa 11.2%, #ffffff 100.2% );
+    border-radius: 1rem;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
+    padding: 0;
+    text-decoration: none;
+}
+
+
+.link-post-title {
+    color:#293241;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-decoration: none;
+
+    &:hover{
+        color: #000814;
+    }
+}
+
+.card-post-blog > span{
+    color: #343a40;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 2rem;
+}
+
+.flex-item-blog-post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-post-category{
+    background-image: linear-gradient( 110.1deg,  rgba(241,115,30,1) 18.9%, rgba(231,29,54,1) 90.7% );
+    border-radius: 0.5rem;
+    padding: 2px;
+    margin: 0;
+}
+
+.item-post-category{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.item-post-date{
+    background-image: linear-gradient( 109.6deg,  rgba(204,228,247,1) 11.2%, rgba(237,246,250,1) 100.2% );
+    border-radius: 0.5rem;
+    padding: 2px;
+    margin: 0;
+}
+
+.item-post-date{
+    color: #212529;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.img-post-blog{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 3rem;
+}
+
+.flex-author-post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.sub-item-post-blog{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+.author-post{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.title-post{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.category{
+    background-image: radial-gradient( circle 674px at 18.3% 77%,  rgba(139,186,244,1) 3.4%, rgba(15,51,92,1) 56.6% );
+    border-radius: 8px;
+    border: none;
+    padding: 0.2rem;
+}
+
+.category{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+}
+
+.date-public{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.8rem;
+}
+
+.facebook{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(37,145,251,0.98) 0.1%, rgba(0,7,128,1) 99.8% );
+    color: var(--white);
+    border-radius: 8px;
+    border: none;
+    padding: 0.3rem;
+    text-decoration: none;
+}
+
+.instagram{
+    background-image: radial-gradient( circle 905.6px at 4.9% 7.9%,  rgba(218,0,0,1) 14.1%, rgba(168,2,144,1) 65%, rgba(102,2,110,1) 90% );
+    color: var(--white);
+    border-radius: 8px;
+    border: none;
+    padding: 0.3rem;
+    text-decoration: none;
+}
+
+.twitter{
+    background-image: linear-gradient( 109.6deg,  rgba(45,116,213,1) 11.2%, rgba(121,137,212,1) 91.2% );
+    color: var(--white);
+    border-radius: 8px;
+    border: none;
+    padding: 0.3rem;
+    text-decoration: none;
+}
+
+.content-post > h4{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
+.content-post > p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.list-post > li{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #012a4a;
+}
