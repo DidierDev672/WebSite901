@@ -15,13 +15,13 @@ const Blog = () => {
                 <div className="context-blog-post py-4">
                     {blogHeader.map((item) => (
                         <div key={item.idPost} className="flex-post-blog py-3">
-                            <Link className="card-post-blog" to={`${item.idAuthor}`}>
+                            <Link className="card-post-blog" to={`${item.idPost}`}>
                                 <div className="flex-item-post">
                                     <div className="item-row">
                                         <img src={item.cover} className="rounded img-post-blog"/>
                                     </div>
                                     <div className="item-row">
-                                    <h4><Link className="link-post-title" to={`${item.idAuthor}`}>{item.titlePost}</Link></h4>
+                                    <h4><Link className="link-post-title" to={`${item.idPost}`}>{item.titlePost}</Link></h4>
                                     <span>{item.description}</span>
                                         <div className="flex-item-blog-post">
                                             <span className="item-post-category">{item.category}</span>  <span className="item-post-date">{item.date_public}</span>
