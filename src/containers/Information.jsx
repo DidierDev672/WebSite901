@@ -1,13 +1,14 @@
-import React, { useContext, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import DataBasic from "../components/Databasic";
-import AppContext from "../context/AppContext";
 import "../styles/components/information.scss";
 
 
-const SessionActive = ({ user }) => {
+const SessionActive = () => {
+    const { email, namefull, phone, country, city, address, uid, id} = useSelector(state => state.user);
     return(
         <div className="container py-5">
             <div className="py-4"></div>
@@ -15,22 +16,22 @@ const SessionActive = ({ user }) => {
                 <h4>Datos basicos </h4>
                 <div className="flex-active">
                     <div className="item-active">
-                        <span> { user.namefull } </span>
+                        <span> { namefull } </span>
                     </div>
                     <div className="item-active">
-                        <span> { user.email } </span>
+                        <span> { email } </span>
                     </div>
                     <div className="item-active">
-                        <span> { user.phone } </span>
+                        <span> { phone } </span>
                     </div>
                     <div className="item-active">
-                        <span> { user.country } / { user.address  } </span>
+                        <span> { country } / { user.address  } </span>
                     </div>
                     <div className="item-active-row">
                         <div>
                             <Link to={`/profile-user`} className="btn-edit-user">Editar</Link>
                         </div>
-                        { user.namefull !== "" ? ""  : <button type="button" className="btn-buy">Contiinuar</button> }
+                        { id !== "" ? ""  : <button type="button" className="btn-buy">Contiinuar</button> }
                     </div>
                 </div>
             </div>
@@ -39,10 +40,8 @@ const SessionActive = ({ user }) => {
 };
 
 const Information = () => {
-    const { state } = useContext(AppContext);
-    const { trolley, user } = state;
-    const [ profile, setProfile ] = useState(...user);
-
+    const { productsList } = useSelector(state => state.cart);
+    const { uid } = useSelector(state => state.user);
     return(
         <div className="container py-3">
             <div className="py-4"></div>
@@ -58,7 +57,7 @@ const Information = () => {
                         </div>
                         <div className="Information-sidebar">
                             <h5 className="text-gradient">Pedido</h5>
-                            {trolley.map((item) => (
+                            {productsList.map((item) => (
                                 <div className="list-group list-group-flush" key={item.id}>
                                     <div className="item-list">
                                         <h5 className="list-group-item"><FontAwesomeIcon icon={faBox} /> {item.name_product}</h5>
@@ -69,7 +68,7 @@ const Information = () => {
                         </div>
                     </div>
                 <div className="col-md-6">
-                    {  user.length > 0 ? <SessionActive user={profile} /> :  <DataBasic /> }
+                    {  uid !== "" ? <SessionActive /> :  <DataBasic /> }
                 </div>
                 </div>
             </div>
