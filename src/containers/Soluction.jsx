@@ -19,7 +19,7 @@ const Solution = () => {
         {/* <img src={imgUrl} className="img-fluid rounded animation-img" /> */}
         <h5 className="text-gradient">Solucion Inteligente</h5>
         </div>
-        <div className="Header">
+        <div>
         <p>
         para un desafio continuo Una plataforma inteligente y sostenible para la producción terrestre
             de peces naturales, saludables y nutritivos.
@@ -47,8 +47,8 @@ const Solution = () => {
                     </div>
                 </div>
             </div>
-            <div className="Header">
-                <h5>Cada paso que camines</h5>
+            <div>
+                <h5 className="text-gradient">Cada paso que camines</h5>
                 <p>
                     Poseido te acompañará de principio a fin. comenzando con la planificación del concepto inicial, proporcionando todo el apoyo  que
                     necesitas para que tu proyecto de acuicultura sea un éxito.
