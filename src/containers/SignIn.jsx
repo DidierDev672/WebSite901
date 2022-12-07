@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect} from 'react';
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import API from "../api";
 import { auth } from "../api/firebase";
 import { setUser } from "../reducers/users/userSlice";
 import "../styles/components/signin.scss";
@@ -14,15 +15,36 @@ const SignIn = () => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if(user){
-                dispatch(setUser({
-                    email: user.email,
-                    namefull: user.displayName,
-                    uid: user.uid,
-                }));
-                navigate(`/home`);
+                API.queryProfile({ uid: user.uid })
+                .then((result) => {
+                    if(result.id !== ""){
+                        dispatch(setUser({
+                            namefull: result.namefull,
+                            phone: result.phone,
+                            email: result.email,
+                            id: result.id,
+                            country: result.country,
+                            city: result.city,
+                            address: result.address,
+                            uid: result.uid
+                        }))
+                    }else{
+                        dispatch(setUser({
+                            email: user.email,
+                            uid: user.uid,
+                            namefull: user.namefull
+                        }))
+                    }
+                    navigate(`/home`);
+
+
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
             }
         });
-    });
+    },[]);
 
     const handleSubmit = () => {
         const formData = new FormData(form.current);
