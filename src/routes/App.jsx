@@ -17,8 +17,10 @@ import Payment from "../containers/Payment";
 import Success from "../containers/Success";
 import Purchase from "../containers/Purchase";
 import Solution from "../containers/Soluction";
+import Blog from "../containers/Blog";
 
 import Product from "../components/Product";
+import Post from "../components/handling/Post";
 
 const App = () => {
   const initialState = useInitialState();
@@ -34,6 +36,7 @@ const App = () => {
             <Route path="/know" element={<Know />}/>
             <Route path="/contact" element={<Contact />}/>
             <Route path="/pqrs" element={<Pqrs />}/>
+            <Route path="/blog" element={<Blog />}/>
             <Route path="/sign-in" element={<SignIn />}/>
             <Route path="/sign-up" element={<SignUp />}/>
             <Route path="/profile-user" element={<ProfileUser/>}/>
@@ -43,6 +46,7 @@ const App = () => {
             <Route path="/shopping-bag/success" element={<Success />}/>
             <Route path="/purchase/:id" element={<Purchase />}/>
             <Route path="products/:category" element={<Product />}/>
+            <Route path="/blog/:id" element={<Post />}/>
           </Routes>
         </Layout>
       </BrowserRouter>
