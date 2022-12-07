@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {  Timestamp } from "firebase/firestore";
 import { v4 as uuidv4  } from "uuid";
 import {  PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
@@ -8,15 +9,15 @@ import { faAt } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faHomeUser } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
+import { faCity } from "@fortawesome/free-solid-svg-icons";
 import API from "../api";
-import AppContext from "../context/AppContext.js";
 import "../styles/components/payment.scss";
 
 const Payment = () => {
-    const { state } = useContext(AppContext);
-    const { cart, trolley } = state;
-    const [ user, setUser ] = useState(...cart);
-    const [ product, setProduct ] = useState(trolley);
+    const { productsList,purchaser } = useSelector(state => state.cart);
+    const [ buyer, setBuyer ] = useState(...purchaser);
+    const [ products, setProducts ] = useState(productsList);
     const navigate = useNavigate();
 
     const initialOptions = {
@@ -44,22 +45,20 @@ const Payment = () => {
         API.headerBuy({
             code_buy: code_buy,
             date_buy: Timestamp.fromDate(new Date()),
-            namefull: user.namefull,
-            phone: user.phone,
-            address: user.address,
-            section: user.section,
-            email: user.email,
+            namefull:  buyer.namefull,
+            phone:  buyer.phone,
+            address:  buyer.address,
+            section:  buyer.section,
+            email:  buyer.email,
             status_buy: false,
             status_trip: false,
         });
 
         API.detailBuy({
             code_buy: code_buy,
-            product: product
+            product:products
         })
         .then(() => {
-            const legth = trolley.length;
-            trolley.splice(0, legth);
             navigate(`/shopping-bag/success`);
         })
         .catch((error) => {
@@ -75,13 +74,15 @@ const Payment = () => {
                 <div className="mb-3">
                     <div className="row g-0">
                         <div className="col-md-4">
-                            {cart.map((item) => (
+                            {purchaser.map((item) => (
                                 <div className="Payment-item" key={item.id}>
                                     <div className="Payment-element">
                                         <span><FontAwesomeIcon icon={faPerson}/> {item.namefull}</span>
                                         <span><FontAwesomeIcon icon={faAt}/> {item.email}</span>
-                                        <span><FontAwesomeIcon icon={faHomeUser} /> {item.address} / {item.section}</span>
                                         <span><FontAwesomeIcon icon={faPhone}/> {item.phone}</span>
+                                        <span><FontAwesomeIcon icon={faEarthAmericas}/> {item.country}</span>
+                                        <span><FontAwesomeIcon icon={faCity}/> {item.city}</span>
+                                        <span><FontAwesomeIcon icon={faHomeUser} /> {item.address} / {item.section}</span>
                                     </div>
                                 </div>
                             ))}
@@ -96,7 +97,7 @@ const Payment = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {trolley.map((item) => (
+                                    {productsList.map((item) => (
                                         <tr key={item.id} className="font-tbody">
                                             <th>{item.name_product}</th>
                                             <th>{item.category}</th>
