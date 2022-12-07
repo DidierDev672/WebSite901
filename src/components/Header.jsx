@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 import { Outlet,Link } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../api/firebase.js";
 import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import API from "../api";
-import { setUser } from "../reducers/users/userSlice";
 import "../styles/components/headers.scss";
 
 const IconUser = () => {
@@ -46,31 +42,8 @@ const ToggleSession = () => {
 };
 
 const Header = () => {
-    const dispatch = useDispatch();
     const { email } = useSelector(state => state.user);
     const {  totalCount  } = useSelector(state => state.cart);
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if(user){
-                API.queryProfile({ uid: user.uid })
-                .then((result) => {
-                    if(result.enquiry.length > 0){
-                        dispatch(setUser( result.enquiry ));
-                    }else{
-                        dispatch(setUser({
-                            email: user.email,
-                            uid: user.uid,
-                            namefull: user.displayName
-                        }))
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
-                })
-            }
-        })
-    },[]);
 
     return(
         <div className="container-fluid">
