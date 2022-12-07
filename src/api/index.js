@@ -50,6 +50,7 @@ export default {
     },
 
     async updateProfile({id, uid, namefull, phone, country, city, address, email, password}){
+        console.log(id,uid, namefull, phone, country, city, address, email, password);
         const ProfileRef = doc(db, profileRef, id);
         await setDoc(ProfileRef, {
             uid,
@@ -65,12 +66,12 @@ export default {
     },
 
     async queryProfile({uid}){
-        const enquiry = [];
+        let enquiry = {};
         const q = query(collection(db, profileRef), where ("uid", "==", uid));
 
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            enquiry.push({
+            enquiry = {
                 id: doc.id, uid: doc.data().uid,
                 namefull: doc.data().namefull,
                 phone: doc.data().phone,
@@ -79,9 +80,10 @@ export default {
                 address: doc.data().address,
                 email: doc.data().email,
                 password: doc.data().password
-            });
+            };
         });
-        return { enquiry };
+
+        return enquiry;
     },
 
     async queryAllProducts(){
@@ -93,7 +95,6 @@ export default {
                 id: doc.data().id,
                 category: doc.data().category,
                 name_product: doc.data().name_product,
-                coverURL: doc.data().coverURL,
                 price: doc.data().price,
                 description: doc.data().description
             });
