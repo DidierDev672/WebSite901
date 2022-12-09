@@ -22,13 +22,14 @@ export default {
         return docRef;
     },
 
-    async saveProfile({uid, namefull, phone, country, city, address, email, password}){
+    async saveProfile({uid, namefull, phone, country, city, section,address, email, password}){
         const docRef = await addDoc(collection(db, profileRef), {
             uid,
             namefull,
             phone,
             country,
             city,
+            section,
             address,
             email,
             password
@@ -49,8 +50,7 @@ export default {
         return docRef;
     },
 
-    async updateProfile({id, uid, namefull, phone, country, city, address, email, password}){
-        console.log(id,uid, namefull, phone, country, city, address, email, password);
+    async updateProfile({id, uid, namefull, phone, country, city, section,address, email, password}){
         const ProfileRef = doc(db, profileRef, id);
         await setDoc(ProfileRef, {
             uid,
@@ -58,6 +58,7 @@ export default {
             phone,
             country,
             city,
+            section,
             address,
             email,
             password
@@ -103,14 +104,13 @@ export default {
         return products;
     },
 
-    async headerBuy({ code_buy, date_buy, namefull, phone, address, section, email, status_buy, status_trip }){
+    async headerBuy({ code_buy, date_buy, namefull, phone, address, email, status_buy, status_trip }){
         const docRef = await addDoc(collection(db, headerBuyRef),{
             code_buy,
             date_buy,
             namefull,
             phone,
             address,
-            section,
             email,
             status_buy,
             status_trip
