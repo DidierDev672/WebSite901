@@ -1,14 +1,39 @@
-import React, { useRef, useState } from 'react';
-import { useSelector } from "react-redux";
-import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import React, { useRef, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { setUser } from "../reducers/users/userSlice";
 import { auth } from "../api/firebase";
 import API from "../api";
 import "../styles/components/profile.scss";
 
 const ProfileUser = () => {
     const form = useRef(null);
+    const dispatch = useDispatch();
     const { email, namefull, phone, country, city, address, uid, id  } = useSelector(state => state.user);
     const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone, country:country,city:city,address:address,uid:uid,id:id });
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if(id === ""){
+                API.queryProfile({ uid: user.uid })
+                .then((result) => {
+                    dispatch(setUser({
+                        namefull: result.namefull,
+                        phone: result.phone,
+                        country: result.country,
+                        city: result.city,
+                        address: result.address,
+                        uid: user.uid,
+                        id: result.id
+                    }))
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+            }
+        })
+    }, []);
+
     function handleEmailChange(e){
         email: e.target.value
     }
