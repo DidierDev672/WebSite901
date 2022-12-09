@@ -25,11 +25,7 @@ const Product = () => {
             <div className="content-product">
                 <h4>Lista de productos {category}.</h4>
             </div>
-            <div className="content-list-product">
-                {products.map((item) => (
-                    <SubProduct key={item.id} product={item}/>
-                ))}
-            </div>
+            { products.length > 0 ?  <div className="content-list-product">{products.map((item) => (<SubProduct key={item.id} product={item}/>))}</div> : <div className="content-loading"><span>Cargando...</span></div>  }
         </div>
     );
 };
