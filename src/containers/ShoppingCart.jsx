@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {  removeProductFromCart } from "../reducers/cart/cartSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import {  removeProductFromCart,  AddQuantityProductList, DecreaseQuantityProductList } from "../reducers/cart/cartSlice";
 import "../styles/components/shoppingcart.scss";
 
 const ShoppingCart = () => {
@@ -11,10 +14,14 @@ const ShoppingCart = () => {
     const handleRemoveProduct = (productId) => dispatch(removeProductFromCart(productId));
 
     const handleSumTotal = () => {
-        const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+        const reducer = (accumulator, currentValue) => accumulator + currentValue.price * currentValue.quantity;
         const sum = productsList.reduce(reducer, 0);
         return sum;
     };
+
+    const handleIncreaseQuantity = (productId) => dispatch(AddQuantityProductList(productId));
+
+    const handleDecreaseQuantity = (productId) => dispatch(DecreaseQuantityProductList(productId));
 
     return(
         <div className="container">
@@ -27,6 +34,7 @@ const ShoppingCart = () => {
                         <th scope="col">Product</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
                         <th scope="col">Eliminar</th>
                     </tr>
                 </thead>
@@ -38,6 +46,13 @@ const ShoppingCart = () => {
                                 <th scope="row">{product.name_product}</th>
                                 <th scope="row">{product.category}</th>
                                 <th scope="row">${product.price}</th>
+                                <th scope="row">
+                                    <div className="flex-th-button">
+                                    <button type="type" className="btn-plus-quantity" onClick={() => handleIncreaseQuantity(product.id)}><FontAwesomeIcon icon={faPlus} className="font-icon"/></button>
+                                        <div className="header-quantity"><span>{product.quantity}</span></div>
+                                    <button type="button" className="btn-miss" onClick={() => handleDecreaseQuantity(product.id)}><FontAwesomeIcon icon={faMinus} className="font-icon"/></button>
+                                    </div>
+                                </th>
                                 <th scope="row"><button className="btn-delete-cart" onClick={() => handleRemoveProduct(product.id)}>Eliminar</button></th>
                             </tr>
                         );
