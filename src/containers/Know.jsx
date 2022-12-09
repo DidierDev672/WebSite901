@@ -80,6 +80,7 @@ const Know = () => {
 
     return(
         <Box sx={{ width: "100%", typography: "body1" }} className="py-5">
+            <div className="py-3"></div>
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                     <TabList onChange={handleChange} aria-label="Lab API tabs example">
