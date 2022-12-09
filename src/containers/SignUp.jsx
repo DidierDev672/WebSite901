@@ -5,12 +5,44 @@ import { v4 as uuidv4 } from "uuid";
 import { useNavigate  } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import { auth } from "../api/firebase.js";
+import API from "../api";
 import "../styles/components/signup.scss";
 
 const SignUp = () => {
     const dispatch = useDispatch();
     const form = useRef(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                API.queryProfile({ uid: user.uid })
+                .then((result) => {
+                    if(result.id !== ""){
+                        dispatch(setUser({
+                            email: result.email,
+                            namefull: result.namefull,
+                            phone: result.phone,
+                            country: result.country,
+                            city: result.city,
+                            address: result.address,
+                            id: result.id,
+                            uid: user.uid
+                        }));
+                    }else{
+                        dispatch(setUser({
+                            email: user.email,
+                            namefull: user.displayName,
+                            uid: user.uid
+                        }));
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+            }
+        })
+    },[]);
 
     const handleSubmit = () => {
         const formData = new FormData(form.current);
