@@ -69,14 +69,19 @@ const Payment = () => {
         });
     };
 
+    const handleTotalUnit = (quantity, price) => {
+        const unit = quantity * price;
+        return unit;
+    };
+
     return(
-        <div className="container py-3">
-            <div className="py-4"></div>
+        <div className="container-fluid">
+            <div className="py-5"></div>
             <div className="Payment-contenct">
                 <h3>Resumen del pedido</h3>
                 <div className="mb-3">
                     <div className="row g-0">
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             {purchaser.map((item) => (
                                 <div className="Payment-item" key={item.id}>
                                     <div className="Payment-element">
@@ -97,6 +102,8 @@ const Payment = () => {
                                             <th scope="col">Nombre producto</th>
                                             <th scope="col">Categoria</th>
                                             <th scope="col">Precio</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Total Unitario</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -105,6 +112,8 @@ const Payment = () => {
                                             <th>{item.name_product}</th>
                                             <th>{item.category}</th>
                                             <th>$ {item.price}</th>
+                                            <th>{item.quantity}</th>
+                                            <th>${handleTotalUnit(item.quantity, item.price)}</th>
                                         </tr>
                                     ))}
                                     </tbody>
@@ -112,11 +121,11 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
-                <div className="Payment-item py-3">
+                <div className="Payment-item">
                 {/* <PayPalScriptProvider options={initialOptions}>
                     <PayPalButtons onClick={handlePaymentSuccess}/>
                 </PayPalScriptProvider> */}
-                <button type="button" onClick={handlePaymentSuccess}> Comprar </button>
+                <button type="button" className="btn-payment" onClick={handlePaymentSuccess}> Comprar </button>
             </div>
             </div>
         </div>
