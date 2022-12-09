@@ -1,16 +1,34 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox, faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { addNewPurchaser } from "../reducers/cart/cartSlice";
 import DataBasic from "../components/Databasic";
 import "../styles/components/information.scss";
 
 
 const SessionActive = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const { email, namefull, phone, country, city, address, uid, id} = useSelector(state => state.user);
+    const handleInformation = () => {
+        const buyer = {
+            "namefull": namefull,
+            "email": email,
+            "phone": phone,
+            "country": country,
+            "city": city,
+            "address": address,
+            "uid": uid,
+            "id": id
+        }
+        dispatch(addNewPurchaser(buyer))
+        navigate(`/shopping-bag/payment`);
+    };
+
     return(
-        <div className="container py-5">
+        <div className="container">
             <div className="py-4"></div>
             <div className="card-active">
                 <h4>Datos basicos </h4>
@@ -25,13 +43,13 @@ const SessionActive = () => {
                         <span> { phone } </span>
                     </div>
                     <div className="item-active">
-                        <span> { country } / { user.address  } </span>
+                        <span> { country } / { city } /{ address  } </span>
                     </div>
                     <div className="item-active-row">
-                        <div>
+                        <div className="flex-button-information">
                             <Link to={`/profile-user`} className="btn-edit-user">Editar</Link>
+                            { id !== "" ? <button type="button" className="btn-buy" onClick={handleInformation}>Contiinuar</button>  : "" }
                         </div>
-                        { id !== "" ? ""  : <button type="button" className="btn-buy">Contiinuar</button> }
                     </div>
                 </div>
             </div>
