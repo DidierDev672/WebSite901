@@ -30,9 +30,23 @@ export const cartSlice = createSlice({
         clearBag: (state, action) => {
             state.productsList = [];
             state.totalCount = 0;
+        },
+
+        AddQuantityProductList: (state, action) => {
+            const productId = action.payload;
+            const query = state.productsList.find(item => item.id === productId);
+            query.quantity += 1;
+            state.totalCount += 1;
+        },
+
+        DecreaseQuantityProductList: (state, action) => {
+            const productId = action.payload;
+            const query = state.productsList.find(item => item.id === productId);
+            query.quantity -= 1;
+            state.totalCount -=1;
         }
     },
 });
 
-export const { addProductToCart, getAllProducts,  removeProductFromCart, addNewPurchaser, clearBag } = cartSlice.actions;
+export const { addProductToCart, getAllProducts,  removeProductFromCart, addNewPurchaser, clearBag, AddQuantityProductList, DecreaseQuantityProductList } = cartSlice.actions;
 export default cartSlice.reducer;
