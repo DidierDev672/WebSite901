@@ -26,8 +26,13 @@ export const cartSlice = createSlice({
         addNewPurchaser: (state, action) => {
             state.purchaser = [ ...state.purchaser, action.payload ]
         },
+
+        clearBag: (state, action) => {
+            state.productsList = [];
+            state.totalCount = 0;
+        }
     },
 });
 
-export const { addProductToCart, getAllProducts,  removeProductFromCart, addNewPurchaser } = cartSlice.actions;
+export const { addProductToCart, getAllProducts,  removeProductFromCart, addNewPurchaser, clearBag } = cartSlice.actions;
 export default cartSlice.reducer;
