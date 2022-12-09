@@ -10,7 +10,14 @@ const SubProduct = ({ product }) => {
         if(productsList.find(pdt => pdt.id === product.id)){
             dispatch(removeProductFromCart(product.id));
         }else{
-            dispatch(addProductToCart(product));
+            dispatch(addProductToCart({
+                id: product.id,
+                name_product: product.name_product,
+                category: product.category,
+                price: product.price,
+                quantity: 1,
+                description: product.description
+            }));
         }
     };
     return(
