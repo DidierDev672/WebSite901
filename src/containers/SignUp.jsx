@@ -36,6 +36,7 @@ const SignUp = () => {
                             uid: user.uid
                         }));
                     }
+                    navigate(`/home`);
                 })
                 .catch((error) => {
                     console.error(error);
