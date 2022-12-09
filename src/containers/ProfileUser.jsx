@@ -9,8 +9,8 @@ import "../styles/components/profile.scss";
 const ProfileUser = () => {
     const form = useRef(null);
     const dispatch = useDispatch();
-    const { email, namefull, phone, country, city, address, uid, id  } = useSelector(state => state.user);
-    const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone, country:country,city:city,address:address,uid:uid,id:id });
+    const { email, namefull, phone, country, city, address, uid, id, section  } = useSelector(state => state.user);
+    const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone, country:country,city:city,section: section,address:address,uid:uid,id:id });
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -22,6 +22,7 @@ const ProfileUser = () => {
                         phone: result.phone,
                         country: result.country,
                         city: result.city,
+                        section: result.section,
                         address: result.address,
                         uid: user.uid,
                         id: result.id
@@ -66,6 +67,13 @@ const ProfileUser = () => {
         });
     }
 
+    function handleSectionChange(e){
+        setProfile({
+            ...profile,
+            section: e.target.value
+        })
+    }
+
     function handleAddressChange(e){
         setProfile({
             ...profile,
@@ -81,6 +89,7 @@ const ProfileUser = () => {
             "email": formData.get("email"),
             "country": formData.get("country"),
             "city": formData.get("city"),
+            "section": formData.get("section"),
             "address": formData.get("address"),
             "password": formData.get("pwd"),
         };
@@ -99,6 +108,7 @@ const ProfileUser = () => {
                         phone: data.phone,
                         country: data.country,
                         city: data.city,
+                        section: data.section,
                         address: data.address,
                         email: data.email,
                         password: data.password,
@@ -115,6 +125,7 @@ const ProfileUser = () => {
                         phone: data.phone,
                         country: data.country,
                         city: data.city,
+                        section: data.section,
                         address: data.address,
                         email: data.email,
                         password: data.password
@@ -150,6 +161,9 @@ const ProfileUser = () => {
                         </div>
                         <div className="item-profile">
                             <input type="text" className="field-text" name="city" value={profile.city} onChange={handleCityChange} placeholder="Ciudad"/>
+                        </div>
+                        <div className="item-profile">
+                            <input type="text" className="field-text" name="section" value={profile.section} onChange={handleSectionChange} placeholder="Departamento"/>
                         </div>
                         <div className="item-profile">
                             <input type="text" className="field-text" name="address" value={profile.address} onChange={handleAddressChange}  placeholder="Direccion"/>
