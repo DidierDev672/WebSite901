@@ -44,7 +44,8 @@
 }
 
 .table{
-    border-radius: 5px;
+    background-image: radial-gradient( circle 993px at 0.5% 50.5%,  rgba(137,171,245,0.37) 0%, rgba(245,247,252,1) 100.2% );
+    border-radius: 0.8rem;
 }
 
 .font-table > th{
@@ -66,4 +67,18 @@
     font-weight: var(--font-weight-paragraph);
     font-size: var(--font-size-paragrap);
     line-height: var(--line-height-paragrap);
+}
+
+.btn-payment{
+    width: 7rem;
+    background-image: linear-gradient(to left, var(--orange), var(--rubbish));
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem;
+}
+
+.btn-payment{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
 }

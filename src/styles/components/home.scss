@@ -93,3 +93,15 @@ video {
     text-decoration: none;
     color: var(--black);
 }
+
+.content-home-soluction{
+    display: flex;
+    place-content: center;
+}
+
+.content-home-soluction > p{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}

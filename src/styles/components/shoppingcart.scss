@@ -71,3 +71,54 @@
     font-size: 1rem;
     line-height: 2rem;
 }
+
+.btn-plus-quantity{
+    width: 2.2rem;
+    height: 2.5rem;
+    text-align: center;
+    background-image: radial-gradient( circle 957px at 8.7% 50.5%,  rgba(246,191,13,1) 0%, rgba(249,47,47,1) 90% );
+    border-radius: 5px;
+    border: none;
+    padding: 0.4rem;
+}
+
+.btn-miss{
+    width: 2.2rem;
+    height: 2.5rem;
+    text-align: center;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(247,87,0,1) 0%, rgba(249,0,0,1) 90.1% );
+    border-radius: 5px;
+    border: none;
+    padding: 0.4rem;
+}
+
+.font-icon{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.flex-th-button{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.header-quantity{
+    width: 2rem;
+    background-image: radial-gradient( circle 993px at 0.5% 50.5%,  rgba(137,171,245,0.37) 0%, rgba(245,247,252,1) 100.2% );
+    border-radius: 8px;
+}
+
+.header-quantity > span{
+    display: flex;
+    place-content: center;
+    text-align: center;
+}
+
+.header-quantity > span{
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}

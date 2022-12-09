@@ -75,3 +75,15 @@
     border: none;
     padding: 8px;
 }
+
+.content-loading{
+    display: flex;
+    place-content: center;
+}
+
+.content-loading > span{
+    color: #ff5400;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 4rem;
+}
