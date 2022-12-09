@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {  Timestamp } from "firebase/firestore";
 import { v4 as uuidv4  } from "uuid";
 import {  PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
@@ -11,6 +11,7 @@ import { faHomeUser } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCity } from "@fortawesome/free-solid-svg-icons";
+import { clearBag } from "../reducers/cart/cartSlice";
 import API from "../api";
 import "../styles/components/payment.scss";
 
@@ -19,6 +20,7 @@ const Payment = () => {
     const [ buyer, setBuyer ] = useState(...purchaser);
     const [ products, setProducts ] = useState(productsList);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const initialOptions = {
         "client-id": "test",
@@ -59,6 +61,7 @@ const Payment = () => {
             product:products
         })
         .then(() => {
+            dispatch(clearBag());
             navigate(`/shopping-bag/success`);
         })
         .catch((error) => {
