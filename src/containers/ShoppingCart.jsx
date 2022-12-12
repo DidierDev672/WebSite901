@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import {  removeProductFromCart,  AddQuantityProductList, DecreaseQuantityProductList } from "../reducers/cart/cartSlice";
+import { currency } from "../currency";
 import "../styles/components/shoppingcart.scss";
 
 const ShoppingCart = () => {
@@ -45,7 +46,7 @@ const ShoppingCart = () => {
                                 <th scope="row">{product.id}</th>
                                 <th scope="row">{product.name_product}</th>
                                 <th scope="row">{product.category}</th>
-                                <th scope="row">${product.price}</th>
+                                <th scope="row">{currency(product.price)}</th>
                                 <th scope="row">
                                     <div className="flex-th-button">
                                     <button type="type" className="btn-plus-quantity" onClick={() => handleIncreaseQuantity(product.id)}><FontAwesomeIcon icon={faPlus} className="font-icon"/></button>
@@ -62,7 +63,7 @@ const ShoppingCart = () => {
             <div className="py-4">
                 {productsList.length > 0 && (
                     <div className="content-total-orders">
-                        <h4>{`Total pedido:$ ${handleSumTotal()}`}</h4>
+                        <h4>{`Total pedido: ${currency(handleSumTotal())}`}</h4>
                         <Link to={`/shopping-bag/information`} className="btn-to-end">Continuar comprar</Link>
                     </div>
                 )}
