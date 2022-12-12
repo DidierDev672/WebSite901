@@ -13,10 +13,12 @@ import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCity } from "@fortawesome/free-solid-svg-icons";
 import { clearBag } from "../reducers/cart/cartSlice";
 import API from "../api";
+import { currency } from "../currency";
+import { addProductToInvoice,addSupplierToInvoice,addTotalItemsProduct } from "../reducers/invoice/invoiceSlice";
 import "../styles/components/payment.scss";
 
 const Payment = () => {
-    const { productsList,purchaser } = useSelector(state => state.cart);
+    const { productsList,purchaser,totalCount } = useSelector(state => state.cart);
     const [ buyer, setBuyer ] = useState(...purchaser);
     const [ products, setProducts ] = useState(productsList);
     const navigate = useNavigate();
@@ -61,6 +63,9 @@ const Payment = () => {
             product:products
         })
         .then(() => {
+            dispatch(addSupplierToInvoice(purchaser));
+            dispatch(addProductToInvoice(productsList));
+            dispatch(addTotalItemsProduct(totalCount));
             dispatch(clearBag());
             navigate(`/shopping-bag/success`);
         })
@@ -111,9 +116,9 @@ const Payment = () => {
                                         <tr key={item.id} className="font-tbody">
                                             <th>{item.name_product}</th>
                                             <th>{item.category}</th>
-                                            <th>$ {item.price}</th>
+                                            <th>{currency(item.price)}</th>
                                             <th>{item.quantity}</th>
-                                            <th>${handleTotalUnit(item.quantity, item.price)}</th>
+                                            <th>{currency(handleTotalUnit(item.quantity, item.price))}</th>
                                         </tr>
                                     ))}
                                     </tbody>
