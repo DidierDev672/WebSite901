@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import "../styles/components/success.scss";
 
 const Imgsuccess = new URL("../assets/Person paying with smart watch Illustration in PNG, SVG_files/fe63b5e6-401f-4514-a1f9-88bf76013c25.png", import.meta.url).href;
@@ -18,7 +19,7 @@ const Success = () => {
                 </span>
                 <div className="flex-success">
                     <div className='item-success'>
-                        <button type="button" className="btn-profile">Ver Perfil</button>
+                        <Link className="btn-profile">Ver perfil</Link>
                     </div>
                 </div>
             </div>
