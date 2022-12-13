@@ -10,7 +10,7 @@ import Contact from "../containers/Contact";
 import Pqrs from "../containers/Pqrs.jsx";
 import SignIn from "../containers/SignIn";
 import SignUp from "../containers/SignUp";
-import ProfileUser from "../containers/ProfileUser";
+import Sibebar from "../components/Sibebar";
 import ShoppingCart from "../containers/ShoppingCart";
 import Information from "../containers/Information";
 import Payment from "../containers/Payment";
@@ -39,14 +39,14 @@ const App = () => {
             <Route path="/blog" element={<Blog />}/>
             <Route path="/sign-in" element={<SignIn />}/>
             <Route path="/sign-up" element={<SignUp />}/>
-            <Route path="/profile-user" element={<ProfileUser/>}/>
+            <Route path="/profile-user" element={<Sibebar/>}/>
             <Route path="/shopping-bag" element={<ShoppingCart />}/>
             <Route path="/shopping-bag/information" element={<Information />}/>
             <Route path="/shopping-bag/payment" element={<Payment />}/>
             <Route path="/shopping-bag/success" element={<Success />}/>
             <Route path="/purchase/:id" element={<Purchase />}/>
             <Route path="products/:category" element={<Product />}/>
-            <Route path="/blog/:id" element={<Post />}/>
+            <Route path="/blog/:idPost" element={<Post />}/>
           </Routes>
         </Layout>
       </BrowserRouter>
