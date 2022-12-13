@@ -54,12 +54,14 @@ const Payment = () => {
             address:  buyer.address,
             section:  buyer.section,
             email:  buyer.email,
+            uid: buyer.uid,
             status_buy: false,
             status_trip: false,
         });
 
         API.detailBuy({
             code_buy: code_buy,
+            uid: buyer.uid,
             product:products
         })
         .then(() => {
