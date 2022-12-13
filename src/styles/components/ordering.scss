@@ -1,0 +1,58 @@
+@import "vars";
+
+.Ordering{
+    position: absolute;
+    margin-top: -400px;
+    margin-left: 310px;
+}
+
+.card-orders{
+    width: 25rem;
+    background-image: radial-gradient( circle 827px at 47.3% 48%,  rgba(255,255,255,1) 0%, rgba(138,192,216,1) 90% );
+    border-radius: 1rem;
+    box-shadow: 4px 4px 4px var(--box-shadow-card);
+    padding: 2rem;
+
+    &:hover{
+        box-shadow: 8px 8px 8px var(--box-shadow-card);
+    }
+}
+
+.card-orders > h4{
+    font-weight: 600;
+    font-size: 0.3rem;
+    line-height: 1rem;
+}
+
+.card-orders > span {
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+
+.body-card-orders{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex-orders{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    gap: 20px;
+}
+
+.btn-detail{
+    width: 8.2rem;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
+    border-radius: 0.8rem;
+    border: none;
+    padding: 0.2rem;
+}
+
+.btn-detail{
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+}
