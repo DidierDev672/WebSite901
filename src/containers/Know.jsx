@@ -85,7 +85,7 @@ const Know = () => {
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                     <TabList onChange={handleChange} aria-label="Lab API tabs example">
                         <Tab label="General" value="1"/>
-                        <Tab label="Vison/Mision" value="2"/>
+                        <Tab label="Vision/Mision" value="2"/>
                         <Tab label="Valores" value="3"/>
                     </TabList>
                 </Box>
