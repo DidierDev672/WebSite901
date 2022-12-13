@@ -104,7 +104,7 @@ export default {
         return products;
     },
 
-    async headerBuy({ code_buy, date_buy, namefull, phone, address, email, status_buy, status_trip }){
+    async headerBuy({ code_buy, date_buy, namefull, phone, address, email, status_buy, status_trip, uid }){
         const docRef = await addDoc(collection(db, headerBuyRef),{
             code_buy,
             date_buy,
@@ -112,6 +112,7 @@ export default {
             phone,
             address,
             email,
+            uid,
             status_buy,
             status_trip
         });
@@ -119,12 +120,30 @@ export default {
         return docRef;
     },
 
-    async detailBuy ({code_buy, product}){
+    async detailBuy ({code_buy,uid ,product}){
         const docRef = await addDoc(collection(db, detailBuyRef),{
             code_buy,
+            uid,
             product
         });
 
         return docRef;
+    },
+
+    async queryOrders ({ uid }){
+        let data = [];
+        const q = query(collection(db, headerBuyRef), where ( "uid", "==", uid));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            data.push({
+                id: doc.id,
+                uid: doc.data().uid,
+                code_buy: doc.data().code_buy,
+                namefull: doc.data().namefull,
+            });
+        });
+
+        return data;
     }
 };
