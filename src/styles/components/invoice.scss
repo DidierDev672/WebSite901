@@ -1,0 +1,37 @@
+.Invoice{
+    padding: 10px;
+}
+
+.header-status-buy{
+    background-image: radial-gradient( circle 534px at 7.8% 17.6%,  rgba(254,253,112,1) 1.7%, rgba(248,143,111,1) 91.8% );
+    border-radius: 1rem;
+    border: none;
+    text-align: center;
+}
+
+.header-status-buy{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.status-trip-buy{
+    background-image: linear-gradient( 109.6deg,  rgba(102,203,149,1) 11.2%, rgba(39,210,175,1) 98.7% );
+    border-radius: 1rem;
+    border: none;
+    text-align: center;
+}
+
+.status-trip-buy{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.btn-incoice{
+    width: 3rem;
+    background-image: radial-gradient( circle 830px at 95.6% -5%,  rgba(244,89,128,1) 0%, rgba(223,23,55,1) 90% );
+    border-radius: 1rem;
+    border: none;
+    padding: 0.2rem;
+}

@@ -1,0 +1,47 @@
+@import "vars";
+
+.Footer{
+    box-sizing: border-box;
+    background-image: radial-gradient( circle 993px at 0.5% 50.5%,  rgba(137,171,245,0.37) 0%, rgba(245,247,252,1) 100.2% );
+    bottom: 0;
+    left: 0;
+    padding: absolute;
+    width: 100%;
+}
+
+.Footer{
+    padding: 20px;
+    border-radius: 1.4rem;
+}
+
+
+h5{
+    display: flex;
+    place-content: center;
+}
+
+h5{
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+
+.footer-news{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-up-footer{
+    background-image: radial-gradient( circle 636.6px at 10% 20%,  rgba(243,94,125,1) 0%, rgba(213,200,111,1) 90% );
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.btn-up-footer{
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
