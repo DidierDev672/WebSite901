@@ -54,3 +54,67 @@
     font-size: 1rem;
     line-height: 2rem;
 }
+
+.display-process-status{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.item-process-status{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.status-buy{
+    width: 1px;
+    height: 60%;
+    background-image: radial-gradient( circle 860px at 11.8% 33.5%,  rgba(240,30,92,1) 0%, rgba(244,49,74,1) 30.5%, rgba(249,75,37,1) 56.1%, rgba(250,88,19,1) 75.6%, rgba(253,102,2,1) 100.2% );
+    border-radius: 1rem;
+    padding: 10px;
+}
+
+.content-list-ordering{
+    width: 100%;
+    background: linear-gradient(to left, #f8f9fa, #e9ecef);
+    border-radius: 2rem;
+    border: 2px solid var(--border-card);
+    padding: 2rem;
+}
+
+.list-status-buy{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.list-status-buy li {
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.status-road > span{
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.status-raod > p {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.content-item-ordering{
+    display: flex;
+    place-content: center;
+}
+
+.content-item-ordering > h4{
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
