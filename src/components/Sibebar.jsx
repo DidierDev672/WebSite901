@@ -4,7 +4,7 @@ import ProfileUser from "../containers/ProfileUser";
 import Ordering from "./Ordering";
 import Invoice from "./Invoice";
 import Support from "./Support";
-import { addOrdersHeader } from "../reducers/orders/ordersSlice";
+import { addOrdersHeader, addOrdersDetail } from "../reducers/orders/ordersSlice";
 import { addContact } from "../reducers/contact/contactSlice";
 import API from "../api";
 import "../styles/components/sibebar.scss";
@@ -34,6 +34,14 @@ const Sibebar = () => {
             .catch((error) => {
                 console.error(error);
             });
+
+            API.queryDetailOrders({ uid: uid })
+            .then((result) => {
+                dispatch(addOrdersDetail(result.product));
+            })
+            .catch((error) => {
+                console.error(error);
+            })
         }
     },[]);
 

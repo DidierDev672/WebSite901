@@ -21,6 +21,7 @@ import Blog from "../containers/Blog";
 
 import Product from "../components/Product";
 import Post from "../components/handling/Post";
+import ItemOrdering from "../components/handling/ItemOrdering.jsx";
 
 const App = () => {
   const initialState = useInitialState();
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/purchase/:id" element={<Purchase />}/>
             <Route path="products/:category" element={<Product />}/>
             <Route path="/blog/:idPost" element={<Post />}/>
+            <Route path="/profile-user/:code_buy" element={<ItemOrdering />}/>
           </Routes>
         </Layout>
       </BrowserRouter>

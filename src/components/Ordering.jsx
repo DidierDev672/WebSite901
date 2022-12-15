@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "../styles/components/ordering.scss";
+
 
 const Ordering = () => {
     const { ordersHeader } = useSelector(state => state.orders);
@@ -16,7 +18,7 @@ const Ordering = () => {
                             <div className="body-card-orders">
                                 <h4>{item.code_buy}</h4>
                                 <span>{item.namefull}</span>
-                                <button type="button" className="btn-detail">Ver Detalle</button>
+                                <Link to={`${item.code_buy}`} className="btn-detail">Ver Detalle</Link>
                             </div>
                         </div>
                     )) }

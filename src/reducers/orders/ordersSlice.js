@@ -11,9 +11,13 @@ export const ordersSlice = createSlice({
     reducers:{
         addOrdersHeader: (state, action) => {
             state.ordersHeader =  [ ...state.orderDetails, action.payload ];
+        },
+
+        addOrdersDetail: (state, action) => {
+            state.orderDetails =  [ ...state.orderDetails, action.payload ];
         }
     }
 });
 
-export const { addOrdersHeader } = ordersSlice.actions;
+export const { addOrdersHeader, addOrdersDetail } = ordersSlice.actions;
 export default ordersSlice.reducer;

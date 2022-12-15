@@ -141,8 +141,7 @@ const ProfileUser = () => {
         }
     };
     return(
-        <div className="container py-5 profile-user">
-            <div className="py-3"></div>
+        <div className="container profile-user">
             <div className="card-profile">
                 <h4>Perfil de {namefull}</h4>
                 <form ref={form}>

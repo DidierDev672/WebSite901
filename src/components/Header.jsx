@@ -23,7 +23,7 @@ const ToggleUser = () => {
         <ul className="card-dropdown">
             <li className="list-group-item">{ namefull }</li>
             <li className="list-group-item">{ email }</li>
-            <li className="list-group-item"> <Link className="header-profile" to={`profile-user`}>Editar</Link> </li>
+            <li className="list-group-item"> <Link className="header-profile" to={`profile-user/`}>Editar</Link> </li>
         </ul>
     );
 };

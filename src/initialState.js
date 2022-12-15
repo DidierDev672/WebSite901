@@ -91,9 +91,9 @@ export default {
       title: 'Alimentador',
     },
     {
-      id: '4',
-      title: 'Biometria',
-    },
+      id: "4",
+      title: "Tilapia"
+    }
   ],
   people: [],
 };

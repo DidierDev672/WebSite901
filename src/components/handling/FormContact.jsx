@@ -1,12 +1,13 @@
 import React, { useContext, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useSelector } from "react-redux";
 import AppContext from "../../context/AppContext.js";
 import API from "../../api";
 import "../../styles/components/contact.scss";
 
-
 const FormContact = () => {
     const { addNewPeople } = useContext(AppContext);
+    const { uid } = useSelector(state => state.user);
     const form = useRef(null);
 
     const handleSubmit = () => {
@@ -29,7 +30,8 @@ const FormContact = () => {
                 email:peoples.email,
                 phone:peoples.phone,
                 matter: peoples.matter,
-                message: peoples.message
+                message: peoples.message,
+                uid: uid
             });
             alert("Se la informacion de enviado con exito!", peoples.id);
         }else{
