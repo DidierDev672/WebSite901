@@ -9,14 +9,15 @@ const headerBuyRef = "headerBuy";
 const detailBuyRef = "detailBuy";
 
 export default {
-    async saveContact({id,namefull, email, phone, matter, message}){
+    async saveContact({id,namefull, email, phone, matter, message, uid}){
         const docRef = await addDoc(collection(db, contactRef), {
             id,
             namefull,
             email,
             phone,
             matter,
-            message
+            message,
+            uid
         });
 
         return docRef;
@@ -104,6 +105,26 @@ export default {
         return products;
     },
 
+    async queryAskContact({ uid }){
+        let data = [];
+        const q = query(collection(db, contactRef), where ("uid", "==", uid));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            data.push({
+                id: doc.id,
+                email: doc.data().eamil,
+                namefull: doc.data().namefull,
+                phone: doc.data().phone,
+                email: doc.data().email,
+                matter: doc.data().matter,
+                uid: doc.data().uid
+            });
+        });
+
+        return data;
+    },
+
     async headerBuy({ code_buy, date_buy, namefull, phone, address, email, status_buy, status_trip, uid }){
         const docRef = await addDoc(collection(db, headerBuyRef),{
             code_buy,
@@ -141,9 +162,29 @@ export default {
                 uid: doc.data().uid,
                 code_buy: doc.data().code_buy,
                 namefull: doc.data().namefull,
+                status_buy: doc.data().status_buy,
+                status_trip: doc.data().status_trip
             });
         });
 
         return data;
+    },
+
+    async queryDetailOrders({ uid }){
+        let data = [];
+        let product = {};
+        const q = query(collection(db, detailBuyRef), where ("uid", "==", uid));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            data.push({
+                id: doc.id,
+                code_buy: doc.data().code_buy,
+            });
+
+            product = {...doc.data().product};
+        });
+
+        return { data, product };
     }
 };
