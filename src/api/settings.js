@@ -1,9 +1,9 @@
 export default {
-    apiKey:  "AIzaSyDShenQEI2eMKcyOE1sXrMH3UrrhCiPxUg",
-    authDomain: "website-c3c44.firebaseapp.com",
-    projectId: "website-c3c44",
-    storageBucket: "website-c3c44.appspot.com",
-    messagingSenderId:"347282390746",
-    appId: "1:347282390746:web:80aacdcfaea4efa85bafe3",
-    measurementId:"G-GDSYT9BF0Q",
+    apiKey:  "AIzaSyAOBYHhp9lYtOR7KXIFH6TmvH6EV9KrwS0",
+    authDomain: "website-35275.firebaseapp.com",
+    projectId: "website-35275",
+    storageBucket: "website-35275.appspot.com",
+    messagingSenderId:"608887789880",
+    appId: "1:608887789880:web:81abcb87be6c104c0e49cd",
+    measurementId:"G-VY7MZ0NMQV",
 }

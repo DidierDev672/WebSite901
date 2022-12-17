@@ -19,6 +19,11 @@
     gap: 10px;
 }
 
+.card-success > p{
+    display: flex;
+    margin: auto;
+}
+
 .card-success > h4 {
     font-style: normal;
     font-weight: var(--font-weight-title);

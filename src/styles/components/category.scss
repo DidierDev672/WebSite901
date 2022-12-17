@@ -14,7 +14,7 @@
 .flex-category{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    gap: 10px;
     grid-template-rows: minmax(100px, auto);
 }
 
@@ -45,9 +45,9 @@
 
 .item-column-category > span{
     font-style: normal;
-    font-weight: var(--font-weight-item);
-    font-size: var(--font-size-item);
-    line-height: var(--line-height-item);
+    font-weight:600;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .item-category-link{
@@ -57,7 +57,7 @@
 .btn-views{
     text-decoration: none;
     width: 5rem;
-    background: linear-gradient(to left, var(--orange), var(--rubbish));
+    background-image: radial-gradient( circle 860px at 11.8% 33.5%,  rgba(240,30,92,1) 0%, rgba(244,49,74,1) 30.5%, rgba(249,75,37,1) 56.1%, rgba(250,88,19,1) 75.6%, rgba(253,102,2,1) 100.2% );
     color: var(--white);
     border-radius: 5px;
     border: none;
@@ -67,17 +67,16 @@
 .btn-views{
     font-style: italic;
     font-weight: var(--btn-font-weigth);
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .btn-search{
     width: 3rem;
-    background:linear-gradient(to right,var(--orange), var(--red));
-    color: #FFFFFF;
-    border-radius: 5px;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
+    border-radius: 0.5rem;
     border: none;
-    padding: 5px;
+    padding: 0.5rem;
 }
 
 .content-search-category{

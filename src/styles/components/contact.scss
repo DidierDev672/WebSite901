@@ -1,30 +1,33 @@
 @import "vars";
 
-.resize-img{
-    width: 100%;
-    height: 60vh;
-}
-
 .grid-flex-contact{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    gap: 20px;
     grid-template-rows: minmax(20px, auto);
 
-    @media screen and (max-width: 414px){
+    @media screen and (max-width: 420px){
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         gap: 20px;
-        justify-content: center;
     }
 
-    @media screen and (max-width: 896px){
+    @media screen and (max-width: 667px){
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         gap: 20px;
-        justify-content: center;
+    }
+
+    @media screen and (max-width: 915px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 1180px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
@@ -34,12 +37,34 @@
     grid-gap: 20px;
     grid-template-rows: minmax(100px, auto);
 
-    @media screen and (max-width: 414px){
+    @media screen and (max-width: 420px){
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         gap: 20px;
-        justify-content: center;
+    }
+
+    @media screen and (max-width: 667px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 896px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 915px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 1180px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
@@ -73,20 +98,12 @@
 
 
 .card-item-contac{
-    width: 20rem;
-    background: linear-gradient(to right, var(--orange), var(--rubbish));
-    border-radius: 5px;
+    // width: 20rem;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(253,203,50,1) 0%, rgba(244,56,98,1) 100.2% );
+    border-radius: 1rem;
     border: none;
-    padding: 0;
-    margin: 0;
-
-    @media screen and (max-width: 414px){
-        width: 100%;
-    }
-
-    @media screen and (max-width: 896px){
-        width: 100%;
-    }
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
 
 .font-contact{
@@ -112,9 +129,9 @@
 
 .content-header > span{
     font-style: normal;
-    font-weight: var(--font-weight-item);
-    font-size: var(--font-size-item);
-    line-height: var(--line-height-item);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .content-header > h5{
@@ -125,13 +142,13 @@
 .content-header > h5{
     font-style: normal;
     font-weight: 600;
-    font-size: var(--font-size-paragrap);
-    line-height: var(--line-height-paragrap);
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .card-contact{
     background-color: var(--color-card);
-    border-radius: 5px;
+    border-radius: 1.5rem;
     border: 2px solid var(--border-card);
     padding: 10px;
 }
@@ -139,17 +156,17 @@
 .btn-contact{
     width: 7rem;
     background: linear-gradient(to right,var(--orange), var(--rubbish));
-    border-radius: 5px;
+    border-radius: 0.7rem;
     border: none;
-    padding: 7px;
+    padding: 0.3rem;
     margin: auto;
 }
 
 .btn-contact {
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .content-paragraph > h4{
@@ -159,9 +176,9 @@
 
 .content-paragraph > h4 {
     font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var(--line-height-title);
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2rem;
 
     @media screen and (max-width: 360px){
         font-size: 30px;

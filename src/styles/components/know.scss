@@ -1,9 +1,32 @@
 @import "vars";
 .grid-know{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    grid-template-rows: minmax(100px, auto);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @media screen and (max-width: 420px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 896px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 915px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 1180px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 .grid-values{
@@ -11,6 +34,30 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     grid-template-rows: minmax(100px, auto);
+
+    @media screen and (max-width: 420px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 667px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 896px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 915px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 .item-know {

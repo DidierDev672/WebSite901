@@ -2,10 +2,10 @@
 .card-sign-in{
     width: 40rem;
     background-color: var(--color-card);
-    border-radius: 5px;
+    border-radius: 1rem;
     border: 2px solid var(--border-card);
     box-shadow: 3px 3px 3px var(--box-shadow-card);
-    padding: 10px;
+    padding: 0.5rem;
     animation: card_motion;
 
     &:hover{
@@ -31,6 +31,23 @@
             40%, 100%{
                 transform: rotateZ(0);
             }
+    }
+
+    @media screen and (max-width: 420px){
+        width: 100%;
+        margin: 2rem;
+    }
+
+    @media screen and (max-width: 667px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 896px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 915px){
+        width: 100%;
     }
 }
 
@@ -64,9 +81,9 @@
 
 .header-sign-in > h4{
     font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var(--line-height-title);
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 4rem;
 }
 
 .field-text{

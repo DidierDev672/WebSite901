@@ -20,7 +20,8 @@ const DataBasic = () => {
             "section": formData.get("section"),
             "address": formData.get("address"),
             "phone": formData.get("phone"),
-            "id": uuidv4()
+            "id": uuidv4(),
+            "uid": "Anonymous"
         };
 
         dispatch(addNewPurchaser(buyer));

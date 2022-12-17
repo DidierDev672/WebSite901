@@ -4,7 +4,8 @@ const initialState = {
     totalCount: 0,
     productsList: [],
     products: [],
-    purchaser: []
+    purchaser: [],
+    state_buy:[]
 };
 
 export const cartSlice = createSlice({
@@ -27,6 +28,9 @@ export const cartSlice = createSlice({
             state.purchaser = [ ...state.purchaser, action.payload ]
         },
 
+        statusBuy: (state, action) => {
+            state.state_buy = [ ...state.state_buy, action.payload ]
+        },
         clearBag: (state, action) => {
             state.productsList = [];
             state.totalCount = 0;
@@ -48,5 +52,5 @@ export const cartSlice = createSlice({
     },
 });
 
-export const { addProductToCart, getAllProducts,  removeProductFromCart, addNewPurchaser, clearBag, AddQuantityProductList, DecreaseQuantityProductList } = cartSlice.actions;
+export const { addProductToCart, getAllProducts,  removeProductFromCart, addNewPurchaser, clearBag, AddQuantityProductList, DecreaseQuantityProductList, statusBuy } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -6,13 +6,29 @@
 .card-sign-up{
     width: 40rem;
     background-color: var(--color-card);
-    border-radius: 5px;
+    border-radius: 1rem;
     border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
 
     &:hover{
         box-shadow: 6px 6px 6px var(--box-shadow-card);
+    }
+
+    @media screen and (max-width: 375px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 667px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 896px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 915px){
+        width: 100%;
     }
 }
 
@@ -38,16 +54,16 @@
 
 .item-header > h5 {
     font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var( --line-height-title);
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 .item-header > span {
     font-style: italic;
-    font-weight: var(--font-weight-item);
-    font-size: var(--font-size-item);
-    line-height: var(--line-height-item);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
     color: #343A40;
 }
 
@@ -56,13 +72,6 @@
     flex-direction: column;
     gap:20px;
     justify-content: center;
-}
-
-.item-sign-in > label {
-    font-style: normal;
-    font-weight: var(--font-weight-paragraph);
-    font-size: var(--font-size-paragrap);
-    line-height: var(--line-height-paragrap);
 }
 
 .btn-sign-up{

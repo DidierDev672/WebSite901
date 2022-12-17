@@ -1,7 +1,7 @@
 @import "vars";
 
 .card-pqrs{
-    background-color: var(--white);
+    background-color: var(--color-card);
     border-radius: 5px;
     border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
@@ -19,23 +19,23 @@
 .content-header-pqrs > span{
     font-style: normal;
     font-weight: 800;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .content-header-pqrs > h4{
     color: #212529;
     font-style: normal;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 .content-header-pqrs > p {
     color: #343a40;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 .grid-pqrs{
@@ -43,6 +43,36 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     grid-template-rows: minmax(100px, auto);
+
+    @media screen and (max-width: 420px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 844px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 851px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 915px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 1180px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 .item-pqrs{

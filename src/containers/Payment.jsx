@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {  Timestamp } from "firebase/firestore";
 import { v4 as uuidv4  } from "uuid";
-import {  PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import voucher_codes from "voucher-code-generator";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
@@ -11,41 +11,29 @@ import { faHomeUser } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCity } from "@fortawesome/free-solid-svg-icons";
-import { clearBag } from "../reducers/cart/cartSlice";
 import API from "../api";
 import { currency } from "../currency";
-import { addProductToInvoice,addSupplierToInvoice,addTotalItemsProduct } from "../reducers/invoice/invoiceSlice";
+import { statusBuy } from "../reducers/cart/cartSlice";
 import "../styles/components/payment.scss";
 
 const Payment = () => {
     const { productsList,purchaser,totalCount } = useSelector(state => state.cart);
+    const {  uid } = useSelector(state => state.user);
     const [ buyer, setBuyer ] = useState(...purchaser);
     const [ products, setProducts ] = useState(productsList);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const initialOptions = {
-        "client-id": "test",
-        currency: "USD",
-        intent: "capture",
-        // "data-client-token": "access_token$sandbox$cjhs4p6dwtzzd3sg$1171074dacd301535476ff397708f5fe"
+    const handleSumTotal = () => {
+        const reducer = ( accumulator, currentValue ) => accumulator + currentValue.price * currentValue.quantity;
+        const sum = productsList.reduce(reducer, 0);
+        return sum;
     };
 
-    // const handlePaymentSuccess = (data) => {
-    //     if(data.status === "COMPLETED"){
-    //         const newOrder = {
-    //             buyer,
-    //             product: cart,
-    //             payment: data
-    //         };
-
-    //         addNweOrder(newOrder);
-    //         navigate(`/shopping-bag/success`);
-    //     }
-    // };
-
     const handlePaymentSuccess = () => {
-        const code_buy = uuidv4();
+        const code_buy = voucher_codes.generate({
+            length: 4,
+            count: 1
+        });
         API.headerBuy({
             code_buy: code_buy,
             date_buy: Timestamp.fromDate(new Date()),
@@ -57,6 +45,10 @@ const Payment = () => {
             uid: buyer.uid,
             status_buy: false,
             status_trip: false,
+            status_payment: false,
+        })
+        .then((result) => {
+            dispatch(statusBuy({ idDocument: result,status_buy: false }));
         });
 
         API.detailBuy({
@@ -65,10 +57,6 @@ const Payment = () => {
             product:products
         })
         .then(() => {
-            dispatch(addSupplierToInvoice(purchaser));
-            dispatch(addProductToInvoice(productsList));
-            dispatch(addTotalItemsProduct(totalCount));
-            dispatch(clearBag());
             navigate(`/shopping-bag/success`);
         })
         .catch((error) => {
@@ -129,10 +117,10 @@ const Payment = () => {
                     </div>
                 </div>
                 <div className="Payment-item">
-                {/* <PayPalScriptProvider options={initialOptions}>
-                    <PayPalButtons onClick={handlePaymentSuccess}/>
-                </PayPalScriptProvider> */}
-                <button type="button" className="btn-payment" onClick={handlePaymentSuccess}> Comprar </button>
+                    <div className="contant-payment-total">
+                        <h4>{`Total pedido: ${currency(handleSumTotal())}`}</h4>
+                    </div>
+                <button type="button" className="btn-payment" onClick={handlePaymentSuccess}> Confirmar compra </button>
             </div>
             </div>
         </div>

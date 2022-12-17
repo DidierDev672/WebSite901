@@ -1,5 +1,6 @@
 import { db } from "./firebase";
 import { collection, addDoc, query, where, getDocs, setDoc, doc } from "firebase/firestore";
+import { updateDoc } from "firebase/firestore";
 
 const contactRef = "contact";
 const profileRef = "profile";
@@ -125,7 +126,8 @@ export default {
         return data;
     },
 
-    async headerBuy({ code_buy, date_buy, namefull, phone, address, email, status_buy, status_trip, uid }){
+    async headerBuy({ code_buy, date_buy, namefull, phone, address, email, status_buy, status_trip,status_payment ,uid }){
+        var idDocument;
         const docRef = await addDoc(collection(db, headerBuyRef),{
             code_buy,
             date_buy,
@@ -135,10 +137,11 @@ export default {
             email,
             uid,
             status_buy,
-            status_trip
+            status_trip,
+            status_payment,
         });
-
-        return docRef;
+        idDocument = docRef.id;
+        return idDocument;
     },
 
     async detailBuy ({code_buy,uid ,product}){
@@ -149,6 +152,16 @@ export default {
         });
 
         return docRef;
+    },
+
+    async updateHeaderBuy({ idDocument }){
+        // Create an initial document to update
+        const ordersDocRef = doc(db, headerBuyRef, idDocument);
+
+        // To update
+        await updateDoc(ordersDocRef, {
+            "status_payment": true
+        });
     },
 
     async queryOrders ({ uid }){
