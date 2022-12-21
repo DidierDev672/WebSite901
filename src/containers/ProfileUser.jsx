@@ -98,7 +98,7 @@ const ProfileUser = () => {
         if(data.email !== "" && data.namefull !== "" && data.phone !== "" && data.country !== "" && data.address !== "" && data.password !== ""){
             signInWithEmailAndPassword(auth, data.email, data.password)
             .then(() => {
-                if( id !== ""){
+                if( id !== undefined){
                     updateProfile(auth.currentUser, {
                         displayName: data.namefull, email: data.email
                     });

@@ -17,7 +17,7 @@ const SignIn = () => {
             if(user){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
-                    if(result.id !== ""){
+                    if(result.id !== undefined){
                         dispatch(setUser({
                             namefull: result.namefull,
                             phone: result.phone,
@@ -40,7 +40,10 @@ const SignIn = () => {
 
                 })
                 .catch((error) => {
-                    console.error(error);
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(errorCode);
+                    console.error(errorMessage);
                 })
             }
         });

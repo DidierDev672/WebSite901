@@ -6,6 +6,8 @@ import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import "../styles/components/headers.scss";
 
+const LogoSVG = new URL("../assets/Logo (1).svg", import.meta.url).href;
+
 const IconUser = () => {
     const [ profile, setProfile ] = useState(false);
     return(
@@ -49,7 +51,9 @@ const Header = () => {
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <Link className="navbar-brand text-gradient" to={`/`}>PlayaPez</Link>
+                    <Link className="navbar-brand text-gradient" to={`/`}>
+                        <img src={LogoSVG} alt="Bootstrap" width="40" height="44"/>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

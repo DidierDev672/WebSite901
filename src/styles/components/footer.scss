@@ -1,8 +1,11 @@
 @import "vars";
 
 .Footer{
+    background: linear-gradient(to left, #edf2fb, var(--color-card));
+    border-radius: 2rem;
+    border: 4px solid var(--border-card);
+    box-shadow: 6px 6px 6px 6px var(--box-shadow-card);
     box-sizing: border-box;
-    background-image: radial-gradient( circle 993px at 0.5% 50.5%,  rgba(137,171,245,0.37) 0%, rgba(245,247,252,1) 100.2% );
     bottom: 0;
     left: 0;
     padding: absolute;
@@ -42,6 +45,92 @@ h5{
 .btn-up-footer{
     color: #FFFFFF;
     font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.list-footer{
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.list-item-footer{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    place-content: center;
+    list-style: none;
+
+    @media screen and (max-width:414px){
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 896px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+.footer-link{
+    text-decoration: none;
+    font-style: italic;
+    color: #212529;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.size-text-footer{
+    width: 25rem;
+}
+
+.content-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content-footer > h3, a{
+    display: flex;
+    place-content: center;
+}
+
+.content-footer > h3{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.content-footer > a {
+    text-decoration: none;
+    color: #212529;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.column-footer{
+    padding: 1rem;
+}
+
+.column-footer > ul{
+    list-style: none;
+}
+
+.column-footer > span{
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.font-footer{
+    color: #212529;
+    font-weight: 700;
     font-size: 1rem;
     line-height: 2rem;
 }

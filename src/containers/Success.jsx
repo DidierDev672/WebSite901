@@ -23,7 +23,7 @@ const Success = () => {
                 <p>Dale a pagar al buton de <strong>Paypal</strong> para terminar la compra.</p>
                 <p>Te esperamos en la seccion de proceso de envios.</p>
                 <div className='item-success'>
-                    <Link className="btn-profile">Ver perfil</Link>
+                    <Link className="btn-profile" to={`/profile-user`}>Ver perfil</Link>
                 </div>
                 <div className="flex-success">
                     <ButtonsPaypal handleSumTotal={handleSumTotal} />

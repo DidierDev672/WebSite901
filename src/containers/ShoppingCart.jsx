@@ -64,7 +64,7 @@ const ShoppingCart = () => {
                 {productsList.length > 0 && (
                     <div className="content-total-orders">
                         <h4>{`Total pedido: ${currency(handleSumTotal())}`}</h4>
-                        <Link to={`/shopping-bag/information`} className="btn-to-end">Continuar comprar</Link>
+                        <Link to={`/shopping-bag/information`} className="btn-to-end" >Continuar comprar</Link>
                     </div>
                 )}
             </div>

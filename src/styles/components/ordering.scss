@@ -118,3 +118,22 @@
     font-size: 1.5rem;
     line-height: 2rem;
 }
+
+.header-order{
+    padding: 1rem;
+    display: flex;
+    place-content: center;
+}
+
+.header-order {
+    background: linear-gradient(lo left, var(--white), var(--color-card));
+    border-radius: 1rem;
+    border: 2px solid var(--border-card);
+    box-shadow: 6px 6px 6px var(--box-shadow-card);
+}
+
+.header-order > span{
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 4rem;
+}

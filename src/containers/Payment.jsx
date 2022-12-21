@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {  Timestamp } from "firebase/firestore";
 import { v4 as uuidv4  } from "uuid";
@@ -70,8 +70,8 @@ const Payment = () => {
     };
 
     return(
-        <div className="container-fluid">
-            <div className="py-5"></div>
+        <div className="container py-3">
+            <div className="py-2"></div>
             <div className="Payment-contenct">
                 <h3>Resumen del pedido</h3>
                 <div className="mb-3">

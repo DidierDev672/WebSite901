@@ -79,7 +79,8 @@ const Know = () => {
     };
 
     return(
-        <Box sx={{ width: "100%", typography: "body1" }} className="py-5">
+        <div className="container py-5">
+            <Box sx={{ width: "100%", typography: "body1" }} className="py-5">
             <div className="py-3"></div>
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -94,6 +95,7 @@ const Know = () => {
                 <TabPanel value="3"><Values /></TabPanel>
             </TabContext>
         </Box>
+        </div>
     );
 };
 

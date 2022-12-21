@@ -134,24 +134,22 @@ const Sibebar = () => {
             <div className="mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
-                            <nav className="content-sibebar">
-                                <ul className="sibebar-list-sibebar">
-                                    <li className="item-list-sibebar">
-                                        <button className="btn-sibebar" onClick={handleSeeeProfile}>Profile</button>
-                                    </li>
-                                    <li className="item-list-sibebar">
-                                        <button className="btn-sibebar" onClick={handleSeenOrders}>
-                                            Pedidos
-                                        </button>
-                                    </li>
-                                    <li className="item-list-sibebar">
-                                        <button className="btn-sibebar" onClick={handleSeeReceipt}>Factura</button>
-                                    </li>
-                                    <li className="item-list-sibebar">
-                                        <button className="btn-sibebar" onClick={handleSeeSupport}>Solicitudes</button>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <ul className="list-group">
+                            <li className="list-group-item list-group-item-primary">
+                                <button className="btn-sibebar" onClick={handleSeeeProfile}><strong>Profile</strong></button>
+                            </li>
+                            <li className="list-group-item list-group-item-secondary">
+                                <button className="btn-sibebar" onClick={handleSeenOrders}>
+                                    Pedidos
+                                </button>
+                            </li>
+                            <li className="list-group-item list-group-item-success">
+                                <button className="btn-sibebar" onClick={handleSeeReceipt}>Factura</button>
+                            </li>
+                            <li className="list-group-item list-group-item-warning">
+                                <button className="btn-sibebar" onClick={handleSeeSupport}>Solicitudes</button>
+                            </li>
+                        </ul>
                     </div>
                     <div className="col-md-8">
                         {profile ? <ProfileUser /> : ""}

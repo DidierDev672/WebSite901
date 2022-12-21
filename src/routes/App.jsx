@@ -17,7 +17,9 @@ import Payment from "../containers/Payment";
 import Success from "../containers/Success";
 import Purchase from "../containers/Purchase";
 import Solution from "../containers/Soluction";
+import Tilapia from "../containers/Tilapia.jsx";
 import Blog from "../containers/Blog";
+import Questions from "../containers/Questions.jsx";
 
 import Product from "../components/Product";
 import Post from "../components/handling/Post";
@@ -38,8 +40,10 @@ const App = () => {
             <Route path="/contact" element={<Contact />}/>
             <Route path="/pqrs" element={<Pqrs />}/>
             <Route path="/blog" element={<Blog />}/>
+            <Route path="/questions" element={<Questions />}/>
             <Route path="/sign-in" element={<SignIn />}/>
             <Route path="/sign-up" element={<SignUp />}/>
+            <Route path="/tilapia" element={<Tilapia/>}/>
             <Route path="/profile-user" element={<Sibebar/>}/>
             <Route path="/shopping-bag" element={<ShoppingCart />}/>
             <Route path="/shopping-bag/information" element={<Information />}/>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { addNewPurchaser } from "../reducers/cart/cartSlice";
@@ -66,13 +66,6 @@ const Information = () => {
             <div className="mb-3">
                 <div className="row g-0">
                     <div className="col-md-6">
-                        <div className="Information-buttons">
-                            <div className="Information-back">
-                                <Link to={`/shopping-bag`} className="btn-back">
-                                    Regresar
-                                </Link>
-                            </div>
-                        </div>
                         <div className="Information-sidebar">
                             <h5 className="text-gradient">Pedido</h5>
                             {productsList.map((item) => (

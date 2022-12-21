@@ -44,9 +44,9 @@ const Pqrs = () => {
                     <span className="text-gradient">PQR'S</span>
                     <h4>Peticiones Quejas O Reclamos </h4>
                     <p>
-                        Para la comercializadora internacional C.I Piscicola Ayapel-Cordoba su opinión es importante. Con el fin de ofrecerle un servicio mejor cada
-                        día, le solicitamos que rellene el siguiente formulario y presente su petición, queja o reclamo. Nuestro departamento de PQRS se pondrá en
-                        contacto con usted lo antes posible. Gracias por confiar en nosotros.
+                        En playapez los clientes son nuestra razón de ser, contactanos para
+                        darte la mejor atención. Tu solicitud será atendida en el mejor tiempo
+                        posible.
                     </p>
                 </div>
                 <form ref={form}>
