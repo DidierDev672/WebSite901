@@ -134,3 +134,29 @@ h5{
     font-size: 1rem;
     line-height: 2rem;
 }
+
+.navbar-footer-redes{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-footer-redes{
+    background: linear-gradient(to left, var(--white), var(--color-card));
+    border: 1px solid var(--border-card);
+    padding: 0;
+}
+
+.list-redes{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.list-redes > li {
+    list-style: none;
+}
+
+.redes-playapez{
+    text-decoration: none;
+    font-size: 20rem;
+}
