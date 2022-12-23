@@ -1,4 +1,4 @@
-import React, { Fragment,useState } from 'react';
+import React, { Fragment,useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/components/ordering.scss";
@@ -6,7 +6,7 @@ import "../styles/components/ordering.scss";
 
 const Order = () => {
     const { ordersHeader } = useSelector(state => state.orders);
-    const [ data, setData ] = useState(ordersHeader);
+    const [ data, setData ] = useState(...ordersHeader);
     return(
         <Fragment>
             <h4>Tus Pedidos</h4>
@@ -31,7 +31,7 @@ const Ordering = () => {
     return(
         <div className="Ordering">
             <div className="content-orders">
-                { ordersHeader.length > 0 ? <div className="header-order"><span className="text-gradient">No tienes pedidos...</span></div> : <Order /> }
+                { ordersHeader.length > 0 ? <Order /> : <div className="header-order"><span className="text-gradient">No tienes pedidos...</span></div>  }
             </div>
         </div>
     );

@@ -185,7 +185,7 @@ export default {
 
     async queryDetailOrders({ uid }){
         let data = [];
-        let product = {};
+        let product = [];
         const q = query(collection(db, detailBuyRef), where ("uid", "==", uid));
 
         const querySnapshot = await getDocs(q);
@@ -195,7 +195,7 @@ export default {
                 code_buy: doc.data().code_buy,
             });
 
-            product = {...doc.data().product};
+            product.push({ id: doc.id, code_buy: doc.data().code_buy, uid: doc.data().uid, ...doc.data().product});
         });
 
         return { data, product };
