@@ -18,7 +18,7 @@ const SignUp = () => {
             if(user){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
-                    if(result.id !== ""){
+                    if(result.id !== undefined){
                         dispatch(setUser({
                             email: result.email,
                             namefull: result.namefull,
