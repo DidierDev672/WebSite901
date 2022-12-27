@@ -6,23 +6,12 @@ const Footer = () => {
     return(
         <div className="Footer">
             <footer>
-                <h5>Recibe las novedades de PlayaPez en tu correo electronico</h5>
-                <div className="footer-news">
-                    <input type="email" className="field-text size-text-footer"  name="email" placeholder="Correo electronico"/>
-                    <button type="button" className="btn-up-footer">Apuntarme</button>
-                </div>
-                <div className="content-footer py-3">
-                    <h3>PlayaPez - Piscicola</h3>
-                    <a href="https://moonlit-faun-51413c.netlify.app/">www.playapez.com</a>
-                    <h5>Super Intendencia de Industria y Comercio</h5>
-                    <a href="https://www.sic.gov.co">www.sic.gov.co</a>
-                </div>
                 <div className="column-footer">
                     <span>INFORMACION LEGAL</span>
                     <ul>
-                        <li className="font-footer"> <i class="fa-solid fa-phone"></i> (+57) 320-573-7554</li>
-                        <li className="font-footer"><i class="fa-solid fa-city"></i> Ayapel Cordoba</li>
-                        <li><i class="fa-solid fa-clock"></i>
+                        <li className="font-footer"> <i class="fa-solid fa-phone font-footer"></i> (+57) 320-573-7554</li>
+                        <li className="font-footer"><i class="fa-solid fa-city font-footer"></i> Ayapel Cordoba</li>
+                        <li><i class="fa-solid fa-clock font-footer"></i>
                             <span className="font-footer">
                                 Horario de atencion: Lunes a Viernes de
                                 8:30 AM a 6:00 PM, Sabados de 9:00 AM a 5:00 PM.

@@ -9,7 +9,6 @@ import "../styles/components/whatsapp.scss";
 const Layout = ({ children }) => {
     return(
         <div className="layout">
-            <FooterRedes />
             <Header />
             {  children }
             <ReactWhatsapp number="+57 320-573-7554" className="btn-whatsapp">

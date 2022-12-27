@@ -1,10 +1,10 @@
 @import "vars";
 
 .Footer{
-    background: linear-gradient(to left, #edf2fb, var(--color-card));
-    border-radius: 2rem;
-    border: 4px solid var(--border-card);
-    box-shadow: 6px 6px 6px 6px var(--box-shadow-card);
+    background-color: #171A42;
+    border-radius: 1rem;
+    border: 2px solid var(--border-card);
+    box-shadow: 4px 4px 4px 4px var(--box-shadow-card);
     box-sizing: border-box;
     bottom: 0;
     left: 0;
@@ -13,8 +13,8 @@
 }
 
 .Footer{
-    padding: 20px;
-    border-radius: 1.4rem;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -79,7 +79,7 @@ h5{
 .footer-link{
     text-decoration: none;
     font-style: italic;
-    color: #212529;
+    color: var(--white);
     font-weight: 800;
     font-size: 1rem;
     line-height: 2rem;
@@ -108,7 +108,7 @@ h5{
 
 .content-footer > a {
     text-decoration: none;
-    color: #212529;
+    color: var(--white);
     font-weight: 600;
     font-size: 1rem;
     line-height: 2rem;
@@ -123,13 +123,14 @@ h5{
 }
 
 .column-footer > span{
+    color: var(--white);
     font-weight: 700;
     font-size: 1rem;
     line-height: 2rem;
 }
 
 .font-footer{
-    color: #212529;
+    color: var(--white);
     font-weight: 700;
     font-size: 1rem;
     line-height: 2rem;

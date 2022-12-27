@@ -85,3 +85,222 @@ video {
 //     height: 100%;
 //     // background-color: rgba(0,0,0,.5);
 // }
+
+.content-home{
+    background-color: #E45017;
+    padding: 1rem;
+}
+
+.content-home > p{
+    color: #000000;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.item-content-me-auto{
+    display: flex;
+    place-content: center;
+}
+
+.btn-know{
+    width: 10rem;
+    background-color: #FEFBF6;
+    border-radius: 5px;
+    border: none;
+    padding: 9px;
+}
+
+.btn-know{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.content-health-home{
+    background-color: #171A42;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.content-health-home > p {
+    position: relative;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    top: 25%;
+}
+
+.btn-soluction{
+    width: 7rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--black);
+    padding: 0.5rem;
+}
+
+.btn-soluction {
+    text-decoration: none;
+    position: relative;
+    top: 25%;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.btn-soluction{
+    display: flex;
+    margin: auto;
+}
+
+.flex-content-health{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @media screen and (max-width: 414px){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 740px){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 896px){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+.content-health-home-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.item-contact-home{
+    background-color: #FF6E31;
+    width: 40rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 2rem;
+}
+
+.item-contact-home{
+    position: relative;
+    margin-top: -120px;
+    left: 30%;
+
+    @media screen and (max-width: 360px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 375px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 414px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 1280px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 640px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 667px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 720px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 768px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media screen and (max-width: 900px){
+        margin-top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+.item-contact-home > p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.item-contact-home > h2{
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.item-contact-home > span {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.btn-contact-contact{
+    display: flex;
+    margin: auto;
+}
+
+.btn-contact-contact{
+    width: 7rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.btn-contact-contact{
+    text-decoration: none;
+    color: #181D31;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+}

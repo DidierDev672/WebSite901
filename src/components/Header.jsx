@@ -1,104 +1,35 @@
-import React, { useState } from 'react';
-import { useSelector } from "react-redux";
-import { Outlet,Link } from "react-router-dom";
-import {  FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+// import NavbarDropdown from "react-bootstrap/NavDropdown";
 import "../styles/components/headers.scss";
 
-const LogoSVG = new URL("../assets/Logo (1).svg", import.meta.url).href;
-
-const IconUser = () => {
-    const [ profile, setProfile ] = useState(false);
-    return(
-        <li className="navbar-item py-2">
-            <button type="button" className="btn-profile-header" onClick={() => setProfile(!profile)}><FontAwesomeIcon  icon={faUser}/>
-                { profile ? <ToggleUser  /> : '' }
-            </button>
-        </li>
-    );
-};
-
-const ToggleUser = () => {
-    const { email, namefull } = useSelector(state => state.user);
-    return(
-        <ul className="card-dropdown">
-            <li className="list-group-item">{ namefull }</li>
-            <li className="list-group-item">{ email }</li>
-            <li className="list-group-item"> <Link className="header-profile" to={`profile-user/`}>Editar</Link> </li>
-        </ul>
-    );
-};
-
-const ToggleSession = () => {
-    return(
-        <>
-            <li className="navbar-item">
-                <Link className="nav-link active font-link-header" aria-current="page" to={`sign-in`}>Iniciar Sesion</Link>
-            </li>
-            <li className="navbar-item">
-                <Link className="nav-link active font-link-header" aria-current="page" to={`sign-up`}>Registrar</Link>
-            </li>
-        </>
-    );
-};
+const LogoURL = new URL("../assets/Logo (1).svg", import.meta.url).href;
 
 const Header = () => {
-    const { email } = useSelector(state => state.user);
-    const {  totalCount  } = useSelector(state => state.cart);
-
     return(
-        <div className="container-fluid">
-            <nav className="navbar navbar-expand-lg bg-light">
-                <div className="container-fluid">
-                    <Link className="navbar-brand text-gradient" to={`/`}>
-                        <img src={LogoSVG} alt="Bootstrap" width="40" height="44"/>
-                    </Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse list-title" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active font-link-header" aria-current="page" to={`home`}>Home</Link>
-                            </li>
-                            <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active font-link-header" aria-current="page" to={`products`}>Productos</Link>
-                            </li>
-                            <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active font-link-header" aria-current="page" to={`solution`}>Solucion</Link>
-                            </li>
-                            <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active font-link-header" aria-current="page" to={`know`}>Acerca</Link>
-                            </li>
-                            <li className="navbar-item dropdown navbar-item-list">
-                                <a className="nav-link dropdown-toggle font-link-header" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Contacto
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" aria-current="page" to={`contact`}>Contactanos</Link></li>
-                                    <li><Link className="dropdown-item" aria-current="page" to={`pqrs`}>PQR'S</Link></li>
-                                </ul>
-                            </li>
-                            <li className="navbar-item navbar-item-list">
-                                <Link className="nav-link active font-link-header" aria-current="page" to={`/blog`}>Blog</Link>
-                            </li>
-                        </ul>
-                        <form className="d-flex item-header-rigth">
-                            <ul className="navbar-nav">
-                            { email !== "" ? <IconUser  /> :  <ToggleSession/> }
-                                <li className="navbar-item flex-item-navbar">
-                                    <Link className="nav-link active" aria-current="page" to={`shopping-bag`}> <FontAwesomeIcon icon={faBagShopping}/> <span className="quantity-orders">{ totalCount }</span></Link>
-                                </li>
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-            <div id="detail">
-                <Outlet />
-            </div>
-        </div>
+        <Navbar bg="light" expand="lg">
+            <Container>
+                <Navbar.Brand><Link to={`home`} className="link-navbar">
+                    <img  src={LogoURL} width="50" height="50" className="d-inline-bloock align-top" alt="React Bootstrap logo"/>
+                </Link></Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link><Link to={`home`} className="link-navbar">Home</Link></Nav.Link>
+                        <Nav.Link><Link to={`products`} className="link-navbar">Productos</Link></Nav.Link>
+                        <Nav.Link><Link to={`solucion`} className="link-navbar">Solucion</Link></Nav.Link>
+                        <Nav.Link><Link to={`know`} className="link-navbar">Acerca</Link></Nav.Link>
+                        <Nav.Link><Link to={`contact`} className="link-navbar">Contacto</Link></Nav.Link>
+                        <Nav.Link><Link to={`pqrs`} className="link-navbar">PQRS</Link></Nav.Link>
+                        <Nav.Link><Link to={`sign-in`} className="link-navbar">Iniciar Session</Link></Nav.Link>
+                        <Nav.Link><Link to={`sign-up`} className="link-navbar">Registrar Usuario</Link></Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 
