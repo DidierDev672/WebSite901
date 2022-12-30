@@ -7,6 +7,7 @@ const initialState = {
     phone: "",
     country: "",
     city: "",
+    section: "",
     address: "",
     uid: ""
 };
@@ -23,6 +24,7 @@ export const userSlice = createSlice({
             state.phone = action.payload.phone;
             state.country = action.payload.country;
             state.city = action.payload.city;
+            state.section = action.payload.section;
             state.address = action.payload.address;
             state.uid = action.payload.uid;
         },

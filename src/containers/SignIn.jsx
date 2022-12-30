@@ -24,7 +24,8 @@ const SignIn = () => {
             if(user){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
-                    if(result.id !== undefined){
+                    console.log(result.section);
+                    if(result.id !== ""){
                         dispatch(setUser({
                             namefull: result.namefull,
                             phone: result.phone,
@@ -32,6 +33,7 @@ const SignIn = () => {
                             id: result.id,
                             country: result.country,
                             city: result.city,
+                            section: result.section,
                             address: result.address,
                             uid: result.uid
                         }))

@@ -14,7 +14,7 @@ const ProfileUser = () => {
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            if(id === undefined){
+            if(id === ""){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
                     dispatch(setUser({

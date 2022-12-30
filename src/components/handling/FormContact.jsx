@@ -40,7 +40,7 @@ const FormContact = () => {
     };
 
     return(
-        <div className="container-fluid">
+        <div className="container-fluid py-5">
             <div className="card-contact">
             <div className="content-paragraph">
                     <h4 className="text-gradient">Contactanos con nosotros</h4>

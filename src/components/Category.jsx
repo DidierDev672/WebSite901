@@ -24,7 +24,7 @@ const Category = () => {
 
     return(
         <div className="container">
-            <div className="py-4"></div>
+            <div className="py-5"></div>
         <div className="header-category">
             <h5 className="text-gradient">Categoria de productos</h5>
         </div>

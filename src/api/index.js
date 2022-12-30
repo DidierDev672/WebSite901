@@ -91,6 +91,7 @@ export default {
                 namefull: doc.data().namefull,
                 phone: doc.data().phone,
                 country: doc.data().country,
+                section: doc.data().section,
                 city: doc.data().city,
                 address: doc.data().address,
                 email: doc.data().email,
