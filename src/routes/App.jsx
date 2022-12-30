@@ -9,8 +9,7 @@ import Know from "../containers/Know";
 import Contact from "../containers/Contact";
 import Pqrs from "../containers/Pqrs.jsx";
 import SignIn from "../containers/SignIn";
-import SignUp from "../containers/SignUp";
-import Sibebar from "../components/Sibebar";
+import ProfileUser from "../containers/ProfileUser";
 import ShoppingCart from "../containers/ShoppingCart";
 import Information from "../containers/Information";
 import Payment from "../containers/Payment";
@@ -41,10 +40,9 @@ const App = () => {
             <Route path="/pqrs" element={<Pqrs />}/>
             <Route path="/blog" element={<Blog />}/>
             <Route path="/questions" element={<Questions />}/>
-            <Route path="/sign-in" element={<SignIn />}/>
-            <Route path="/sign-up" element={<SignUp />}/>
+            <Route path="/accede" element={<SignIn />}/>
             <Route path="/tilapia" element={<Tilapia/>}/>
-            <Route path="/profile-user" element={<Sibebar/>}/>
+            <Route path="/profile-user" element={<ProfileUser/>}/>
             <Route path="/shopping-bag" element={<ShoppingCart />}/>
             <Route path="/shopping-bag/information" element={<Information />}/>
             <Route path="/shopping-bag/payment" element={<Payment />}/>

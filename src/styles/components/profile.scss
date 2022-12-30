@@ -3,7 +3,7 @@
 .card-profile{
     width: 50rem;
     background-color: var(--color-card);
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 2px solid var(--border-card);
     box-shadow: 4px 4px 4px var(--box-shadow-card);
     padding: 10px;
@@ -14,12 +14,37 @@
     }
 }
 
+.card-profile{
+    @media screen and (max-width: 360px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 375px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 720px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 640px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 667px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1280px){
+        width: 100%;
+    }
+}
+
 .card-profile > h4 {
     text-align: center;
-    font-style: normal;
-    font-weight: var(--font-weight-title);
-    font-size: var(--font-size-title);
-    line-height: var(--line-height-title);
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2rem;
 }
 
 .flex-profile{
@@ -39,10 +64,8 @@
 }
 
 .item-profile > label {
-    font-style: normal;
-    font-weight: var(--font-weight-paragraph);
-    font-size: var(--font-size-paragrap);
-    line-height: var(--line-height-paragrap);
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 .btn-profile{
@@ -70,6 +93,44 @@
     grid-auto-rows: minmax(100px, auto);
 }
 
+.grid-profile{
+    @media screen and (max-width:360px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 375px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 720px){
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 640px){
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @media screen and (max-width: 667px){
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @media screen and (max-width: 1280px){
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 .item-profile{
     display: flex;
     flex-direction: column;
@@ -95,4 +156,23 @@
     font-weight: 700;
     font-size: 1rem;
     line-height: 2rem;
+}
+
+.item-profile{
+    border: 2px solid #EAEAEA;
+    padding: 1rem;
+}
+
+.field-text{
+    @media screen and (max-width: 360px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 375px){
+        width: 100%;
+    }
+
+    @media screen and (max-width: 720px){
+        width: 100%;
+    }
 }

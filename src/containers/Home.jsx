@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import VideoComponent from "../components/VideoComponent";
+import VideoComponent from "../components/VideoComponent";
 import "../styles/components/home.scss";
 
 const FishURl = new URL("../assets/pexels-photo-511088.webp", import.meta.url).href;
@@ -10,8 +10,8 @@ const RefPlaya = new URL("../assets/pexels-photo-247487.jpg", import.meta.url).h
 const Home = () => {
     return(
         <div className="container-fluid py-3">
-            {/* <VideoComponent /> */}
-            <img src={FishURl} width="100%" className="img-fluid"/>
+            <VideoComponent />
+            {/* <img src={FishURl} width="100%" className="img-fluid"/> */}
             <div className="content-home">
                 <p>
                     Combinamos generaciones de experiencia en acuicultura con la
@@ -33,7 +33,7 @@ const Home = () => {
                                 Una plataforma inteligente y sostenible para la producción terrestre de
                                 peces naturales, saludables y nutritivos.
                             </p>
-                            <Link to={`soluction`} className="btn-soluction">Solucion</Link>
+                            <Link to={`/solution`} className="btn-soluction">Solucion</Link>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ const Home = () => {
                             <span>¿Tiene preguntas?</span>
                             <br />
                             <span>Nosotros tenemos respuestas</span>
-                            <Link to={`contact`} className="btn-contact-contact">Contactanos</Link>
+                            <Link to={`/contact`} className="btn-contact-contact">Contactanos</Link>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 import React, { useRef, useEffect} from 'react';
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword ,onAuthStateChanged } from "firebase/auth";
 import API from "../api";
 import { auth } from "../api/firebase";
 import { setUser } from "../reducers/users/userSlice";
@@ -9,7 +11,12 @@ import "../styles/components/signin.scss";
 
 const SignIn = () => {
     const dispatch = useDispatch();
-    const form = useRef(null);
+    const registerEmailRef = useRef(null);
+    const registerPwdRef = useRef(null);
+    const emailRef = useRef(null);
+    const namefullRef = useRef(null);
+    const phoneRef = useRef(null);
+    const pwdRef = useRef(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -50,12 +57,11 @@ const SignIn = () => {
     },[]);
 
     const handleSubmit = () => {
-        const formData = new FormData(form.current);
         const singIn = {
-            "email": formData.get("email"),
-            "password": formData.get("pwd")
+            "email": emailRef.current.value,
+            "password": pwdRef.current.value
         };
-
+        console.log(singIn);
         if(singIn.email !== "" && singIn.password !== ""){
             signInWithEmailAndPassword(auth, singIn.email, singIn.password)
             .then(() => {
@@ -75,27 +81,110 @@ const SignIn = () => {
         }
     };
 
+    const handleCreateUser = () => {
+        const singUp = {
+            "email": registerEmailRef.current.value,
+            "password": registerPwdRef.current.value,
+            "namefull": namefullRef.current.value,
+            "phone": phoneRef.current.value
+        };
+        if(singUp.email !== "" && singUp.password !== "" && singUp.namefull !== "" && singUp.phone !== ""){
+            createUserWithEmailAndPassword(auth, singUp.email, singUp.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                if(user.uid !== undefined){
+                    API.RegisterUser(
+                        {
+                            uid: user.uid,
+                            namefull:singUp.namefull,
+                            phone: singUp.phone,
+                            email: singUp.email,
+                            password: singUp.password
+                        })
+                    .then(() => {
+                        setUser({
+                            uid: user.uid,
+                            namefull: singUp.namefull,
+                            phone: singUp.phone,
+                            email: singUp.email,
+                            password: singUp.password
+                        })
+                        alert("Registro exito, ya eres parte de nuestra comunidad");
+                        navigate(`/home`);
+                    });
+                }
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error(errorCode);
+                console.error(errorMessage);
+            })
+        }
+    };
+
     return(
-        <div className="container py-3">
+        <Container>
             <div className="py-5"></div>
-            <div className="card-sign-in">
-                <div className="header-sign-in">
-                    <h4 className="text-gradient">Playa Pez</h4>
-                </div>
-                <form ref={form} className="flex-sign-in content-form-sign-in py-3">
-                    <div className="item-sign-in">
-                        <input type="email" className="field-text" name="email" placeholder="Correo electronico"/>
+            <h3>REGISTRO / LOGIN</h3>
+            <div className="flex-sign-in">
+                <div className="item-sign-in">
+                <h4>!Registrate y descubre las ventajas!</h4>
+                {/* <p>
+                        Al crear una cuenta en nuestra web, podrás moverte más rápidamente
+                        por nuestro catálogo y tendrás recomendaciones cada vez más
+                        apuradas. Recibir notificaciones cuando aparezcan novedades de
+                        nuestros proyectos.
+                </p> */}
+                <span>*: Campos obligatorios</span>
+                <h5>Nuevo Usuario</h5>
+                <form>
+                    <div className="row-item">
+                        <div className="form-group">
+                            <label>Nombre completo</label>
+                            <input type="text" className="field-text" ref={namefullRef} placeholder="Nombre completo"/>
+                        </div>
+                        <div className="form-group">
+                            <label>Telefono</label>
+                            <input type="tel" className="field-text" ref={phoneRef} placeholder="Telefono"/>
+                        </div>
                     </div>
-                    <div className="item-sign-in">
-                        <input type="password" className="field-text" name="pwd" placeholder="Password"/>
+                    <br />
+                    <div className="row-item">
+                        <div className="form-group">
+                            <label>Correo electronico</label>
+                            <input type="email" className="field-text" ref={registerEmailRef} placeholder="Correo electronico"/>
+                        </div>
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input type="password" className="field-text" ref={registerPwdRef} placeholder="Password"/>
+                        </div>
                     </div>
-                    <div className="item-sign-in py-3">
-                        <Link to={`/sign-up`} className="link-sign-in">Registrar Usuario</Link>
-                        <button type="button" className="btn-sign-in" onClick={handleSubmit}>Iniciar session</button>
-                    </div>
+                    <div className="py-2"></div>
+                    <Button variant="warning" onClick={handleCreateUser}>Registrar</Button>
                 </form>
+                </div>
+                <div className="item-sign-in">
+                    <div className="form-register">
+                        <h4>Usuario Registrado</h4>
+                        <form>
+                            <div className="row-item">
+                                <div className="form-group">
+                                    <label>Correo electronico</label>
+                                    <input type="email" className="field-text" ref={emailRef} placeholder="Correo Electronico"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Password</label>
+                                    <input type="password" className="field-text" ref={pwdRef} placeholder="Password"/>
+                                </div>
+                            </div>
+                            <div className="py-2"></div>
+                            <Button variant="warning" onClick={handleSubmit}>Iniciar Session</Button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

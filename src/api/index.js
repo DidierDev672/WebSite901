@@ -40,6 +40,18 @@ export default {
         return docRef;
     },
 
+    async RegisterUser({uid, namefull, phone, email, password}){
+        const docRef = await addDoc(collection(db, profileRef),{
+            namefull,
+            phone,
+            email,
+            password,
+            uid
+        });
+
+        return docRef;
+    },
+
     async savePqrs({namefull, phone, email, petition, description}){
         const docRef = await addDoc(collection(db, pqrsRef), {
             namefull,

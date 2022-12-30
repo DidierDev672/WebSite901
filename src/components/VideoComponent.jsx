@@ -1,4 +1,5 @@
 import React from 'react';
+// import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import "../styles/components/home.scss";
 
@@ -6,13 +7,8 @@ const videoBg = new URL("../assets/2019_12_14_09_04_03.mp4", import.meta.url).hr
 
 const VideoComponent = () => {
     return(
-        <div className="container main">
-            <video src={videoBg} autoPlay loop muted/>
-            <div className="content-video">
-                <h1>Bienvenido a PlayaPez</h1>
-                <p>A nuestro sitio web</p>
-                <Link className='link-know' to={`know`}>Conocenos</Link>
-            </div>
+        <div className="main">
+            <video  src={videoBg} width="100%" autoPlay muted loop/>
         </div>
     );
 };

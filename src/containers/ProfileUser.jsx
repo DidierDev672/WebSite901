@@ -14,7 +14,7 @@ const ProfileUser = () => {
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            if(id === ""){
+            if(id === undefined){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
                     dispatch(setUser({
@@ -93,7 +93,7 @@ const ProfileUser = () => {
             "address": formData.get("address"),
             "password": formData.get("pwd"),
         };
-
+        console.log(data);
 
         if(data.email !== "" && data.namefull !== "" && data.phone !== "" && data.country !== "" && data.address !== "" && data.password !== ""){
             signInWithEmailAndPassword(auth, data.email, data.password)
@@ -142,32 +142,42 @@ const ProfileUser = () => {
     };
     return(
         <div className="container profile-user">
+        <div className="py-5"></div>
             <div className="card-profile">
-                <h4>Perfil de {namefull}</h4>
+                <h4>Informacion Personal</h4>
+                <hr />
                 <form ref={form}>
                     <div className="grid-profile">
                         <div className="item-profile">
+                            <label className="font-label">Nombre completo</label>
                             <input type="text" className="field-text" name="namefull" value={profile.namefull} onChange={handleNamefullChange} placeholder="Nombre completo"/>
                         </div>
                         <div className="item-profile">
+                            <label>Telefono</label>
                             <input type="tel" className="field-text" name="phone" value={profile.phone} onChange={handlePhoneChange} placeholder="Telefono"/>
                         </div>
                         <div className="item-profile">
+                            <label>Correo electronico</label>
                             <input type="email" className="field-text" name="email" value={profile.email} onChange={handleEmailChange} placeholder="Correo electronico"/>
                         </div>
                         <div className="item-profile">
+                            <label>Pais</label>
                             <input type="text" className="field-text" name="country" value={profile.country} onChange={handleCountryChange} placeholder="Pais"/>
                         </div>
                         <div className="item-profile">
+                            <label>Ciudad</label>
                             <input type="text" className="field-text" name="city" value={profile.city} onChange={handleCityChange} placeholder="Ciudad"/>
                         </div>
                         <div className="item-profile">
+                            <label>Departamento</label>
                             <input type="text" className="field-text" name="section" value={profile.section} onChange={handleSectionChange} placeholder="Departamento"/>
                         </div>
                         <div className="item-profile">
+                            <label>Direccion</label>
                             <input type="text" className="field-text" name="address" value={profile.address} onChange={handleAddressChange}  placeholder="Direccion"/>
                         </div>
                         <div className="item-profile">
+                            <label>Password</label>
                             <input type="password" className="field-text" name="pwd" placeholder="Password"/>
                         </div>
                     </div>
