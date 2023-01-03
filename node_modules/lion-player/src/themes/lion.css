@@ -1,0 +1,464 @@
+/*
+  Lion Skin for Video.js
+  http://videojs.com
+
+  MIT License
+
+  Copyright (c) 2021 Prince Neil Cedrick Castro
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+*/
+
+/* Show the controls (hidden at the start by default) */
+.video-js .vjs-control-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Show the big play button (hidden at the start by default) */
+.vjs-theme-lion .vjs-big-play-button .vjs-icon-placeholder {
+  display: block;
+}
+
+.video-js {
+  --vjs-theme-default--foreground: #fafafa;
+  --vjs-theme-default--background: #5d34cb;
+  --vjs-theme-default--slider: rgba(255, 255, 255, 0.42);
+  --vjs-theme-lion--primary: #fafafa;
+  --vjs-theme-lion--secondary: #f2f2f2;
+
+  font-family: Calibri, Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  color: var(--vjs-theme-default--foreground);
+}
+
+.video-js .vjs-control-bar,
+.video-js .vjs-big-play-button,
+.video-js .vjs-menu-button .vjs-menu-content {
+  /* IE8 - has no alpha support */
+  background-color: var(--vjs-theme-default--background);
+  background-color: rgba(var(--vjs-theme-default--background), 0.7);
+}
+
+/* Slider - used for Volume bar and Progress bar */
+.video-js .vjs-slider {
+  background-color: var(--vjs-theme-default--slider);
+}
+
+/* The slider bar color is used for the progress bar and the volume bar
+   (the first two can be removed after a fix that's coming) */
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+  background: var(--vjs-theme-default--background);
+}
+
+/* The main progress bar also has a bar that shows how much has been loaded. */
+.video-js .vjs-load-progress {
+  background: var(--vjs-theme-default--slider);
+}
+
+/* The load progress bar also has internal divs that represent
+   smaller disconnected loaded time ranges */
+.video-js .vjs-load-progress div {
+  background: rgba(var(--vjs-theme-default--slider), 0.75);
+}
+
+/* Variable Definition */
+.vjs-theme-lion {
+  --vjs-theme-lion--primary: #fafafa;
+  --vjs-theme-lion--secondary: #f2f2f2;
+}
+
+/* Big play Button */
+.vjs-theme-lion:hover .vjs-big-play-button,
+.vjs-theme-lion .vjs-big-play-button {
+  background: none;
+  font-size: 32px;
+  border: none;
+  top: 0;
+  left: 0;
+  color: var(--vjs-theme-lion--secondary);
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  text-shadow: 0px 0px 256px rgba(255, 255, 255, 0.3);
+}
+
+.vjs-theme-lion:hover .vjs-big-play-button,
+.vjs-theme-lion.vjs-big-play-button:focus {
+  background-color: transparent;
+  color: var(--vjs-theme-default--background);
+}
+
+/* Control Bar */
+.vjs-theme-lion .vjs-button > .vjs-icon-placeholder::before {
+  line-height: 1.55;
+}
+
+.vjs-theme-lion .vjs-control:not(.vjs-disabled, .vjs-time-control):hover {
+  color: var(--vjs-theme-lion--primary);
+  text-shadow: var(--vjs-theme-lion--secondary) 0 0 0;
+}
+
+.vjs-theme-lion .vjs-control-bar {
+  height: 64px;
+  padding-top: 32px;
+  background: none;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0));
+  padding-left: 1em;
+  padding-right: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 2em;
+}
+
+/* Play Button */
+.vjs-theme-lion .vjs-play-control {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  margin-left: 1.8em;
+  margin-right: 0.8em;
+}
+
+.vjs-theme-lion .vjs-play-control .vjs-icon-placeholder::before {
+  background: none;
+  color: var(--vjs-theme-lion--primary);
+}
+
+.vjs-theme-lion .vjs-play-control:hover .vjs-icon-placeholder::before {
+  background: none;
+  color: var(--vjs-theme-lion--secondary);
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder::before,
+.video-js .vjs-modal-dialog,
+.vjs-button > .vjs-icon-placeholder::before,
+.vjs-modal-dialog .vjs-modal-dialog-content {
+  position: inherit !important;
+  font-size: 2.5em;
+}
+
+/* Volume stuff */
+/* 
+.vjs-theme-lion .vjs-slider-vertical .vjs-volume-level::before {
+  font-size: 18px;
+  top: -0.5em;
+  left: -0.38em;
+}
+*/
+
+.video-js .vjs-volume-panel {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-hover,
+.video-js .vjs-volume-panel.vjs-volume-panel-horizontal:active,
+.video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-slider-active {
+  width: auto !important;
+}
+
+.video-js .vjs-volume-panel .vjs-volume-control.vjs-volume-horizontal {
+  display: none !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-hover,
+  .video-js .vjs-volume-panel.vjs-volume-panel-horizontal:active,
+  .video-js .vjs-volume-panel.vjs-volume-panel-horizontal.vjs-slider-active {
+    height: 100%;
+    width: 16em !important;
+  }
+
+  .video-js .vjs-volume-panel .vjs-volume-control.vjs-volume-horizontal {
+    height: 100% !important;
+    display: flex !important;
+    margin-right: 0.2em !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-horizontal,
+  .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-horizontal,
+  .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-horizontal,
+  .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-horizontal,
+  .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-horizontal,
+  .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-horizontal {
+    width: 8em !important;
+    height: 100% !important;
+    margin-right: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vjs-slider-horizontal .vjs-volume-level::before {
+    top: -0.38em;
+    right: -0.5em;
+  }
+
+  .vjs-volume-bar.vjs-slider-horizontal {
+    width: 8em !important;
+  }
+}
+
+.video-js .vjs-volume-level::before {
+  position: absolute;
+  font-size: 18px;
+}
+
+.vjs-theme-lion .vjs-volume-bar {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.vjs-theme-lion .vjs-volume-level {
+  background-color: var(--vjs-theme-lion--primary);
+  border-radius: 10px;
+}
+
+.vjs-icon-volume-high,
+.video-js .vjs-mute-control .vjs-icon-placeholder,
+.vjs-icon-volume-mid,
+.video-js .vjs-mute-control.vjs-vol-2 .vjs-icon-placeholder,
+.vjs-icon-volume-low,
+.video-js .vjs-mute-control.vjs-vol-1 .vjs-icon-placeholder,
+.vjs-icon-volume-mute,
+.video-js .vjs-mute-control.vjs-vol-0 .vjs-icon-placeholder {
+  font-family: VideoJS;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1em !important;
+}
+
+.vjs-theme-lion .vjs-mute-control {
+  cursor: pointer;
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5em;
+}
+
+/* Progress Bar */
+.vjs-theme-lion .vjs-progress-control {
+  padding: 1em 1em 1em 1.5em;
+  display: border-box;
+  position: absolute;
+  width: 100%;
+  height: 1em;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+}
+
+.vjs-theme-lion .vjs-progress-control:hover .vjs-progress-holder {
+  font-size: 1em;
+}
+
+.vjs-theme-lion .vjs-play-progress::before {
+  display: block;
+  width: 6px;
+  height: 5px;
+  content: "";
+  border-radius: 5em;
+  background: var(--vjs-theme-default--foreground);
+  margin-right: -3px;
+  transition: 0.1s;
+}
+
+.vjs-theme-lion .vjs-progress-control.vjs-control:hover .vjs-play-progress::before {
+  display: block;
+  width: 1.8em;
+  height: 1.8em;
+  content: "";
+  border-radius: 5em;
+  background: var(--vjs-theme-default--foreground);
+  transition: 0.3s;
+  margin-right: -1em;
+  margin-top: -0.6em;
+}
+
+.vjs-theme-lion .vjs-progress-holder {
+  border-radius: 25px;
+  height: 0.5em;
+}
+
+.vjs-theme-lion .vjs-mouse-display .vjs-time-tooltip {
+  font-size: 12px !important;
+  background: var(--vjs-theme-default--background);
+}
+
+.vjs-play-progress .vjs-time-tooltip {
+  display: none !important;
+}
+
+.vjs-theme-lion .vjs-play-progress,
+.vjs-theme-lion .vjs-load-progress,
+.vjs-theme-lion .vjs-load-progress div {
+  border-radius: 25em;
+}
+
+/* Time control */
+.video-js .vjs-time-control {
+  flex: none;
+  font-size: 1.3em;
+  line-height: 3em;
+  color: rgba(255, 255, 255, 0.88);
+  min-width: 2em;
+  width: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.vjs-duration-display {
+  display: none !important;
+}
+
+.vjs-time-divider {
+  display: none !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .vjs-duration-display {
+    display: block !important;
+  }
+
+  .vjs-time-divider {
+    display: block !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    min-width: 0px !important;
+  }
+}
+
+/* Control Spacer */
+.video-js .vjs-custom-control-spacer {
+  width: 100%;
+  display: block;
+}
+
+/* Quality Selector */
+.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-selector {
+  font-size: 1em;
+  margin-top: -0.1em;
+}
+
+/* Playback rate */
+.vjs-playback-rate.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button {
+  font-size: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  /* Quality Selector */
+  .vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button.vjs-quality-selector {
+    margin-right: 0.4em;
+    font-size: 1.2em;
+    margin-top: -0.3em;
+  }
+
+  /* Playback rate */
+  .vjs-playback-rate.vjs-menu-button.vjs-menu-button-popup.vjs-control.vjs-button {
+    margin-right: 0.8em;
+    font-size: 1.2em;
+  }
+}
+
+.vjs-theme-lion .vjs-playback-rate .vjs-playback-rate-value {
+  pointer-events: none;
+  font-size: 1.2em;
+  line-height: 2;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fullscreen control */
+.vjs-theme-lion .vjs-fullscreen-control {
+  cursor: pointer;
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  width: 2em;
+  margin-right: 1.8em;
+  margin-left: 0.8em;
+}
+
+/* Menu content */
+.vjs-menu {
+  padding-bottom: 24px;
+}
+
+.vjs-menu li.vjs-menu-title {
+  display: none;
+}
+
+.vjs-menu .vjs-menu-content {
+  overflow: auto !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.vjs-menu-button-popup .vjs-menu .vjs-menu-content {
+  padding-bottom: 32px;
+}
+
+.vjs-menu .vjs-menu-content > * {
+  background: rgba(0, 0, 0, 0.42);
+  padding: 8px 0 8px 0;
+  color: var(--vjs-theme-default--foreground);
+}
+
+.video-js .vjs-menu :focus:not(:focus-visible),
+.js-focus-visible .vjs-menu :focus:not(.focus-visible) {
+  background: var(--vjs-theme-default--background);
+  color: var(--vjs-theme-default--foreground);
+}
+
+.js-focus-visible .vjs-menu li.vjs-selected:hover,
+.vjs-menu li.vjs-selected,
+.vjs-menu li.vjs-selected:focus,
+.vjs-menu li.vjs-selected:hover {
+  background: var(--vjs-theme-default--background);
+  color: var(--vjs-theme-default--foreground);
+}
+
+.vjs-playback-rate .vjs-menu {
+  width: 6em;
+  left: -10px;
+}
+
+.vjs-menu-button-popup .vjs-button .vjs-icon-placeholder {
+  font-size: 1.2em;
+}

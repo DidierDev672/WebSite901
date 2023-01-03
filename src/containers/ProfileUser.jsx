@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import { signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
 import { setUser } from "../reducers/users/userSlice";
 import { auth } from "../api/firebase";
@@ -10,16 +11,17 @@ const ProfileUser = () => {
     const form = useRef(null);
     const dispatch = useDispatch();
     const { email, namefull, phone, country, city, address, uid, id, section  } = useSelector(state => state.user);
-    const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone, country:country,city:city,section: section,address:address,uid:uid,id:id });
+    const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone,uid:uid });
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            if(id === ""){
+            if(id === undefined){
                 API.queryProfile({ uid: user.uid })
                 .then((result) => {
                     dispatch(setUser({
                         namefull: result.namefull,
                         phone: result.phone,
+                        email: result.email,
                         country: result.country,
                         city: result.city,
                         section: result.section,
@@ -27,6 +29,50 @@ const ProfileUser = () => {
                         uid: user.uid,
                         id: result.id
                     }))
+                    .then(() => {
+                        setProfile({
+                            email: email,
+                            namefull: namefull,
+                            phone:phone,
+                            country: country,
+                            city: city,
+                            section: section,
+                            address: address,
+                            uid: uid,
+                            id: id,
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+            }else{
+                API.queryProfile({ uid: user.uid })
+                .then((result) => {
+                    dispatch(setUser({
+                        namefull: result.namefull,
+                        phone: result.phone,
+                        email: result.email,
+                        country: result.country,
+                        city: result.city,
+                        section: result.section,
+                        address: result.address,
+                        uid: user.uid,
+                        id: result.id
+                    }).then(() => {
+                        setProfile({
+                            email: email,
+                            namefull: namefull,
+                            phone:phone,
+                            country: country,
+                            city: city,
+                            section: section,
+                            address: address,
+                            uid: uid,
+                            id: id,
+                        });
+                    }));
+                    console.log(profile)
                 })
                 .catch((error) => {
                     console.error(error);
@@ -47,10 +93,7 @@ const ProfileUser = () => {
     }
 
     function handlePhoneChange(e){
-        setProfile({
-            ...profile,
-            phone: e.target.value
-        });
+            phone: e.target.value;
     }
 
     function handleCountryChange(e){
@@ -93,8 +136,6 @@ const ProfileUser = () => {
             "address": formData.get("address"),
             "password": formData.get("pwd"),
         };
-        console.log(data);
-
         if(data.email !== "" && data.namefull !== "" && data.phone !== "" && data.country !== "" && data.address !== "" && data.password !== ""){
             signInWithEmailAndPassword(auth, data.email, data.password)
             .then(() => {
@@ -113,6 +154,17 @@ const ProfileUser = () => {
                         email: data.email,
                         password: data.password,
                         uid: uid
+                    })
+                    .then(() => {
+                        toast("Su informacion personal se actualizado con exito",{
+                            position: "top-right",
+                            autoClose:5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            theme: "colored"
+                        });
                     });
                 }else{
                     updateProfile(auth.currentUser, {
@@ -129,15 +181,46 @@ const ProfileUser = () => {
                         address: data.address,
                         email: data.email,
                         password: data.password
+                    })
+                    .then(() => {
+                        toast("Su informacion personal se han actualizado con exito",{
+                            position: "top-right",
+                            autoClose:5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            theme: "colored"
+                        });
                     });
                 }
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                toast("Error en la password y correo electronico, por favor revisar los datos",{
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "colored"
+                });
                 console.error(errorCode);
                 console.error(errorMessage);
             })
+        }else{
+            toast("Debe llenar todos los campos",{
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                // progress: undefined,
+                theme:"light"
+            });
         }
     };
     return(
@@ -181,7 +264,10 @@ const ProfileUser = () => {
                             <input type="password" className="field-text" name="pwd" placeholder="Password"/>
                         </div>
                     </div>
-                    <button type="button" className="btn-update-user" onClick={handleSubmit}>Actualizar</button>
+                    <div className="py-3">
+                        <button type="button" className="btn-update-user" onClick={handleSubmit}>Actualizar</button>
+                    </div>
+                    <ToastContainer />
                 </form>
             </div>
         </div>

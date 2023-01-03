@@ -38,7 +38,7 @@
 
 .field-text{
     background-color: var(--white);
-    color: #212529;
+    color: #000;
     border-radius: 8px;
     border: none;
     box-shadow: 2px 2px 2px var(--box-shadow-card);
@@ -167,7 +167,7 @@
 
 .form-group{
     border-radius: 0.5rem;
-    border: 2px solid #dee2e6;
+    border: 2px solid #E2DCC8;
     padding: 1rem;
 }
 
@@ -189,4 +189,58 @@
 .form-register > h4{
     font-weight: 900;
     font-size: 1rem;
+}
+
+.form-user{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title-user{
+    color: #2C3333;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.title-user{
+    @media screen and (max-width: 320px){
+        font-size: 0.5rem;
+        line-height: 1.5rem;
+    }
+
+    @media screen and (max-width:375px){
+        font-size: 0.5rem;
+        line-height: 1.5rem;
+    }
+
+    @media screen and (max-width: 720px){
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.sub-title-user{
+    color: #2C3333;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.sub-title-user{
+    @media screen and (max-width: 360px){
+        font-size: 0.7rem;
+        line-height: 1rem;
+    }
+
+    @media screen and (max-width: 375px){
+        font-size: 0.7rem;
+        line-height: 1.5rem;
+    }
+
+    @media screen and (max-width: 720px){
+        font-size: 0.7rem;
+        line-height: 1.5rem;
+    }
 }
