@@ -1,80 +1,82 @@
-import React, { useContext, useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { useSelector } from "react-redux";
-import AppContext from "../../context/AppContext.js";
-import API from "../../api";
+import React, { useRef } from "react";
+import Container from "react-bootstrap/Container";
+import { toast, ToastContainer } from "react-toastify";
+import API from "../../api/index";
+import toNewContactEntry from "../../api/utils.ts";
 import "../../styles/components/contact.scss";
 
 const FormContact = () => {
-    const { addNewPeople } = useContext(AppContext);
-    const { uid } = useSelector(state => state.user);
-    const form = useRef(null);
+    const namefullRef = useRef(null);
+    const phoneRef = useRef(null);
+    const emailRef = useRef(null);
+    const matterRef = useRef(null);
+    const messageRef = useRef(null);
 
-    const handleSubmit = () => {
-        const formData = new FormData(form.current);
-
-        const peoples = {
-            "id": uuidv4(),
-            "namefull": formData.get("namefull"),
-            "email": formData.get("email"),
-            "phone": formData.get("phone"),
-            "matter": formData.get("matter"),
-            "message": formData.get("message")
+    const handleSaveContact = () => {
+        const dataContact = {
+            namefull: namefullRef.current.value,
+            phone: phoneRef.current.value,
+            email: emailRef.current.value,
+            matter: matterRef.current.value,
+            message: messageRef.current.value
         };
-
-        if(peoples.namefull !== "" && peoples.email !== "" && peoples.phone !== "" && peoples.matter !== "" && peoples.message !== ""){
-            addNewPeople(peoples);
-            API.saveContact({
-                id: peoples.id,
-                namefull: peoples.namefull,
-                email:peoples.email,
-                phone:peoples.phone,
-                matter: peoples.matter,
-                message: peoples.message,
-                uid: uid
+        if(dataContact.namefull !== "" && dataContact.phone !== ""
+        && dataContact.matter !== "" && dataContact.message !== ""){
+            const contact = toNewContactEntry(dataContact);
+            API.saveContact(contact)
+            .then(() => {
+                toast("En breve estaremos en contacto con usted, gracias por confiar con nosotros");
+                namefullRef.current.value = "";
+                phoneRef.current.value = "";
+                emailRef.current.value = "";
+                matterRef.current.value = "";
+                messageRef.current.value = "";
+            })
+            .catch((error) => {
+                console.error(error);
             });
-            alert("Se la informacion de enviado con exito!", peoples.id);
         }else{
-            alert("Debe llenar todos los datos!");
+            toast("Debe llenar todos los campos, por favor");
         }
     };
 
     return(
-        <div className="container-fluid py-5">
-            <div className="card-contact">
-            <div className="content-paragraph">
-                    <h4 className="text-gradient">Contactanos con nosotros</h4>
-                    <p>
-                        Envianos tu consulta rellenando todos los campos que te indicamos a
-                        continuación. Nos pondremos en contacto contigo en breve. Gracias
-                        por confiar en Playapez.
-                    </p>
+        <Container>
+        <div className="py-3"></div>
+        <div className="content-contact">
+            <h4>Contacta con nosotros</h4>
+            <p>
+                Envianos tu consulta rellando todos los campos que te indicamos a contuacion.
+                Nos pondremos en contacto contigo en breve. Gracias por confiar en PlayaPez.
+            </p>
+            <div className="flex-row-contact">
+                <div className="form-group-contact">
+                    <label>Nombre Completo</label>
+                    <input type="name" className="field-text" ref={namefullRef} placeholder="Nombre completo"/>
                 </div>
-                <div className="content-header">
-                    <h5>Dudas o inquietudes</h5>
+                <div className="form-group-contact">
+                    <label>Telefono</label>
+                    <input type="tel" className="field-text" ref={phoneRef} placeholder="Telefono"/>
                 </div>
-                <form className="grid-contact" ref={form}>
-                    <div className="item-contact">
-                        <input type="text" name="namefull" className="field-text" placeholder="Nombre completo"/>
-                    </div>
-                    <div className="item-contact">
-                        <input type="email" name="email" className="field-text" placeholder="Correo electronico"/>
-                    </div>
-                    <div className="item-contact">
-                        <input type="tel" name="phone" className="field-text" placeholder="Telefono"/>
-                    </div>
-                    <div className="item-contact">
-                        <input type="text" name="matter" className="field-text" placeholder="Asunto"/>
-                    </div>
-                    <div className="item-contact py-3">
-                        <textarea name="message" className="field-text" placeholder="Mensaje"></textarea>
-                    </div>
-                </form>
-                <div className="item-contact">
-                    <button type="button" className="btn-contact" onClick={handleSubmit}>Enviar</button>
+                <div className="form-group-contact">
+                    <label>Correo electronico</label>
+                    <input type="email" className="field-text" ref={emailRef} placeholder="nombre@ejemplo.com"/>
+                </div>
+                <div className="form-group-contact">
+                    <label>Asunto</label>
+                    <input type="text" className="field-text" ref={matterRef} placeholder="Asunto"/>
+                </div>
+                <div className="form-group-contact">
+                    <label>Mensaje</label>
+                    <textarea className="field-text" ref={messageRef} placeholder="Mensaje"></textarea>
                 </div>
             </div>
+            <div className="py-3">
+                <button type="button" className="btn-send" onClick={handleSaveContact}>Enviar</button>
+            </div>
+            <ToastContainer />
         </div>
+        </Container>
     );
 };
 

@@ -1,224 +1,50 @@
 @import "vars";
 
-.grid-flex-contact{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    grid-template-rows: minmax(20px, auto);
-
-    @media screen and (max-width: 420px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 667px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 915px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 1180px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-.grid-contact{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    grid-template-rows: minmax(100px, auto);
-
-    @media screen and (max-width: 420px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 667px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 896px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 915px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 1180px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-.item-contact{
+.content-contact{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 0;
-    justify-content: center;
 }
 
-.item-card-contact{
-    margin: 0;
-    padding: 0;
-}
-
-.item-card-contact > span {
-    display: flex;
-    place-content: center;
-}
-
-.font-item-contact{
-    display: flex;
-    margin: auto;
-    padding: 0;
-}
-
-.font-item-contact{
-    font-size: 30px;
-}
-
-
-.card-item-contac{
-    // width: 20rem;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(253,203,50,1) 0%, rgba(244,56,98,1) 100.2% );
-    border-radius: 1rem;
-    border: none;
-    padding: 0.5rem;
-    margin: 0.5rem;
-}
-
-.font-contact{
-    font-size: 35px;
-}
-
-.content-field{
-    width: 100%;
-}
-
-.content-header{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-.content-header > span{
-    display: flex;
-    place-content: center;
-}
-
-.content-header > span{
-    font-style: normal;
+.content-contact > h4{
     font-weight: 600;
-    font-size: 1rem;
-    line-height: 2rem;
-}
-
-.content-header > h5{
-    display: flex;
-    place-content: center;
-}
-
-.content-header > h5{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 2rem;
-}
-
-.card-contact{
-    background-color: var(--color-card);
-    border-radius: 1.5rem;
-    border: 2px solid var(--border-card);
-    padding: 10px;
-}
-
-.btn-contact{
-    width: 7rem;
-    background: linear-gradient(to right,var(--orange), var(--rubbish));
-    border-radius: 0.7rem;
-    border: none;
-    padding: 0.3rem;
-    margin: auto;
-}
-
-.btn-contact {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 2rem;
-}
-
-.content-paragraph > h4{
-    display: flex;
-    place-content: center;
-}
-
-.content-paragraph > h4 {
-    font-style: normal;
-    font-weight: 800;
     font-size: 2rem;
     line-height: 2rem;
-
-    @media screen and (max-width: 360px){
-        font-size: 30px;
-    }
 }
 
-.content-paragraph > p {
+.content-contact > p {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.flex-row-contact{
     display: flex;
-    place-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.content-paragraph > p {
-    color: #212529;
-    font-style: normal;
-    font-weight: var(--font-weight-paragraph);
-    font-size: var(--font-size-paragrap);
-    line-height: var(--line-height-paragrap);
+.form-group-contact{
+    display: flex;
+    flex-direction: column;
+    flex-grow: column wrap;
+    gap: 10px;
 }
 
-.content-paragraph{
-    animation: wiggle 2s linear;
+.form-group-contact{
+    border-radius: 0.6rem;
+    border: 2px solid #EAEAEA;
+    padding: 1rem;
+}
 
-    @keyframes wiggle{
-        0%, 7%{
-            transform: rotateZ(0)
-        }
-        15%{
-            transform: rotateZ(-15deg)
-        }
-        20%{
-            transform: rotateZ(10deg)
-        }
-        25%{
-            transform: rotateZ(-10deg)
-        }
-        30%{
-            transform: rotateZ(-4deg);
-        }
-        40%, 100%{
-            transform: rotateZ(0);
-        }
-    }
+.form-group-contact > label{
+    font-weight: 700;
+}
+
+.btn-send{
+    width: 7rem;
+    background-color: #FCE700;
+    padding: 0.5rem;
+    border-radius: 3px;
+    border: none;
+    font-weight: 700;
 }
