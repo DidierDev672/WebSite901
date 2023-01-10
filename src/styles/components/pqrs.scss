@@ -1,105 +1,55 @@
 @import "vars";
 
-.card-pqrs{
-    background-color: var(--color-card);
-    border-radius: 5px;
-    border: 2px solid var(--border-card);
-    box-shadow: 4px 4px 4px var(--box-shadow-card);
-    padding: 10px;
+@import "vars";
 
-    &:hover{
-        box-shadow: 4px 4px 4px var(--box-shadow-card);
-    }
+.content-pqrs{
+    padding: 1rem;
 }
 
-.content-header-pqrs{
-    padding: 10px;
-}
-
-.content-header-pqrs > span{
-    font-style: normal;
+.content-pqrs > h4{
     font-weight: 800;
-    font-size: 1rem;
-    line-height: 2rem;
-}
-
-.content-header-pqrs > h4{
-    color: #212529;
-    font-style: normal;
     font-size: 1.5rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
 }
 
-.content-header-pqrs > p {
-    color: #343a40;
-    font-style: normal;
-    font-weight: 400;
+.content-pqrs > h5{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+.content-pqrs > p{
+    font-weight: 500;
+    color: #181818;
     font-size: 1rem;
-    line-height: 2rem;
 }
 
-.grid-pqrs{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    grid-template-rows: minmax(100px, auto);
-
-    @media screen and (max-width: 420px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 844px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 851px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 915px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media screen and (max-width: 1180px){
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-.item-pqrs{
+.flex-pqrs{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    gap: 20px;
 }
 
-.btn-pqrs{
+.form-group-pqrs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group-pqrs{
+    border: 2px solid #D8D9CF;
+    padding: 1rem;
+}
+
+.form-group-pqrs > label{
+    font-weight: 700;
+}
+
+.btn-send{
     display: flex;
     margin: auto;
 }
 
-.btn-pqrs{
-    width: 7rem;
-    background: linear-gradient(to right, var(--orange), var(--rubbish));
-    border-radius: 5px;
-    border: none;
-    padding: 7px;
+.btn-send{
     place-content: center;
-}
-
-.btn-pqrs{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
 }

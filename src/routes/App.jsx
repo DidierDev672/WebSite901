@@ -4,7 +4,7 @@ import AppContext from "../context/AppContext.js";
 import useInitialState from "../hooks/useInitialState.js";
 import Layout from "../components/Layout";
 import Home from "../containers/Home";
-import Products from "../containers/Products";
+// import Products from "../containers/Products";
 import Know from "../containers/Know";
 import Contact from "../containers/Contact";
 import Pqrs from "../containers/Pqrs.jsx";
@@ -33,7 +33,7 @@ const App = () => {
           <Routes >
             <Route path="/" element={<Home />}/>
             <Route path="/home" element={<Home />}/>
-            <Route path="/products" element={<Products />}/>
+            {/* <Route path="/products" element={<Products />}/> */}
             <Route path="/solution" element={<Solution />}/>
             <Route path="/know" element={<Know />}/>
             <Route path="/contact" element={<Contact />}/>

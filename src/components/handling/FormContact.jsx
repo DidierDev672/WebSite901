@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Container from "react-bootstrap/Container";
 import { toast, ToastContainer } from "react-toastify";
 import API from "../../api/index";
-import toNewContactEntry from "../../api/utils.ts";
+import { toNewContactEntry } from "../../api/utils.ts";
 import "../../styles/components/contact.scss";
 
 const FormContact = () => {
@@ -13,13 +13,15 @@ const FormContact = () => {
     const messageRef = useRef(null);
 
     const handleSaveContact = () => {
+        let date = new Date();
         const dataContact = {
             namefull: namefullRef.current.value,
             phone: phoneRef.current.value,
             email: emailRef.current.value,
             matter: matterRef.current.value,
-            message: messageRef.current.value
+            message: messageRef.current.value,
         };
+        console.log(dataContact);
         if(dataContact.namefull !== "" && dataContact.phone !== ""
         && dataContact.matter !== "" && dataContact.message !== ""){
             const contact = toNewContactEntry(dataContact);

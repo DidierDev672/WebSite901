@@ -35,22 +35,16 @@ const Register = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 if(user.uid !== ""){
-                    API.RegisterUser(
-                        {
-                            uid: user.uid,
-                            namefull:singUp.namefull,
-                            phone: singUp.phone,
-                            email: singUp.email,
-                            password: singUp.password
-                        })
+                    const dataUser = {
+                        email: singUp.email,
+                        namefull: singUp.namefull,
+                        phone: singUp.phone,
+                        password: singUp.password,
+                        uid: user.uid
+                    };
+                    API.saveUser(dataUser)
                     .then(() => {
-                        dispatch(setUser({
-                            uid: user.uid,
-                            namefull: singUp.namefull,
-                            phone: singUp.phone,
-                            email: singUp.email,
-                            password: singUp.password
-                        }));
+                        dispatch(setUser(dataUser));
                         toast(
                             "Registro exito, ya eres parte de nuestra comunidad",
                             {
@@ -134,12 +128,24 @@ const InitiateUser = () => {
             signInWithEmailAndPassword(auth, singIn.email, singIn.password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                dispatch(setUser({
-                    uid: user.uid,
-                    namefull: user.displayName,
-                    email: singIn.email
-                }));
-                navigate(`/home`);
+                API.queryProfile({ uid: user.uid })
+                .then((result) => {
+                    dispatch(setUser({
+                        namefull: result.namefull,
+                        email: result.email,
+                        phone: result.phone,
+                        country: result.country,
+                        city: result.city,
+                        section: result.section,
+                        address: result.address,
+                        id: result.id,
+                        uid: result.uid
+                    }))
+                    navigate(`/home`)
+                    .catch((error) => {
+                        console.error(error);
+                    });
+                })
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -185,13 +191,14 @@ const InitiateUser = () => {
 const SignIn = () => {
     const [ values, setValues ] = useState("1");
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if(user){
-                API.queryProfile({ uid: user.uid })
+                API.queryProfile(user.uid)
                 .then((result) => {
-                    if(result.id === undefined){
+                    if(result.id !== undefined){
                         dispatch(setUser({
                             namefull: result.namefull,
                             phone: result.phone,
@@ -205,9 +212,15 @@ const SignIn = () => {
                         }))
                     }else{
                         dispatch(setUser({
-                            email: user.email,
-                            uid: user.uid,
-                            namefull: user.namefull
+                            email: result.email,
+                            uid: result.uid,
+                            namefull: user.namefull,
+                            phone: result.phone,
+                            country: result.country,
+                            city: result.city,
+                            section: result.section,
+                            address: result.address,
+                            id: result.id,
                         }))
                     }
                     navigate(`/home`);

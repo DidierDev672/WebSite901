@@ -33,12 +33,12 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link><Link to={`home`} className="link-navbar">Home</Link></Nav.Link>
-                        <Nav.Link><Link to={`products`} className="link-navbar">Productos</Link></Nav.Link>
+                        {/* <Nav.Link><Link to={`products`} className="link-navbar">Productos</Link></Nav.Link> */}
                         <Nav.Link><Link to={`solution`} className="link-navbar">Solucion</Link></Nav.Link>
                         <Nav.Link><Link to={`know`} className="link-navbar">Acerca</Link></Nav.Link>
                         <Nav.Link><Link to={`contact`} className="link-navbar">Contacto</Link></Nav.Link>
                         <Nav.Link><Link to={`pqrs`} className="link-navbar">PQRS</Link></Nav.Link>
-                        { uid !== "" ? <DropdownUser />   : <Nav.Link><Link to={`accede`} className="link-navbar">Acceder</Link></Nav.Link> }
+                        { uid !== "" ? <DropdownUser /> : <Nav.Link><Link to={`accede`} className="link-navbar">Acceder</Link></Nav.Link> }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

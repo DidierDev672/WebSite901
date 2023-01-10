@@ -9,7 +9,7 @@ const Contact = () => {
     return(
         <Fragment>
         <div className="container">
-                <div className="py-3"></div>
+                <div className="py-5"></div>
                 <FormContact />
                 <div className="py-3"></div>
         </div>

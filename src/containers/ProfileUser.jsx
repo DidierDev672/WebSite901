@@ -1,88 +1,24 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-import { signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { setUser } from "../reducers/users/userSlice";
 import { auth } from "../api/firebase";
 import API from "../api";
+import { toNewUserEntry } from "../api/utils.ts";
 import "../styles/components/profile.scss";
 
 const ProfileUser = () => {
     const form = useRef(null);
     const dispatch = useDispatch();
     const { email, namefull, phone, country, city, address, uid, id, section  } = useSelector(state => state.user);
-    const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone,uid:uid });
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if(id === undefined){
-                API.queryProfile({ uid: user.uid })
-                .then((result) => {
-                    dispatch(setUser({
-                        namefull: result.namefull,
-                        phone: result.phone,
-                        email: result.email,
-                        country: result.country,
-                        city: result.city,
-                        section: result.section,
-                        address: result.address,
-                        uid: user.uid,
-                        id: result.id
-                    }))
-                    .then(() => {
-                        setProfile({
-                            email: email,
-                            namefull: namefull,
-                            phone:phone,
-                            country: country,
-                            city: city,
-                            section: section,
-                            address: address,
-                            uid: uid,
-                            id: id,
-                        });
-                    });
-                })
-                .catch((error) => {
-                    console.error(error);
-                })
-            }else{
-                API.queryProfile({ uid: user.uid })
-                .then((result) => {
-                    dispatch(setUser({
-                        namefull: result.namefull,
-                        phone: result.phone,
-                        email: result.email,
-                        country: result.country,
-                        city: result.city,
-                        section: result.section,
-                        address: result.address,
-                        uid: user.uid,
-                        id: result.id
-                    }).then(() => {
-                        setProfile({
-                            email: email,
-                            namefull: namefull,
-                            phone:phone,
-                            country: country,
-                            city: city,
-                            section: section,
-                            address: address,
-                            uid: uid,
-                            id: id,
-                        });
-                    }));
-                    console.log(profile)
-                })
-                .catch((error) => {
-                    console.error(error);
-                })
-            }
-        })
-    }, []);
+    const [profile, setProfile] = useState({email:email,namefull:namefull, phone:phone, country: country, city: city,section: section ,address: address  ,uid:uid });
 
     function handleEmailChange(e){
-        email: e.target.value
+        setProfile({
+            ...profile,
+            email: e.target.value
+        });
     }
 
     function handleNamefullChange(e){
@@ -137,24 +73,27 @@ const ProfileUser = () => {
             "password": formData.get("pwd"),
         };
         if(data.email !== "" && data.namefull !== "" && data.phone !== "" && data.country !== "" && data.address !== "" && data.password !== ""){
+            const userUpdate = {
+                id: id,
+                uid: uid,
+                namefull: data.namefull,
+                phone: data.phone,
+                country: data.country,
+                city: data.city,
+                section: data.city,
+                address: data.address,
+                email: data.email,
+                password: data.password
+            };
+
+            const UserProfile = toNewUserEntry(userUpdate);
             signInWithEmailAndPassword(auth, data.email, data.password)
             .then(() => {
                 if( id !== undefined){
                     updateProfile(auth.currentUser, {
                         displayName: data.namefull, email: data.email
                     });
-                    API.updateProfile({
-                        id: id,
-                        namefull: data.namefull,
-                        phone: data.phone,
-                        country: data.country,
-                        city: data.city,
-                        section: data.section,
-                        address: data.address,
-                        email: data.email,
-                        password: data.password,
-                        uid: uid
-                    })
+                    API.updateUser(id,UserProfile)
                     .then(() => {
                         toast("Su informacion personal se actualizado con exito",{
                             position: "top-right",
@@ -171,17 +110,7 @@ const ProfileUser = () => {
                         displayName: profile.namefull, email: profile.email
                     });
 
-                    API.saveProfile({
-                        uid: uid,
-                        namefull: data.namefull,
-                        phone: data.phone,
-                        country: data.country,
-                        city: data.city,
-                        section: data.section,
-                        address: data.address,
-                        email: data.email,
-                        password: data.password
-                    })
+                    API.saveUser(UserProfile)
                     .then(() => {
                         toast("Su informacion personal se han actualizado con exito",{
                             position: "top-right",
