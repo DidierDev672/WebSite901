@@ -170,7 +170,7 @@ const ProfileUser = () => {
                         </div>
                         <div className="item-profile">
                             <label>Correo electronico</label>
-                            <input type="email" className="field-text" name="email" value={profile.email} onChange={handleEmailChange} placeholder="Correo electronico"/>
+                            <input type="email" className="field-text" name="email" value={profile.email} onChange={handleEmailChange} readOnly placeholder="Correo electronico"/>
                         </div>
                         <div className="item-profile">
                             <label>Pais</label>

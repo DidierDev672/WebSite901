@@ -163,3 +163,48 @@
         }
     }
 }
+
+.title-soluction{
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #1A120B;
+}
+
+.paragraph-soluction{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #222222;
+}
+
+.flex-column-soluction{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item-column-soluction{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-column-soluction > h4{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.item-column-soluction > p{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #434242;
+}
+
+.title-take-soluction{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2rem;
+}

@@ -128,7 +128,7 @@ const InitiateUser = () => {
             signInWithEmailAndPassword(auth, singIn.email, singIn.password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                API.queryProfile({ uid: user.uid })
+                API.queryProfile(user.uid)
                 .then((result) => {
                     dispatch(setUser({
                         namefull: result.namefull,
@@ -141,7 +141,6 @@ const InitiateUser = () => {
                         id: result.id,
                         uid: result.uid
                     }))
-                    navigate(`/home`)
                     .catch((error) => {
                         console.error(error);
                     });
